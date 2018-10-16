@@ -1,0 +1,11 @@
+[
+    {
+        "descripcion": "Recomendada",
+        "puntaje": 4.5},
+    {
+        "descripcion": "Normal",
+        "puntaje": 3.5},
+    {
+        "descripcion": "Muy buena!",
+        "puntaje": 4.8}
+]

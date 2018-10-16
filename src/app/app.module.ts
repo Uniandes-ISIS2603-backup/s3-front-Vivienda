@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ViviendaModule} from "./vivienda/vivienda.module";
+import {CalificacionModule} from "./calificacion/calificacion.module";
+import {EstudianteModule} from "./estudiante/estudiante.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import {ViviendaModule} from "./vivienda/vivienda.module";
   imports: [
     BrowserModule,
     HttpClientModule,
-    ViviendaModule
+    ViviendaModule,
+    EstudianteModule,
+    CalificacionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
