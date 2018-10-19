@@ -1,1 +1,15 @@
-<h1>Lista de viviendas</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-xs-6" *ngFor="let vivienda of viviendas">
+      <div class="card">
+        <img class="card-img-top img-responsive" src="{{vivienda.getImgUrl()}}">
+        <div class="card-body">
+          <h4 class="card-title">{{vivienda.getNombre()}}</h4>
+          <p><b>{{vivienda.getCiudad()}}</b></p>
+          <p>{{vivienda.getCalificacion()}} <i class="fas fa-star"></i></p>
+          <p>${{vivienda.getCostoInferior()}} - ${{vivienda.getCostoSuperior()}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
