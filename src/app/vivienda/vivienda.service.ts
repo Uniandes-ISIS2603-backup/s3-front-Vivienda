@@ -7,7 +7,10 @@ import * as fakerEs from "faker/locale/es"
 
 @Injectable()
 export class ViviendaService {
+  ciudades: string[];
+
   constructor(private http: HttpClient) {
+    this.ciudades = ["Bogotá", "Medellín", "Cali", "Barranquilla"]
   }
 
   getViviendas(): Vivienda[] {
@@ -16,7 +19,7 @@ export class ViviendaService {
       let img = "assets/img/vivienda" + (i + 1) + ".jpg";
       let calificacion = 3 + Math.round(Math.random() * 20)/10;
       let nombre = "Vivienda " + i;
-      let ciudad = faker.address.city();
+      let ciudad = this.ciudades[Math.floor(Math.random() * this.ciudades.length)];
       let direccion = faker.address.streetAddress();
       let costoInferior = Math.round(((Math.random() * 2000000) + 1000000)/100000)*100000;
       let costoSuperior = Math.round(((Math.random() * 500000) + costoInferior)/100000)*100000;
