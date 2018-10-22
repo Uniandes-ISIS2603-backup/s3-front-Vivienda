@@ -8,20 +8,39 @@ and open the template in the editor.
     Author     : estudiante
 */
 
-.card
+.container
 {
-  padding-left: 20px;
-  width: 400px;
-  height: 400px;
+    padding: 0;
 }
-
 .card-text{
-    font-size: 1.0em;
+    font-size: 1vw;
+    
 } 
 
 .card-img-top{
-    padding-top: 15px;
+  padding-top: 15px;
   padding-right: 18px;
+  padding-left: 18px;
+  width: 100%;
+  height: 10vw;
 }
+
+.card
+{
+    
+}
+
+.card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-body {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
 
 
