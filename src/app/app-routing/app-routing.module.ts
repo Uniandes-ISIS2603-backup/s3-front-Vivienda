@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ViviendaListComponent} from '../vivienda/vivienda-list/vivienda-list.component';
+import {SignInComponent} from '../sign-in/sign-in.component';
 import {SitioInteresListComponent} from '../sitioInteres/sitioInteres-list/sitioInteres-list.component';
 
 const routes: Routes = [
@@ -22,6 +23,15 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: SitioInteresListComponent
+            }
+        ]
+    },
+    {
+        path: 'ingresar',
+        children: [
+            {
+                path: 'signIn',
+                component: SignInComponent
             }
         ]
     }

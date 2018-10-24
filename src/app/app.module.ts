@@ -9,10 +9,12 @@ import {CalificacionModule} from "./calificacion/calificacion.module";
 import {EstudianteModule} from "./estudiante/estudiante.module";
 import {ArrendadorModule} from "./arrendador/arrendador.module";
 import {SitioInteresModule} from "./sitioInteres/sitioInteres.module";
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
