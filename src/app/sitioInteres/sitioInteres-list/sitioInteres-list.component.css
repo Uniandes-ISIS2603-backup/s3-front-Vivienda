@@ -17,6 +17,12 @@ and open the template in the editor.
     
 } 
 
+.card-title
+{
+    text-align: center;
+    font-family: cursive;
+}
+
 .card-img-top{
   padding-top: 15px;
   padding-right: 18px;
@@ -25,9 +31,11 @@ and open the template in the editor.
   height: 10vw;
 }
 
+#sitios{
+    padding-top: 15px;
+}
 .card
 {
-    
 }
 
 .card-body p {
