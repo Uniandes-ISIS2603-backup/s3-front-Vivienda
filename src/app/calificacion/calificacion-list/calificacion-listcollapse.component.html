@@ -1,0 +1,24 @@
+<p>
+    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Calificaciones del Estudiante
+    </button>
+</p>
+<div id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Vivienda</th>
+                    <th>Puntaje</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let calificacion of calificaciones">
+                    <td>{{calificacion.vivienda.nombre}}</td>
+                    <td>{{calificacion.puntaje}}</td>
+                    <td>{{calificacion.descripcion}}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>

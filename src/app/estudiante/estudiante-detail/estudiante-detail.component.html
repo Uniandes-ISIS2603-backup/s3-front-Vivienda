@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h1 id="estudiante-name">{{estudiante.nombre}}</h1>
+    <div class='row'>   
+        <div class='col'><h5>login:</h5></div>
+        <div class='col'><h5>{{estudiante.login}}</h5></div>
+    </div>
+    <div class='row'>   
+        <div class='col'><h5>universidad:</h5></div>
+        <div class='col'><h5>{{estudiante.universidad.nombre}}</h5></div>
+    </div>
+    <div *ngIf = "estudiante.calificaciones.length > 0">   
+        <calificacion-estudiante-listcollapse [calificaciones]="estudiante.calificaciones">Calificaciones</calificacion-estudiante-listcollapse>
+    </div>
+        
+</div>
