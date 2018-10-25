@@ -5,6 +5,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {ViviendaListComponent} from '../vivienda/vivienda-list/vivienda-list.component';
 import {SignInComponent} from '../sign-in/sign-in.component';
 import {SitioInteresListComponent} from '../sitioInteres/sitioInteres-list/sitioInteres-list.component';
+import {EstudianteListComponent} from '../estudiante/estudiante-list/estudiante-list.component';
+import {EstudianteDetailComponent} from '../estudiante/estudiante-detail/estudiante-detail.component';
+import {CalificacionEstudianteListComponent} from '../calificacion/calificacion-list/calificacionestudiante-list.component';
+import {CalificacionViviendaListComponent} from '../calificacion/calificacion-list/calificacionvivienda-list.component';
+import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/calificacion-detail.component';
 
 const routes: Routes = [
 
@@ -23,6 +28,36 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: SitioInteresListComponent
+            }
+        ]
+    },
+    {
+        path: 'estudiante',
+        children: [
+            {
+                path: 'list',
+                component: EstudianteListComponent
+            },
+            {
+                path: ':id',
+                component: EstudianteDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'calificacion',
+        children: [
+            {
+                path: 'listestudiante/:id',
+                component: CalificacionEstudianteListComponent
+            },
+            {
+                path: 'listvivienda/:id',
+                component: CalificacionViviendaListComponent
+            },
+            {
+                path: ':id',
+                component: CalificacionDetailComponent
             }
         ]
     },

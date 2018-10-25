@@ -4,13 +4,15 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Puntaje</th>
-                    <th>Descripción</th>   
+                    <th>Descripción</th>
+                    <th>Vivienda</th> 
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let e of calificaciones">
                     <td>{{e.puntaje}}</td>
                     <td>{{e.descripcion}}</td>
+                    <td>{{e.vivienda.nombre}}</td>
                 </tr>
             </tbody>
         </table>
