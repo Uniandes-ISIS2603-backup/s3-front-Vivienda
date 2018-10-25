@@ -10,6 +10,7 @@ import {EstudianteModule} from "./estudiante/estudiante.module";
 import {ArrendadorModule} from "./arrendador/arrendador.module";
 import {SitioInteresModule} from "./sitioInteres/sitioInteres.module";
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ContratoModule } from './contrato/contrato.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     EstudianteModule,
     CalificacionModule,
     ArrendadorModule,
-    SitioInteresModule
+    SitioInteresModule,
+    ContratoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
