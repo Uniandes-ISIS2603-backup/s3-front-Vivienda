@@ -1,0 +1,52 @@
+[
+  {
+    "fechaInicio": "2018/01/11",
+    "fechaFin": "2019/04/17",
+    "modoPago": 8
+  },
+  {
+    "fechaInicio": "2018/01/12",
+    "fechaFin": "2019/09/06",
+    "modoPago": 3
+  },
+  {
+    "fechaInicio": "2018/01/27",
+    "fechaFin": "2019/08/22",
+    "modoPago": 2
+  },
+  {
+    "fechaInicio": "2018/01/17",
+    "fechaFin": "2019/10/14",
+    "modoPago": 8
+  },
+  {
+    "fechaInicio": "2018/08/14",
+    "fechaFin": "2019/07/08",
+    "modoPago": 6
+  },
+  {
+    "fechaInicio": "2018/03/03",
+    "fechaFin": "2018/10/29",
+    "modoPago": 9
+  },
+  {
+    "fechaInicio": "2017/11/04",
+    "fechaFin": "2018/11/17",
+    "modoPago": 5
+  },
+  {
+    "fechaInicio": "2018/06/02",
+    "fechaFin": "2019/05/15",
+    "modoPago": 6
+  },
+  {
+    "fechaInicio": "2018/05/24",
+    "fechaFin": "2019/01/26",
+    "modoPago": 10
+  },
+  {
+    "fechaInicio": "2018/03/09",
+    "fechaFin": "2019/05/24",
+    "modoPago": 3
+  }
+]

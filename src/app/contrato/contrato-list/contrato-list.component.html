@@ -1,3 +1,23 @@
-<p>
-  contrato-list works!
-</p>
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>FechaInicio</th>
+        <th>FechaFin</th>
+        <th>ModoPago</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let c of contratos">
+        <td>
+          <dd id="contrato-name" class="figure-caption" routerLink="/contrato/{{c.id}}"> {{ c.getFechaInicio() }}</dd>
+        </td>
+        <td>{{e.getFechaFin()}}</td>
+        <td>{{e.getModoPago()}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
