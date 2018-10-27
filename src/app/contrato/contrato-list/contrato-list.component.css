@@ -1,0 +1,16 @@
+.card{
+  margin-top: 5vh;
+}
+
+.card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-body {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+

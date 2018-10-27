@@ -66,7 +66,7 @@ const routes: Routes = [
     path: 'contrato',
     children: [
       {
-        path: 'listcontrato/:id',
+        path: 'list',
         component: ContratoListComponent
       }
     ]
