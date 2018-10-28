@@ -1,22 +1,32 @@
-import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import {ViviendaListComponent} from "./vivienda-list/vivienda-list.component";
 import {ViviendaService} from "./vivienda.service";
+import { ViviendaDetailComponent } from './vivienda-detail/vivienda-detail.component';
+import { ViviendaSitiosInteresComponent } from './vivienda-sitios-interes/vivienda-sitios-interes.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        NgbModule
   ],
   declarations: [
-    ViviendaListComponent
+    ViviendaListComponent,
+    ViviendaDetailComponent,
+    ViviendaSitiosInteresComponent
   ],
   providers: [
     ViviendaService
-  ],
-  exports: [
-    ViviendaListComponent
   ]
 })
 

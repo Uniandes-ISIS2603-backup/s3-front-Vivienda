@@ -1,0 +1,16 @@
+<div class="panel panel-default"> 
+    <div>
+        <div class="border margin">
+            <p class="h3 p-3">{{viviendaDetail.nombre}}</p> 
+            <div class="row">
+                <div class="col">
+                    <div class="thumb">
+                        <img class="img" src="assets/img/vivienda1.jpg"/>
+                    </div>
+                    <div *ngIf="viviendaDetail.sitiosDeInteres.length > 0">
+        <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"></app-vivienda-sitios-interes>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>

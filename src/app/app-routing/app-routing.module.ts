@@ -4,13 +4,14 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {ViviendaListComponent} from '../vivienda/vivienda-list/vivienda-list.component';
 import {SignInComponent} from '../sign-in/sign-in.component';
-import {SitioInteresListComponent} from '../sitioInteres/sitioInteres-list/sitioInteres-list.component';
 import {EstudianteListComponent} from '../estudiante/estudiante-list/estudiante-list.component';
 import {EstudianteDetailComponent} from '../estudiante/estudiante-detail/estudiante-detail.component';
 import {CalificacionEstudianteListComponent} from '../calificacion/calificacion-list/calificacionestudiante-list.component';
 import {CalificacionViviendaListComponent} from '../calificacion/calificacion-list/calificacionvivienda-list.component';
 import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/calificacion-detail.component';
 import {ContratoListComponent} from '../contrato/contrato-list/contrato-list.component';
+import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
+import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendador-list.component';
 
 const routes: Routes = [
 
@@ -20,15 +21,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ViviendaListComponent
-      }
-    ]
-  },
-  {
-    path: 'sitiosInteres',
-    children: [
+      },
       {
-        path: 'list',
-        component: SitioInteresListComponent
+          path: ':id',
+          component: ViviendaDetailComponent
       }
     ]
   },
@@ -68,6 +64,15 @@ const routes: Routes = [
       {
         path: 'list',
         component: ContratoListComponent
+      }
+    ]
+  },
+  {
+    path: 'arrendador',
+    children: [
+      {
+        path: 'list',
+        component: ArrendadorListComponent
       }
     ]
   },

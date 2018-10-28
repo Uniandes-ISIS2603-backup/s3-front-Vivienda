@@ -1,13 +1,13 @@
+
 <div class="container">
   <div class="row">
     <div class="col-lg-3 col-xs-6" *ngFor="let vivienda of viviendas">
-      <div class="card">
-        <img class="card-img-top img-responsive" src="{{vivienda.getImgUrl()}}">
+      <div class="card" routerLink="/viviendas/{{vivienda.id}}" style="cursor: pointer;">
+        <img class="card-img-top img-responsive" src="">
         <div class="card-body">
-          <h4 class="card-title">{{vivienda.getNombre()}}</h4>
-          <p><b>{{vivienda.getCiudad()}}</b></p>
-          <p>{{vivienda.getCalificacion()}} <i class="fas fa-star"></i></p>
-          <p>${{vivienda.getCostoInferior()}} - ${{vivienda.getCostoSuperior()}}</p>
+          <h4 class="card-title">{{vivienda.nombre}}</h4>
+          <p><b>Ciudad: {{vivienda.ciudad}}</b></p>
+          <p>Calificacion: 0.0<i class="fas fa-star"></i></p>
         </div>
       </div>
     </div>

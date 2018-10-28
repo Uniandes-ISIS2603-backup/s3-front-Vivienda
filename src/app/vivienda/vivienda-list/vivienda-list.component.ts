@@ -13,18 +13,15 @@ export class ViviendaListComponent implements OnInit{
 
   viviendas: Vivienda[];
 
-  getViviendas(): Vivienda[]{
-    return this.viviendaService.getViviendas();
+  getViviendas(): void{
+    this.viviendaService.getViviendas().subscribe(viviendas=>{
+        this.viviendas = viviendas;
+    });
   }
 
-  ngOnInit() {
-    this.viviendas = this.getViviendas();
-    console.log("viviendaComponent")
-    this.viviendas.forEach(function (viv) {
-      console.log(viv.getNombre());
-      console.log(viv.getCiudad());
-      console.log(viv.getDireccion());
-    })
+  ngOnInit() 
+  {
+      this.getViviendas();
   }
 
 }
