@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import { ActivatedRoute } from '@angular/router'
 import { Calificacion } from '../calificacion';
-import {Estudiante} from '../../estudiante/estudiante'
+import {Vivienda} from '../../vivienda/vivienda'
 import { CalificacionService } from '../calificacion.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CalificacionViviendaListComponent implements OnInit{
                  private route: ActivatedRoute){}
                  
     vivienda_id : number;
-    estudiante : Estudiante;
+    listaDe: String = 'vivienda';
     calificaciones: Calificacion[];
 
 

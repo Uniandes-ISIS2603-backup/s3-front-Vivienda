@@ -24,8 +24,8 @@ export class EstudianteDetailComponent implements OnInit {
   }
   
   ngOnInit() {
-      this.estudiante_id = +this.route.snapshot.paramMap.get('id');
       this.estudiante = new Estudiante();
+      this.estudiante_id = +this.route.snapshot.paramMap.get('id');
       this.getEstudiante();
   }
 

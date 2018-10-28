@@ -1,24 +1,30 @@
 <p>
-    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
             [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
         Calificaciones del Estudiante
     </button>
 </p>
-<div id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Vivienda</th>
-                    <th>Puntaje</th>
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let calificacion of calificaciones">
-                    <td>{{calificacion.vivienda.nombre}}</td>
-                    <td>{{calificacion.puntaje}}</td>
-                    <td>{{calificacion.descripcion}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="row">
+    <div class="col" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th *ngIf = "listaDe == 'estudiante'">Vivienda</th>
+                        <th *ngIf = "listaDe == 'vivienda'">Estudiante</th>
+                        <th *ngIf = "listaDe == 'vivienda'">Login</th>
+                        <th>Puntaje</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let calificacion of calificaciones">
+                        <td *ngIf = "listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
+                        <td *ngIf = "listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
+                        <td *ngIf = "listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
+                        <td>{{calificacion.puntaje}}</td>
+                        <td>{{calificacion.descripcion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
 </div>

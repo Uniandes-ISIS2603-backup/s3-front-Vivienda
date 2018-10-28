@@ -1,15 +1,28 @@
 <div class="container-fluid">
     <h1 id="estudiante-name">{{estudiante.nombre}}</h1>
-    <div class='row'>   
-        <div class='col'><h5>login:</h5></div>
-        <div class='col'><h5>{{estudiante.login}}</h5></div>
-    </div>
-    <div class='row'>   
-        <div class='col'><h5>universidad:</h5></div>
-        <div class='col'><h5>{{estudiante.universidad.nombre}}</h5></div>
-    </div>
-    <div *ngIf = "estudiante.calificaciones.length > 0">   
-        <calificacion-estudiante-listcollapse [calificaciones]="estudiante.calificaciones">Calificaciones</calificacion-estudiante-listcollapse>
+    <div class='row'>
+        <div class='col-12 col-md-6'>
+            <div class='row'>   
+                <div class='col-4 col-md-4'><h4>Login:</h4></div>
+                <div class='col-8 col-md-8'><h5>{{estudiante.login}}</h5></div>
+            </div>
+            <div class='row'>   
+                <div class='col-4 col-md-4'><h4>Universidad:</h4></div>
+                <div class='col-8 col-md-8'><h5>{{estudiante.universidad.nombre}}</h5></div>
+            </div>
+            <div class='row'>   
+                <div class='col-4 col-md-4'><h4>Contrato:</h4></div>
+                <div class='col-8 col-md-8'><h5>No tiene contrato</h5></div>
+            </div>
+        </div>
+        <div class='col-12 col-md-6'>
+            <div *ngIf = "estudiante.calificaciones && estudiante.calificaciones.length > 0">   
+                <calificacion-estudiante-listcollapse [calificaciones]="estudiante.calificaciones">Calificaciones</calificacion-estudiante-listcollapse>
+            </div>
+            <div *ngIf = "!(estudiante.calificaciones && estudiante.calificaciones.length > 0)">   
+                <h5> No tiene calificaciones</h5>
+            </div>
+        </div>
     </div>
         
 </div>

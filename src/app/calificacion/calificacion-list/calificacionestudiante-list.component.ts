@@ -13,7 +13,7 @@ export class CalificacionEstudianteListComponent implements OnInit{
                  private route: ActivatedRoute){}
                  
     estudiante_id : number;
-    estudiante : Estudiante;
+    listaDe: String = 'estudiante';
     calificaciones: Calificacion[];
 
 

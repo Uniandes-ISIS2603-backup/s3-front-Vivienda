@@ -19,8 +19,4 @@ export class CalificacionService{
     getCalificacionesVivienda(viviendaId: number) : Observable<Calificacion[]> {
         return this.http.get<Calificacion[]>(API_URL + viviendas + "/" +  viviendaId + "/" + calificaciones);
     }
-    
-    getCalificacion(calificacionId: number) : Observable<Calificacion> {
-        return this.http.get<Calificacion>(API_URL + calificaciones + "/" + calificacionId);
-    }
 }
