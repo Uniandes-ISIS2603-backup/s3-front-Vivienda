@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:8080/s3_vivienda-api/api'
+  apiURL: 'https://localhost:8080/s3_vivienda-api/api'
 };
 
 /*
