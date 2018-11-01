@@ -1,17 +1,13 @@
-<div class="panel panel-default"> 
-    <div>
-        <div class="border margin">
-            <p class="h3 p-3">{{viviendaDetail.nombre}}</p> 
-            <div class="row">
-                <div class="col">
-                    <div class="thumb">
-                        <img class="img" src="{{viviendaDetail.imgUrl}}"/>
-                    </div>
-                    <div *ngIf="viviendaDetail.sitiosDeInteres.length > 0">
-        <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"></app-vivienda-sitios-interes>
+<div class="container">
+  <img class="img-fluid" src={{viviendaDetail.imgUrl}}/>
+  <div class="row">
+    <div class="col-lg-5 col-sm-12">
+      <h1>{{viviendaDetail.nombre}}</h1>
+      <h3>{{viviendaDetail.ciudad}}</h3>
+      <h5>8.4 <i class="fas fa-star"></i></h5>
     </div>
-                </div>
-            </div>
-        </div>
+    <div class="col-lg-7 col-sm-12">
+      <p>{{viviendaDetail.descripcion}}</p>
     </div>
+  </div>
 </div>

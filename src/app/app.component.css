@@ -1,0 +1,20 @@
+#barra {
+  background-color: #ff7d62;
+}
+.navbar {
+  background-color: #ff7d62; !important
+  border-color: #ff7d62; !important
+  color: #ff7d62;
+}
+
+.nav * {
+  color: white;
+}
+
+.nav-item {
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
