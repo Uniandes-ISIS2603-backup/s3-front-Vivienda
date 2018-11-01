@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un arrendador</h2>
+        <br>
+        <form name="arrendador" (ngSubmit)="f.form.valid && createArrendador()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="arrendadorName"><b>Nombre</b></label>
+                <input type="text" name="arrendadorName" class="form-control" id="arrendadorName" [(ngModel)]="arrendador.nombre"
+                    #arrendadorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && arrendadorName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre del arrendador es obligatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="arrendadorUsername"><b>Nombre de usuario</b></label>
+                <input type="text" name="arrendadorUsername" class="form-control" id="arrendadorUsername" [(ngModel)]="arrendador.login"
+                    #arrendadorUsername="ngModel" [ngClass]="{ 'is-invalid': f.submitted && arrendadorUsername.invalid }"
+                    required>
+                <div class="invalid-feedback">
+                    <div>El nombre de usuario es obligatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="asd"><b>Contraseña</b></label>
+                <label class="sr-only" for="asd">Contraseña</label>
+                <input type="password" name="asd" class="form-control" placeholder="Contraseña..." id="asd" [(ngModel)]="arrendador.password"
+                       #asd="ngModel"  [ngClass]="{ 'is-invalid': f.submitted && asd.invalid }" required>
+                                       <div class="invalid-feedback" >
+                    <div>La contraseña no es valida</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/list">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

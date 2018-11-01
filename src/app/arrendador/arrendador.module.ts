@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ArrendadorService} from "./arrendador.service";
 import { ArrendadorListComponent } from './arrendador-list/arrendador-list.component';
 import { ArrendadorDetailComponent } from './arrendador-detail/arrendador-detail.component';
+import { ArrendadorCreateComponent } from './arrendador-create/arrendador-create.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { ArrendadorDetailComponent } from './arrendador-detail/arrendador-detail
         NgbModule
   ],
   providers: [ ArrendadorService ],
-  declarations: [ArrendadorListComponent, ArrendadorDetailComponent],
+  declarations: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent],
 })
 export class ArrendadorModule { }

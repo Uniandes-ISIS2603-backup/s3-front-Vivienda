@@ -12,6 +12,9 @@ import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/c
 import {ContratoListComponent} from '../contrato/contrato-list/contrato-list.component';
 import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
 import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendador-list.component';
+import { ArrendadorDetailComponent } from '../arrendador/arrendador-detail/arrendador-detail.component';
+import { LogInComponent } from '../log-in/log-in.component';
+import { ArrendadorCreateComponent } from '../arrendador/arrendador-create/arrendador-create.component';
 
 const routes: Routes = [
 
@@ -68,11 +71,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'arrendador',
+    path: 'arrendadores',
     children: [
       {
         path: 'list',
         component: ArrendadorListComponent
+      },
+      {
+          path: ':id',
+          component: ArrendadorDetailComponent
       }
     ]
   },
@@ -82,6 +89,15 @@ const routes: Routes = [
       {
         path: 'signIn',
         component: SignInComponent
+      }
+    ]
+  },
+  {
+    path: 'registrarse',
+    children: [
+      {
+        path: 'logIn',
+        component: ArrendadorCreateComponent
       }
     ]
   }

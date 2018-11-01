@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="col-12 col-md-6">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Login</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let arrendador of arrendadores">
+                    <td id="arrendador-name" routerLink="/arrendadores/{{arrendador.id}}" style="cursor: pointer;"> {{ arrendador.nombre }}</td>
+                    <td>{{arrendador.login}}</td>               
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

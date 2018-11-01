@@ -8,9 +8,6 @@ import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const arrendadores = '/arrendadores';
 
-@Injectable({
-  providedIn: 'root'
-})
 @Injectable()
 export class ArrendadorService {
 
@@ -25,4 +22,8 @@ export class ArrendadorService {
   {
       return this.http.get<ArrendadorDetail>(API_URL + arrendadores + "/" + arrendadorId)
   }
+  
+    createArrendador(arrendador): Observable<Arrendador> {
+        return this.http.post<Arrendador>(API_URL + arrendadores, arrendador);
+    }
 }

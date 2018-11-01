@@ -13,11 +13,13 @@ import {EstudianteModule} from './estudiante/estudiante.module';
 import {ArrendadorModule} from './arrendador/arrendador.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContratoModule } from './contrato/contrato.module';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent
+    SignInComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,
