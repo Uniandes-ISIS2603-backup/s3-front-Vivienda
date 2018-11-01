@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {EstudianteListComponent} from './estudiante-list/estudiante-list.component';
 import {EstudianteService} from "./estudiante.service";
 import { EstudianteDetailComponent } from './estudiante-detail/estudiante-detail.component';
+import { EstudianteCreateComponent } from './estudiante-create/estudiante-create.component';
 
 @NgModule({
   imports: [
@@ -20,14 +21,16 @@ import { EstudianteDetailComponent } from './estudiante-detail/estudiante-detail
   ],
   declarations: [
     EstudianteListComponent,
-    EstudianteDetailComponent
+    EstudianteDetailComponent,
+    EstudianteCreateComponent
   ],
   providers: [
     EstudianteService
   ],
   exports: [
     EstudianteListComponent,
-    EstudianteDetailComponent
+    EstudianteDetailComponent,
+    EstudianteCreateComponent
   ]
 })
 

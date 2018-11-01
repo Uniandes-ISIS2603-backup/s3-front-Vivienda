@@ -23,5 +23,9 @@ export class EstudianteService {
   getCalificaciones(estudianteId: number): Observable<Calificacion[]> {
     return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/calificaciones');
   }
+  
+  createEstudiante(estudiante: Estudiante): Observable<boolean>{
+      return this.http.post<boolean>(API_URL + estudiantes, estudiante);
+  }
 
 }
