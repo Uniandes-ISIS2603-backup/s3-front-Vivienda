@@ -16,6 +16,7 @@ import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendado
 import { ArrendadorDetailComponent } from '../arrendador/arrendador-detail/arrendador-detail.component';
 import { LogInComponent } from '../log-in/log-in.component';
 import { ArrendadorCreateComponent } from '../arrendador/arrendador-create/arrendador-create.component';
+import {ViviendaCreateComponent} from "../vivienda/vivienda-create/vivienda-create.component";
 
 const routes: Routes = [
 
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ViviendaListComponent
+      },
+      {
+        path:'create',
+        component: ViviendaCreateComponent
       },
       {
           path: ':id',
