@@ -11,6 +11,7 @@ import {ViviendaModule} from './vivienda/vivienda.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {EstudianteModule} from './estudiante/estudiante.module';
 import {ArrendadorModule} from './arrendador/arrendador.module';
+import {UniversidadModule} from './universidad/universidad.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContratoModule } from './contrato/contrato.module';
 import { LogInComponent } from './log-in/log-in.component';
@@ -30,6 +31,7 @@ import { LogInComponent } from './log-in/log-in.component';
     CalificacionModule,
     ArrendadorModule,
     ContratoModule,
+    UniversidadModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
