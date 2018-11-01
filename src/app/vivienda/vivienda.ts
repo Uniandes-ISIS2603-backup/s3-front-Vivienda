@@ -8,5 +8,5 @@ export class Vivienda {
     serviciosIncluidos: string[];
     latitud: number;
     longitud: number;
-    img: string;
+    imgUrl: string;
 }

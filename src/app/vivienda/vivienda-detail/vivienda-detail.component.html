@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col">
                     <div class="thumb">
-                        <img class="img" src="assets/img/vivienda1.jpg"/>
+                        <img class="img" src="{{viviendaDetail.imgUrl}}"/>
                     </div>
                     <div *ngIf="viviendaDetail.sitiosDeInteres.length > 0">
         <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"></app-vivienda-sitios-interes>
@@ -14,3 +14,4 @@
             </div>
         </div>
     </div>
+</div>

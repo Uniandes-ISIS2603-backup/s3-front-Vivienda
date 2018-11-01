@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArrendadorService } from "../arrendador.service";
+import { Arrendador } from "../arrendador";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-arrendador-list',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArrendadorListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private arrendadorService: ArrendadorService, route: ActivatedRoute) { }
+  
+  arrendadores: Arrendador[];
 
-  ngOnInit() {
+  getArrendadores(): void
+  {
+      this.arrendadorService.getArrendadores().subscribe( arrendadores => {
+          this.arrendadores = arrendadores;
+          console.log(this.arrendadores);
+      })
+  }
+  ngOnInit() 
+  {
+      this.getArrendadores();
   }
 
 }

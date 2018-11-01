@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {ViviendaService} from "../vivienda.service";
 import {Vivienda} from "../vivienda";
-import {forEach} from "../../../../node_modules/@angular/router/src/utils/collection";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -17,6 +16,7 @@ export class ViviendaListComponent implements OnInit{
   getViviendas(): void{
     this.viviendaService.getViviendas().subscribe(viviendas=>{
         this.viviendas = viviendas;
+        console.log(this.viviendas);
     });
   }
 

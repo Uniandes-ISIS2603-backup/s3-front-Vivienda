@@ -1,0 +1,23 @@
+<div class="panel panel-default"> 
+    <div>
+        <div class="border margin">
+            <div class="row">
+                <div class="col">
+                    <dl>  
+                        <hr>
+                        <dt> Viviendas</dt>                      
+                        <div *ngFor = "let vivienda of arrendadorDetail.viviendas">
+                            <dd class="caption" routerLink="/viviendas/{{vivienda.id}}">{{vivienda.nombre}}</dd>
+                        </div>
+                        <hr>
+                        <dt> Nombre</dt>
+                        <dd>{{arrendadorDetail.nombre}}</dd>
+                        <dt> Nombre de Usuario </dt>
+                        <dd>{{arrendadorDetail.login}}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

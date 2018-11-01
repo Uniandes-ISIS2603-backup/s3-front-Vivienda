@@ -9,7 +9,6 @@ const API_URL = environment.apiURL;
 const viviendas = '/viviendas';
 @Injectable()
 export class ViviendaService {
-  ciudades: string[];
 
   constructor(private http: HttpClient) 
   {
