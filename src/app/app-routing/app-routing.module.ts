@@ -18,6 +18,7 @@ import { LogInComponent } from '../log-in/log-in.component';
 import {RegistrarseComponent} from '../shared/registrarse/registrarse.component'
 import { ArrendadorCreateComponent } from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from "../vivienda/vivienda-create/vivienda-create.component";
+import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
 
 const routes: Routes = [
 
@@ -78,6 +79,15 @@ const routes: Routes = [
       {
         path: 'list',
         component: ContratoListComponent
+      }
+    ]
+  },
+  {
+    path: 'universidades',
+    children: [
+      {
+        path: 'list',
+        component: UniversidadListComponent
       }
     ]
   },
