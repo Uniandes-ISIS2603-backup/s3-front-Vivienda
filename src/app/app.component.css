@@ -1,10 +1,10 @@
 #barra {
-  background-color: #ff7d62;
+  background-color: #011c80;
 }
-.navbar {
-  background-color: #ff7d62; !important
-  border-color: #ff7d62; !important
-  color: #ff7d62;
+.btn-md.round {
+  border-radius: 1.2em;
+  background-color: #ff7000;
+  color: white;
 }
 
 .nav * {
