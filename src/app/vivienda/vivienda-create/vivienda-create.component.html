@@ -1,0 +1,72 @@
+<div class="container" style="margin: auto">
+  <h1>Registrar Vivienda</h1>
+  <form name="vivienda" id="viviendaForm" (ngSubmit)="f.form.valid && crearVivienda()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-5">
+
+
+          <label for="viviendaNombre">Nombre</label>
+          <input type="text" name="viviendaNombre" class="form-control" id="viviendaNombre"
+                 [(ngModel)]="vivienda.nombre">
+
+          <label for="viviendaCiudad">Ciudad</label>
+          <input type="text" name="viviendaCiudad" class="form-control" id="viviendaCiudad"
+                 [(ngModel)]="vivienda.ciudad">
+
+          <label for="viviendaDireccion">Dirección</label>
+          <input type="text" name="viviendaCiudad" class="form-control" id="viviendaDireccion"
+                 [(ngModel)]="vivienda.direccion">
+
+          <label for="viviendaImg">Url Imagen</label>
+          <input type="text" name="viviendaImg" class="form-control" id="viviendaImg" [(ngModel)]="vivienda.imgUrl">
+
+        </div>
+
+        <div class="col-lg-7">
+          <label for="viviendaDescripcion">Descripción</label>
+          <textarea type="text" name="viviendaDescripcion" id="viviendaDescripcion" form="viviendaForm"
+                    class="form-control" rows="6"
+                    [(ngModel)]="vivienda.descripcion"></textarea>
+
+          <label for="serviciosIncluidos">Servicios Incluidos</label>
+          <textarea id="serviciosIncluidos" name="viviendaServiciosIncluidos" form="viviendaForm" class="form-control"
+                    rows="2"
+                    placeholder="Internet, nevera, lavadora" [(ngModel)]="serviciosIncluidos"></textarea>
+        </div>
+      </div>
+    </div>
+    <div align="right">
+      <button type="submit" class="btn btn-primary"><h6>Registrar</h6></button>
+      <button type="button" class="btn btn-danger" (click)="cancelCreation()"><h6> Cancelar </h6></button>
+    </div>
+
+    <div class="d-flex flex-row" style="margin-bottom: 2vh">
+      <h3 style="margin-right: 10px">Agregar Cuarto</h3>
+      <button class="btn btn-primary" (click)="nuevoFormCuarto()"><i class="fas fa-plus"></i></button>
+    </div>
+
+    <div class="form-row" *ngFor="let cuarto of cuartos, let i = index">
+
+      <div class="col-lg-2">
+        <label for="nombreCuarto-{{i}}">Nombre</label>
+        <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="nombreCuarto-{{i}}" class="form-control"
+               [(ngModel)]="cuartos[i]">
+      </div>
+
+      <div class="col-lg-2">
+        <label for="costoCuarto-{{i}}">Costo</label>
+        <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="costoCuarto-{{i}}" class="form-control"
+               [(ngModel)]="cuartos[i]">
+      </div>
+
+      <div class="col-lg-8">
+        <label for="descripcionCuarto-{{i}}">Descripción</label>
+        <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="descripcionCuarto-{{i}}" class="form-control"
+               [(ngModel)]="cuartos[i]">
+      </div>
+
+    </div>
+
+  </form>
+</div>
