@@ -24,7 +24,8 @@ import { ViviendaCreateComponent } from './vivienda-create/vivienda-create.compo
   declarations: [
     ViviendaListComponent,
     ViviendaDetailComponent,
-    ViviendaSitiosInteresComponent
+    ViviendaSitiosInteresComponent,
+    ViviendaCreateComponent
   ],
   providers: [
     ViviendaService
