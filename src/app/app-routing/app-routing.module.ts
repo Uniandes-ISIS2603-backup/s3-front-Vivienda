@@ -15,6 +15,7 @@ import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-deta
 import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendador-list.component';
 import { ArrendadorDetailComponent } from '../arrendador/arrendador-detail/arrendador-detail.component';
 import { LogInComponent } from '../log-in/log-in.component';
+import {RegistrarseComponent} from '../shared/registrarse/registrarse.component'
 import { ArrendadorCreateComponent } from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from "../vivienda/vivienda-create/vivienda-create.component";
 
@@ -88,6 +89,10 @@ const routes: Routes = [
         component: ArrendadorListComponent
       },
       {
+          path: 'create',
+          component: ArrendadorCreateComponent
+      },
+      {
           path: ':id',
           component: ArrendadorDetailComponent
       }
@@ -107,7 +112,7 @@ const routes: Routes = [
     children: [
       {
         path: 'logIn',
-        component: ArrendadorCreateComponent
+        component: RegistrarseComponent
       }
     ]
   }

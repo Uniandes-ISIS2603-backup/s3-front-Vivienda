@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-0 col-md-3"></div>
+    <div class="col-12 col-md-6" style="padding: 40px;">
         <br>
         <h2 class="text-center">Registrar Estudiante</h2>
         <br>
         <form name="estudiante" (ngSubmit)="f.form.valid && createEstudiante()" #f="ngForm" novalidate>
             <div class="form-group">
-              <label for="estudianteNombre"><b>Nombre</b></label>
+              <label for="estudianteNombre"><h4>Nombre</h4></label>
               <input type="text" name="estudianteNombre" class="form-control" id="estudianteNombre" [(ngModel)]="estudiante.nombre"
                     #estudianteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteNombre.invalid }" required>
               <div class="invalid-feedback">
@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="estudianteLogin"><b>Login</b></label>
+              <label for="estudianteLogin"><h4>Login</h4></label>
               <input type="text" name="estudianteLogin" class="form-control" id="estudianteLogin" [(ngModel)]="estudiante.login"
                     #estudianteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteLogin.invalid }" required>
               <div class="invalid-feedback">
@@ -22,7 +22,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="estudiantePassword"><b>Contraseña</b></label>
+              <label for="estudiantePassword"><h4>Contraseña</h4></label>
               <input type="password" name="estudiantePassword" class="form-control" id="estudiantePassword" [(ngModel)]="estudiante.password"
                     #estudiantePassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudiantePassword.invalid }" required>
               <div class="invalid-feedback">
@@ -30,12 +30,15 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="estudianteUniversidad"><b>Universidad</b></label>
-              <input type="text" name="estudianteUniversidad" class="form-control" id="estudianteUniversidad" [(ngModel)]="estudiante.universidad"
-                    #estudianteUniversidad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteUniversidad.invalid }" required>
-              <div class="invalid-feedback">
-                   <div>Falta la universidad del estudiante</div>
-              </div>
+                <label for="estudianteUniversidad"><h4>Universidad</h4></label>
+                <input list="universidadesOpciones"  type="text" name="estudianteUniversidad" class="form-control" id="estudianteUniversidad" [(ngModel)]="universidadNombre"
+                      #estudianteUniversidad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteUniversidad.invalid }" required>
+                        <datalist id="universidadesOpciones">
+                          <option *ngFor="let universidad of universidades" value={{universidad.nombre}}>
+                        </datalist>
+                <div class="invalid-feedback">
+                     <div>Falta la universidad del estudiante</div>
+                </div>
             </div>
              <div class="row form-inline justify-content-center align-self-center">
                  
@@ -48,5 +51,5 @@
             </div>
         </form>
     </div>
-    <div class="col-3"></div>
+    <div class="col-0 col-md-3"></div>
 </div>

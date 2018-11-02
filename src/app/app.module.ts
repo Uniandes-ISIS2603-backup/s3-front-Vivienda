@@ -15,6 +15,7 @@ import {UniversidadModule} from './universidad/universidad.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContratoModule } from './contrato/contrato.module';
 import { LogInComponent } from './log-in/log-in.component';
+import {SharedModule} from './shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LogInComponent } from './log-in/log-in.component';
     ViviendaModule,
     EstudianteModule,
     CalificacionModule,
+    SharedModule,
     ArrendadorModule,
     ContratoModule,
     UniversidadModule,

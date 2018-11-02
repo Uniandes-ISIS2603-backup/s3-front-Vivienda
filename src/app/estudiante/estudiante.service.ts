@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http/';
 import {Estudiante} from './estudiante';
+import {Universidad} from './universidad';
 import {Calificacion} from '../calificacion/calificacion';
 import {Observable} from 'rxjs';
 
 const API_URL = 'http://localhost:8080/s3_vivienda-api/api/';
 const estudiantes = 'estudiantes';
+const universidades = 'universidades';
 
 @Injectable()
 export class EstudianteService {
@@ -22,6 +24,10 @@ export class EstudianteService {
 
   getCalificaciones(estudianteId: number): Observable<Calificacion[]> {
     return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/calificaciones');
+  }
+  
+  getUniversidades(): Observable<Universidad[]> {
+    return this.http.get<Universidad[]>(API_URL + universidades );
   }
   
   createEstudiante(estudiante: Estudiante): Observable<boolean>{

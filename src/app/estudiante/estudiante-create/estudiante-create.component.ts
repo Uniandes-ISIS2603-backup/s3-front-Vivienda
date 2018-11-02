@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { EstudianteService } from '../estudiante.service';
 import { Estudiante } from '../estudiante';
+import { Universidad } from '../universidad';
 
 @Component({
   selector: 'app-estudiante-create',
@@ -15,11 +16,15 @@ export class EstudianteCreateComponent implements OnInit {
     ) { }
     
     estudiante: Estudiante;
+    universidadNombre: String;
+    universidades: Universidad[];
 
     @Output() cancel = new EventEmitter();
     @Output() create = new EventEmitter();
     
     createEstudiante(): void{
+        this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre = par.nombre))[0];
+        window.alert(this.estudiante.universidad.nombre);
         this.estudianteService.createEstudiante(this.estudiante).subscribe(() => {
             this.create.emit();
             this.toastrService.success("El estudiante se creó", "Creación de Estudiante")
@@ -28,11 +33,18 @@ export class EstudianteCreateComponent implements OnInit {
             });
     }
     
+    getUniversidades(): void{
+        this.estudianteService.getUniversidades().subscribe((univs) =>{
+            this.universidades = univs;
+        });
+    }
+    
     cancelCreation(): void{
         this.cancel.emit();
     }
     ngOnInit() {
         this.estudiante = new Estudiante();
+        this.getUniversidades();
     }
 
 }

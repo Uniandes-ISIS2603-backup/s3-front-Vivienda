@@ -22,5 +22,6 @@ import { ArrendadorCreateComponent } from './arrendador-create/arrendador-create
   ],
   providers: [ ArrendadorService ],
   declarations: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent],
+  exports: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent]
 })
 export class ArrendadorModule { }
