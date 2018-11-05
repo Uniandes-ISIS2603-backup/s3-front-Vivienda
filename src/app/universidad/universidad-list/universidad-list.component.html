@@ -1,16 +1,13 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Universidades</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let universidad of universidades">
-                    <td>{{universidad.nombre}}</td>
-                  
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-3" *ngFor = "let universidad of universidades">
+             <figure class="figure"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{universidad.imgURL}}' alt="{{universidad.nombre}}" />                                     
+                </div>
+                <figcaption class="figure-caption text-center">{{universidad.nombre}}</figcaption>
+            </figure>
+        </div>
     </div>
+</div>
+<router-outlet></router-outlet>
