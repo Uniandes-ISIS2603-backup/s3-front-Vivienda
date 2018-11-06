@@ -13,13 +13,14 @@ import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/c
 import {ContratoListComponent} from '../contrato/contrato-list/contrato-list.component';
 import {ContratoDetailComponent} from '../contrato/contrato-detail/contrato-detail.component';
 import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
-import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendador-list.component';
-import { ArrendadorDetailComponent } from '../arrendador/arrendador-detail/arrendador-detail.component';
-import { LogInComponent } from '../log-in/log-in.component';
-import {RegistrarseComponent} from '../shared/registrarse/registrarse.component'
-import { ArrendadorCreateComponent } from '../arrendador/arrendador-create/arrendador-create.component';
-import {ViviendaCreateComponent} from "../vivienda/vivienda-create/vivienda-create.component";
+import {ArrendadorListComponent} from '../arrendador/arrendador-list/arrendador-list.component';
+import {ArrendadorDetailComponent} from '../arrendador/arrendador-detail/arrendador-detail.component';
+import {LogInComponent} from '../log-in/log-in.component';
+import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
+import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrendador-create.component';
+import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
 import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
+import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
 
 const routes: Routes = [
 
@@ -31,12 +32,12 @@ const routes: Routes = [
         component: ViviendaListComponent
       },
       {
-        path:'create',
+        path: 'create',
         component: ViviendaCreateComponent
       },
       {
-          path: ':id',
-          component: ViviendaDetailComponent
+        path: ':id',
+        component: ViviendaDetailComponent
       }
     ]
   },
@@ -75,11 +76,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'contrato',
+    path: 'contratos',
     children: [
       {
         path: 'list',
         component: ContratoListComponent
+      },
+      {
+        path: 'create',
+        component: ContratoCreateComponent
       },
       {
         path: ':id',
@@ -104,12 +109,12 @@ const routes: Routes = [
         component: ArrendadorListComponent
       },
       {
-          path: 'create',
-          component: ArrendadorCreateComponent
+        path: 'create',
+        component: ArrendadorCreateComponent
       },
       {
-          path: ':id',
-          component: ArrendadorDetailComponent
+        path: ':id',
+        component: ArrendadorDetailComponent
       }
     ]
   },

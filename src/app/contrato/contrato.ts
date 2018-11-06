@@ -6,5 +6,5 @@ export class Contrato {
 
   fechaFin: Date;
 
-  modoPago: number;
+  metodoPago: number;
 }

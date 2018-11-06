@@ -1,44 +1,19 @@
 <div class="container-fluid">
-  <!--<table class="table table-striped">-->
-  <!--<thead class="thead-dark">-->
-  <!--<tr>-->
-  <!--<th>ID</th>-->
-  <!--<th>FechaInicio</th>-->
-  <!--<th>FechaFin</th>-->
-  <!--<th>ModoPago</th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-  <!--<tbody>-->
-  <!--<tr *ngFor = "let c of contratos">-->
-  <!--<td>{{ c.id }}</td>-->
-  <!--<td>{{ c.fechaInicio }}</td>-->
-  <!--<td>{{ c.fechaFin }}</td>-->
-  <!--<td>{{ c.modoPago }}</td>-->
-  <!--</tr>-->
-  <!--</tbody>-->
-  <!--</table>-->
+  <div class="row">
+    <button class="btn btn-success" id="botonCrearContrato" routerLink="/contratos/create">Registrar un nuevo contrato</button>
+  </div>
   <div class="row">
     <div class="col-lg-3 col-xs-6" *ngFor="let contrato of contratos">
-      <div class="card">
-        <div class="card-body">
           <div class="card" routerLink="/contratos/{{contrato.id}}" style="cursor: pointer;">
             <div class="card-body">
-              <h4 class="card-title">Contrato</h4>
-              <p><b>Modo pago {{contrato.modoPago}}</b></p>
+              <h4 class="card-title">Contrato {{contrato.id}}</h4>
+              <p><b>Metodo pago {{contrato.metodoPago}}</b></p>
+              <p> <strong>Fecha Inicio: </strong> {{contrato.fechaInicio}} </p>
+              <p> <strong>Fecha Fin: </strong> {{contrato.fechaFin}} </p>
               <p>0.0<i class="fas fa-star"></i></p>
+              <p><strong>Click para ver más info</strong></p>
             </div>
           </div>
-          <h4 class="card-title">Contrato {{contrato.id}}</h4>
-          <p> <strong>Fecha Inicio: </strong> {{contrato.fechaInicio}} </p>
-          <p> <strong>Fecha Fin: </strong> {{contrato.fechaFin}} </p>
-          <!--<p><strong>Modo Pago: </strong> {{contrato.modoPago}} </p>-->
-        </div>
-      </div>
     </div>
   </div>
 </div>
-<tr *ngFor = "let c of contratos">
-  <td style="cursor: pointer;">
-    <dd class="figure-caption" routerLink="/contratos/{{c.id}}">{{c.fechaFin}}</dd>
-  </td>
-</tr>

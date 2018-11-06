@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ContratoService} from '../contrato.service';
 import {Contrato} from '../contrato';
+import {ViviendaService} from '../../vivienda/vivienda.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-contrato-list',
@@ -8,7 +10,7 @@ import {Contrato} from '../contrato';
   styleUrls: ['./contrato-list.component.css']
 })
 export class ContratoListComponent implements OnInit {
-  constructor(private contratoService: ContratoService) {
+  constructor(private contratoService: ContratoService, private route: ActivatedRoute) {
   }
 
   contratos: Contrato[];

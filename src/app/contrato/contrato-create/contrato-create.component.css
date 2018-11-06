@@ -1,0 +1,16 @@
+h1{
+  padding-top: 1em;
+  padding-bottom: 0.3em;
+}
+
+label{
+  padding-top: 1em;
+}
+
+#btn_registrar{
+  margin: 1em;
+}
+
+#btn_cancelar{
+  margin: 1em;
+}

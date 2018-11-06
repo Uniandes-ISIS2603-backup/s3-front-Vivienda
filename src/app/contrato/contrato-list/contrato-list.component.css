@@ -14,3 +14,11 @@
   padding-bottom: 1vh;
 }
 
+#botonCrearContrato {
+  text-align: center;
+  width: 50vw;
+  height: 7vh;
+  margin-top: 3vh;
+  margin-left: 25vw;
+  margin-right: 25vw;
+}

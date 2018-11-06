@@ -1,0 +1,39 @@
+<div class="container" style="margin: auto">
+  <h1>Registrar Contrato</h1>
+  <form name="contrato" id="contratoForm" (ngSubmit)="f.form.valid && crearContrato()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-5">
+
+
+          <label for="contratoMetodoPago">Nombre</label>
+          <input type="text" name="contratoMetodoPago" class="form-control" id="contratoMetodoPago"
+                 [(ngModel)]="contrato.metodoPago">
+
+          <label for="contratoFechaInicio">Fecha Inicio</label>
+          <input type="date" data-date-inline-picker="true" name="contratoFechaInicio" class="form-control"
+                 id="contratoFechaInicio"
+                 [(ngModel)]="contrato.fechaInicio"/>
+
+          <label for="contratoFechaFin">Fecha Fin</label>
+          <input type="date" data-date-inline-picker="true" name="contratoFechaFin" class="form-control"
+                 id="contratoFechaFin"
+                 [(ngModel)]="contrato.fechaFin"/>
+        </div>
+
+        <div class="col-lg-7">
+          <label for="contratoDescripcion">Descripción</label>
+          <textarea type="text" name="contratoDescripcion" id="contratoDescripcion" form="contratoForm"
+                    class="form-control" rows="6"></textarea>
+        </div>
+      </div>
+    </div>
+    <div align="right">
+      <button id="btn_registrar" type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
+      <button id="btn_cancelar" type="button" class="btn btn-danger" (click)="cancelCreation()"><strong>
+        Cancelar </strong></button>
+    </div>
+
+  </form>
+
+</div>

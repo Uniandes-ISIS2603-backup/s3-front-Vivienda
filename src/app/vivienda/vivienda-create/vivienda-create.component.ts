@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Vivienda} from "../vivienda";
-import {ViviendaService} from "../vivienda.service";
-import {ToastrService} from "ngx-toastr";
-import {Cuarto} from "../../cuarto/cuarto";
-import {CuartoService} from "../../cuarto/cuarto.service";
-import {isEmpty} from "rxjs/operators";
-import {and} from "../../../../node_modules/@angular/router/src/utils/collection";
+import {Vivienda} from '../vivienda';
+import {ViviendaService} from '../vivienda.service';
+import {ToastrService} from 'ngx-toastr';
+import {Cuarto} from '../../cuarto/cuarto';
+import {CuartoService} from '../../cuarto/cuarto.service';
+import {isEmpty} from 'rxjs/operators';
+import {and} from '../../../../node_modules/@angular/router/src/utils/collection';
 
 // Componente usado para crear un vivienda y sus cuartos
 @Component({
@@ -37,30 +37,30 @@ export class ViviendaCreateComponent implements OnInit {
     //Manda el post request de la vivienda
     this.viviendaService.createVivienda(this.vivienda).subscribe((viviendaCreada: Vivienda) => {
       this.create.emit();
-      this.toastrService.success("Se registro la vivienda", "Registro");
+      this.toastrService.success('Se registro la vivienda', 'Registro');
       for (let i = 0; i < this.cuartos.length; i++) {
         //Al crear la vivienda recorre sus cuartos y realiza un post request por cada uno si son validos
         let cuarto: Cuarto = this.cuartos[i];
         if (!this.stringIsEmpty(cuarto.nombre) && cuarto.costoArriendo) {
           this.cuartosService.crearCuarto(cuarto, viviendaCreada.id).subscribe((cuartoCreado: Cuarto) => {
             this.create.emit();
-            this.toastrService.success("Se agrego el cuarto " + cuartoCreado.nombre);
+            this.toastrService.success('Se agrego el cuarto ' + cuartoCreado.nombre);
           }, error2 => {
-            this.toastrService.error(error2, "Registro Cuarto")
+            this.toastrService.error(error2, 'Registro Cuarto');
           });
         }
       }
     }, error1 => {
-      this.toastrService.error(error1, "Registro")
+      this.toastrService.error(error1, 'Registro');
     });
   }
 
   //Se separa el string de servicios en una lista de strings
   procesarServiciosIncluidos() {
     if (!this.stringIsEmpty(this.serviciosIncluidos)) {
-      let serviciosList: string[] = this.serviciosIncluidos.split(",");
+      let serviciosList: string[] = this.serviciosIncluidos.split(',');
       for (let i = 0; i < serviciosList.length; i++) {
-        serviciosList[i] = serviciosList[i].trim()
+        serviciosList[i] = serviciosList[i].trim();
       }
       this.vivienda.serviciosIncluidos = serviciosList;
     }
@@ -77,7 +77,7 @@ export class ViviendaCreateComponent implements OnInit {
 
   //Crea una serie de inputs para un cuarto adicional
   nuevoFormCuarto() {
-    this.cuartos.push(new Cuarto("", "", null))
+    this.cuartos.push(new Cuarto('', '', null));
   }
 
   cancelCreation() {
