@@ -11,12 +11,12 @@ export class Vivienda {
   imgUrl: string;
 
   toString(): string {
-    let s: string = "";
-    s += "Nombre: " + this.nombre + "\n";
-    s += "Ciudad: " + this.ciudad + "\n";
-    s += "Dirección: " + this.direccion + "\n";
-    s += "Descripción: " + this.descripcion + "\n";
-    s += "Img: " + this.imgUrl + "\n";
+    let s: string = '';
+    s += 'Nombre: ' + this.nombre + '\n';
+    s += 'Ciudad: ' + this.ciudad + '\n';
+    s += 'Dirección: ' + this.direccion + '\n';
+    s += 'Descripción: ' + this.descripcion + '\n';
+    s += 'Img: ' + this.imgUrl + '\n';
     return s;
   }
 }

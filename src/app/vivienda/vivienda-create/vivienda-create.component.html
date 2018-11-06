@@ -57,7 +57,7 @@
       <div class="col-lg-2">
         <label for="costoCuarto-{{i}}">Costo</label>
         <input form="viviendaForm" type="number" name="cuarto-{{i}}" id="costoCuarto-{{i}}" class="form-control"
-               [(ngModel)]="cuartos[i].costo">
+               [(ngModel)]="cuartos[i].costoArriendo">
       </div>
 
       <div class="col-lg-8">
@@ -67,5 +67,4 @@
       </div>
     </div>
   </form>
-  <p>{{cuartos[0].costo}}</p>
 </div>

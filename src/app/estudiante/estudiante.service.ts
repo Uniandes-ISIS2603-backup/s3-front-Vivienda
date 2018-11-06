@@ -34,4 +34,8 @@ export class EstudianteService {
       return this.http.post<boolean>(API_URL + estudiantes, estudiante);
   }
 
+  generarDatos(): Observable<any> {
+    return this.http.post<any>(API_URL + estudiantes + "/generardatos", null);
+  }
+
 }

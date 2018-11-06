@@ -11,12 +11,13 @@ import {CalificacionModule} from './calificacion/calificacion.module';
 import {EstudianteModule} from './estudiante/estudiante.module';
 import {ArrendadorModule} from './arrendador/arrendador.module';
 import {UniversidadModule} from './universidad/universidad.module';
+import {RouterModule} from '@angular/router';
 import {SignInComponent} from './sign-in/sign-in.component';
 import {ContratoModule} from './contrato/contrato.module';
 import {LogInComponent} from './log-in/log-in.component';
 import {SharedModule} from './shared/shared.module';
 import {CuartoModule} from './cuarto/cuarto.module';
-import {RouterModule} from '@angular/router';
+import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {RouterModule} from '@angular/router';
     ContratoModule,
     UniversidadModule,
     CuartoModule,
+    ServicioAdicionalModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],

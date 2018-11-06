@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Vivienda} from "./vivienda";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Vivienda} from './vivienda';
 import {ViviendaDetail} from './vivienda-detail';
 
 import {environment} from '../../environments/environment';
@@ -21,10 +21,14 @@ export class ViviendaService {
   }
 
   getViviendaDetail(viviendaId): Observable<ViviendaDetail> {
-    return this.http.get<ViviendaDetail>(API_URL + viviendas + "/" + viviendaId);
+    return this.http.get<ViviendaDetail>(API_URL + viviendas + '/' + viviendaId);
   }
 
   createVivienda(vivienda: Vivienda): Observable<Vivienda> {
     return this.http.post<Vivienda>(API_URL + viviendas, vivienda);
+  }
+
+  generarDatos(): Observable<any> {
+    return this.http.post<any>(API_URL + viviendas + '/generardatos', null);
   }
 }

@@ -1,14 +1,19 @@
 #barra {
   background-color: #0c283a;
 }
+
 .btn {
   border-color: orangered;
   color: orangered;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: orangered;
   color: #0c283a;
+}
+
+#botonGenerarDatos {
+  margin-right: 20vw;
 }
 
 .nav * {
