@@ -16,12 +16,15 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ContratoModule } from './contrato/contrato.module';
 import { LogInComponent } from './log-in/log-in.component';
 import {SharedModule} from './shared/shared.module'
+import {ViviendaCreateComponent} from "./vivienda/vivienda-create/vivienda-create.component";
+import {ViviendaListComponent} from "./vivienda/vivienda-list/vivienda-list.component";
+import {CuartoModule} from "./cuarto/cuarto.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    LogInComponent
+    LogInComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import {SharedModule} from './shared/shared.module'
     ArrendadorModule,
     ContratoModule,
     UniversidadModule,
+    CuartoModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
