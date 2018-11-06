@@ -10,7 +10,10 @@ const universidades = 'assets/universidades.json';
 export class UniversidadService {
    
    constructor(private http: HttpClient) { }
+   
    getUniversidades() : Observable<Universidad[]> {
    return this.http.get<Universidad[]>(universidades);
    }
+   
+   
 }

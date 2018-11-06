@@ -19,6 +19,7 @@ import {SharedModule} from './shared/shared.module'
 import {ViviendaCreateComponent} from "./vivienda/vivienda-create/vivienda-create.component";
 import {ViviendaListComponent} from "./vivienda/vivienda-list/vivienda-list.component";
 import {CuartoModule} from "./cuarto/cuarto.module";
+import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {CuartoModule} from "./cuarto/cuarto.module";
     ContratoModule,
     UniversidadModule,
     CuartoModule,
+    ServicioAdicionalModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
