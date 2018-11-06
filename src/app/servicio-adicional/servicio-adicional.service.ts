@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { ServicioAdicional } from './servicio-adicional';
 import { Observable } from 'rxjs';
 
-const API_URL = "http://localhost:8080/s3_vivienda-api/api/";
-const serviciosAdicionales = "servicios-adicionales";
+import {environment} from '../../environments/environment';
+
+const API_URL = environment.apiURL;
+const serviciosAdicionales = 'assets/servicios-adicionales.json';
 
 @Injectable()
 export class ServicioAdicionalService {
@@ -12,7 +14,7 @@ export class ServicioAdicionalService {
   constructor(private http: HttpClient) { }
   
    getServiciosAdicionales(): Observable<ServicioAdicional[]> {
-        return this.http.get<ServicioAdicional[]>(API_URL + serviciosAdicionales);
+        return this.http.get<ServicioAdicional[]>(serviciosAdicionales);
     }
     
 }

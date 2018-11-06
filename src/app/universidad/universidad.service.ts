@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Universidad} from './universidad';
 
-const API_URL = 'http://localhost:8080/s3_vivienda-api/api/';
+import {environment} from '../../environments/environment';
+
+const API_URL = environment.apiURL;
 const universidades = 'assets/universidades.json';
 
 @Injectable()

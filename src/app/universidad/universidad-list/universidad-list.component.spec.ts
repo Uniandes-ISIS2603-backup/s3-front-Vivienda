@@ -35,12 +35,12 @@ describe('UniversidadListComponent', () => {
     });
     
     
-    it('should have a list of books', () => {
+    it('should have a list of universidades', () => {
         component.universidades = universidades;
         expect(component.universidades.length).toEqual(universidades.length);
     });
 
-    it('a book should be a book (first and last)', () => {
+    it('a book should be a universidad (first and last)', () => {
         component.universidades = universidades;
         //revisar todas las universidades
         expect(component.universidades[0].nombre).toEqual(universidades[0].nombre);

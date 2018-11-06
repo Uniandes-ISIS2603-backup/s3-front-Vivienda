@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioAdicional } from '../servicio-adicional';
+import { ServicioAdicionalService } from '../servicio-adicional.service';
 
 @Component({
   selector: 'app-servicio-adicional-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicioAdicionalListComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+    constructor(private servicioAdicionalService: ServicioAdicionalService) { } 
+    serviciosAdicionales: ServicioAdicional[];
+    getServiciosAdicionales(): void {
+        this.servicioAdicionalService.getServiciosAdicionales().subscribe(serviciosAdicionales => this.serviciosAdicionales = serviciosAdicionales);
+    }
+    ngOnInit() {
+        this.getServiciosAdicionales();
+    }
 
 }

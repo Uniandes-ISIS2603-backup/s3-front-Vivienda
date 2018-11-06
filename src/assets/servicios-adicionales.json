@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "nombre":"Lavanderia",
+        "descripcion":"Servicio de lavandería un día a la semana. Incluye planchado."},
+
+    {
+        "id":2,
+        "nombre":"Limpieza",
+        "descripcion":"Servicio de lipieza de habitación tres dias a la semana."},
+
+    {
+        "id":3,
+        "nombre":"Parqueadero",
+        "descripcion":"Arriendo adicional de un parquedero."}
+]

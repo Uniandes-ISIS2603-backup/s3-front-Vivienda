@@ -21,6 +21,8 @@ import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrenda
 import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
 import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
 import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
+import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adicional-list/servicio-adicional-list.component';
+import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
 
 const routes: Routes = [
 
@@ -98,6 +100,19 @@ const routes: Routes = [
       {
         path: 'list',
         component: UniversidadListComponent
+      }
+    ]
+  },
+  {
+    path: 'servicios-adicionales',
+    children: [
+      {
+        path: 'list',
+        component: ServicioAdicionalListComponent
+      },
+      {
+        path: ':id',
+        component: ServicioAdicionalDetailComponent
       }
     ]
   },
