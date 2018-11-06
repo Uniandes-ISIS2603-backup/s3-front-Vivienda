@@ -27,4 +27,8 @@ export class ViviendaService {
   createVivienda(vivienda: Vivienda): Observable<Vivienda> {
     return this.http.post<Vivienda>(API_URL + viviendas, vivienda);
   }
+
+  generarDatos(): Observable<any> {
+    return this.http.post<any>(API_URL + viviendas + "/generardatos", null);
+  }
 }

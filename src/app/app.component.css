@@ -11,6 +11,10 @@
   color: #0c283a;
 }
 
+#botonGenerarDatos{
+  margin-right: 20vw;
+}
+
 .nav * {
   color: white;
 }
