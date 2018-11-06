@@ -1,10 +1,14 @@
 #barra {
-  background-color: #011c80;
+  background-color: #0c283a;
 }
-.btn-md.round {
-  border-radius: 1.2em;
-  background-color: #ff7000;
-  color: white;
+.btn {
+  border-color: orangered;
+  color: orangered;
+}
+
+.btn:hover{
+  background-color: orangered;
+  color: #0c283a;
 }
 
 .nav * {

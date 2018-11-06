@@ -43,7 +43,7 @@
 
     <div class="d-flex flex-row" style="margin-bottom: 2vh">
       <h3 style="margin-right: 10px">Agregar Cuarto</h3>
-      <button class="btn btn-primary" (click)="nuevoFormCuarto()"><i class="fas fa-plus"></i></button>
+      <button type="button" class="btn btn-primary" (click)="nuevoFormCuarto()"><i class="fas fa-plus"></i></button>
     </div>
 
     <div class="form-row" *ngFor="let cuarto of cuartos, let i = index">
@@ -51,22 +51,21 @@
       <div class="col-lg-2">
         <label for="nombreCuarto-{{i}}">Nombre</label>
         <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="nombreCuarto-{{i}}" class="form-control"
-               [(ngModel)]="cuartos[i]">
+               [(ngModel)]="cuartos[i].nombre">
       </div>
 
       <div class="col-lg-2">
         <label for="costoCuarto-{{i}}">Costo</label>
-        <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="costoCuarto-{{i}}" class="form-control"
-               [(ngModel)]="cuartos[i]">
+        <input form="viviendaForm" type="number" name="cuarto-{{i}}" id="costoCuarto-{{i}}" class="form-control"
+               [(ngModel)]="cuartos[i].costo">
       </div>
 
       <div class="col-lg-8">
         <label for="descripcionCuarto-{{i}}">Descripción</label>
         <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="descripcionCuarto-{{i}}" class="form-control"
-               [(ngModel)]="cuartos[i]">
+               [(ngModel)]="cuartos[i].descripcion">
       </div>
-
     </div>
-
   </form>
+  <p>{{cuartos[0].costo}}</p>
 </div>
