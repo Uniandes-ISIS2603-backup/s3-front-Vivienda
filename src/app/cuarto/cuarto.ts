@@ -1,16 +1,13 @@
 export class Cuarto {
   nombre: string;
   descripcion: string;
-  costo: number;
+  costoArriendo: number;
 
   constructor(nombre: string, descripcion: string, costo: number) {
     this.nombre = nombre;
     this.descripcion = descripcion;
-    this.costo = costo;
+    this.costoArriendo = costo;
   }
 
-  setCosto(sCosto: string) {
-    this.costo = Number.parseFloat(sCosto);
-  }
 
 }

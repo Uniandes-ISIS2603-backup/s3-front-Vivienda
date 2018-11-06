@@ -7,6 +7,7 @@ import {CuartoService} from "../../cuarto/cuarto.service";
 import {isEmpty} from "rxjs/operators";
 import {and} from "../../../../node_modules/@angular/router/src/utils/collection";
 
+// Componente usado para crear un vivienda y sus cuartos
 @Component({
   selector: 'app-vivienda-create',
   templateUrl: './vivienda-create.component.html',
@@ -14,8 +15,11 @@ import {and} from "../../../../node_modules/@angular/router/src/utils/collection
 })
 export class ViviendaCreateComponent implements OnInit {
 
+  //La vivienda
   vivienda: Vivienda;
+  //Los cuartos
   cuartos: Cuarto[];
+  //String temporal de servicios incluidos
   serviciosIncluidos: string;
 
   constructor(private viviendaService: ViviendaService,
@@ -26,18 +30,18 @@ export class ViviendaCreateComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
-
+//Metodo que se llama al hacer submit
   crearVivienda() {
-    console.log("CREAR");
+    //Crea una lista de servicios a partir del string de servicios incluidos
     this.procesarServiciosIncluidos();
+    //Manda el post request de la vivienda
     this.viviendaService.createVivienda(this.vivienda).subscribe((viviendaCreada: Vivienda) => {
       this.create.emit();
       this.toastrService.success("Se registro la vivienda", "Registro");
-      alert(viviendaCreada.id);
       for (let i = 0; i < this.cuartos.length; i++) {
+        //Al crear la vivienda recorre sus cuartos y realiza un post request por cada uno si son validos
         let cuarto: Cuarto = this.cuartos[i];
-        console.log(cuarto.nombre + " " + cuarto.costo);
-        if (!this.stringIsEmpty(cuarto.nombre) && cuarto.costo) {
+        if (!this.stringIsEmpty(cuarto.nombre) && cuarto.costoArriendo) {
           this.cuartosService.crearCuarto(cuarto, viviendaCreada.id).subscribe((cuartoCreado: Cuarto) => {
             this.create.emit();
             this.toastrService.success("Se agrego el cuarto " + cuartoCreado.nombre);
@@ -51,6 +55,7 @@ export class ViviendaCreateComponent implements OnInit {
     });
   }
 
+  //Se separa el string de servicios en una lista de strings
   procesarServiciosIncluidos() {
     if (!this.stringIsEmpty(this.serviciosIncluidos)) {
       let serviciosList: string[] = this.serviciosIncluidos.split(",");
@@ -62,6 +67,7 @@ export class ViviendaCreateComponent implements OnInit {
 
   }
 
+  //Revisa si un string es valido
   stringIsEmpty(str: string): boolean {
     if (!str || str.length === 0) {
       return true;
@@ -69,6 +75,7 @@ export class ViviendaCreateComponent implements OnInit {
     return false;
   }
 
+  //Crea una serie de inputs para un cuarto adicional
   nuevoFormCuarto() {
     this.cuartos.push(new Cuarto("", "", null))
   }

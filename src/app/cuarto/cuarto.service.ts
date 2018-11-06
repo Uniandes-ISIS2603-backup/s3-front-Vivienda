@@ -13,6 +13,7 @@ export class CuartoService {
   }
 
   crearCuarto(cuarto: Cuarto, viviendaId: number): Observable<Cuarto> {
+    console.log(cuarto.costoArriendo);
     return this.http.post<Cuarto>(API_URL + viviendas + "/" + viviendaId.toString() + "/" + cuartos, cuarto);
   }
 }

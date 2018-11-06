@@ -13,6 +13,7 @@ export class ViviendaListComponent implements OnInit{
 
   viviendas: Vivienda[];
 
+  //Obtiene el json de viviendas y se lo asigna a la lista de viviendas
   getViviendas(): void{
     this.viviendaService.getViviendas().subscribe(viviendas=>{
         this.viviendas = viviendas;
