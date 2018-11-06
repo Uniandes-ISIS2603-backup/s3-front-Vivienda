@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { SitioInteres } from '../sitioInteres';
+import {Component, OnInit, Input} from '@angular/core';
+import {SitioInteres} from '../sitioInteres';
 
 @Component({
   selector: 'app-vivienda-sitios-interes',
@@ -7,8 +7,9 @@ import { SitioInteres } from '../sitioInteres';
   styleUrls: ['./vivienda-sitios-interes.component.css']
 })
 export class ViviendaSitiosInteresComponent implements OnInit {
-    @Input() viviendaSitioInteres : SitioInteres [];
-    public isCollapsed = true;
+  @Input() viviendaSitioInteres: SitioInteres [];
+  public isCollapsed = true;
+
   ngOnInit() {
   }
 

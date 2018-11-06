@@ -1,0 +1,20 @@
+<p>
+  contrato-detail works!
+</p>
+
+<p class="h3 p-3">{{contratoDetail.id}}<p>
+<div class="row">
+  <div class="col-md-3">
+    <div class="thumb">
+      <p>Modo Pago: {{contratoDetail.modoPago}}</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <dl>
+      <dt>Fecha Inicio</dt>
+      <dd>{{contratoDetail.fechaInicio| date:'dd/MM/yyyy'}}</dd>
+      <dt>Fecha Fin</dt>
+      <dd>{{contratoDetail.fechaFin| date:'dd/MM/yyyy'}}</dd>
+    </dl>
+  </div>
+</div>

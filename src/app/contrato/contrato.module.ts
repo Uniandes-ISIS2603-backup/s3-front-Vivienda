@@ -6,7 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {FormsModule} from '@angular/forms';
-
+import { ContratoDetailComponent } from './contrato-detail/contrato-detail.component';
 
 @NgModule({
   imports: [CommonModule, BrowserModule,
@@ -14,7 +14,7 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     CommonModule,
     FormsModule],
-  declarations: [ContratoListComponent],
+  declarations: [ContratoListComponent, ContratoDetailComponent],
   providers: [ContratoService],
   exports: [ContratoListComponent]
 })

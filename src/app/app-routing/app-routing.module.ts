@@ -11,6 +11,7 @@ import {CalificacionEstudianteListComponent} from '../calificacion/calificacion-
 import {CalificacionViviendaListComponent} from '../calificacion/calificacion-list/calificacionvivienda-list.component';
 import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/calificacion-detail.component';
 import {ContratoListComponent} from '../contrato/contrato-list/contrato-list.component';
+import {ContratoDetailComponent} from '../contrato/contrato-detail/contrato-detail.component';
 import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
 import { ArrendadorListComponent } from '../arrendador/arrendador-list/arrendador-list.component';
 import { ArrendadorDetailComponent } from '../arrendador/arrendador-detail/arrendador-detail.component';
@@ -79,6 +80,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ContratoListComponent
+      },
+      {
+        path: ':id',
+        component: ContratoDetailComponent
       }
     ]
   },

@@ -15,7 +15,9 @@ import {UniversidadModule} from './universidad/universidad.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ContratoModule } from './contrato/contrato.module';
 import { LogInComponent } from './log-in/log-in.component';
-import {SharedModule} from './shared/shared.module'
+import {SharedModule} from './shared/shared.module';
+import {RouterModule} from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import {SharedModule} from './shared/shared.module'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     ViviendaModule,
     EstudianteModule,

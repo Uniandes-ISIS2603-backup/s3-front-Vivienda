@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import {ViviendaService } from '../vivienda.service';
-import{ViviendaDetail } from '../vivienda-detail';
+import {ViviendaService} from '../vivienda.service';
+import {ViviendaDetail} from '../vivienda-detail';
 import {SitioInteres} from '../sitioInteres';
 
 @Component({
@@ -15,24 +15,24 @@ export class ViviendaDetailComponent implements OnInit {
   constructor(
     private viviendaService: ViviendaService,
     private route: ActivatedRoute
-  ) { }
-  
+  ) {
+  }
+
   viviendaDetail: ViviendaDetail;
-  
+
   vivienda_id: number;
-  
-  getViviendaDetail(): void
-  {
-      this.viviendaService.getViviendaDetail(this.vivienda_id)
-          .subscribe(viviendaDetail => {
-              this.viviendaDetail = viviendaDetail;
+
+  getViviendaDetail(): void {
+    this.viviendaService.getViviendaDetail(this.vivienda_id)
+      .subscribe(viviendaDetail => {
+        this.viviendaDetail = viviendaDetail;
       });
   }
 
   ngOnInit() {
-      this.vivienda_id = +this.route.snapshot.paramMap.get('id');
-      this.viviendaDetail = new ViviendaDetail();
-      this.getViviendaDetail();   
+    this.vivienda_id = +this.route.snapshot.paramMap.get('id');
+    this.viviendaDetail = new ViviendaDetail();
+    this.getViviendaDetail();
   }
 
 }
