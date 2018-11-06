@@ -24,7 +24,7 @@ export class ViviendaService {
     return this.http.get<ViviendaDetail>(API_URL + viviendas + "/" + viviendaId);
   }
 
-  createVivienda(vivienda: Vivienda): Observable<boolean> {
-    return this.http.post<boolean>(API_URL + viviendas, vivienda);
+  createVivienda(vivienda: Vivienda): Observable<Vivienda> {
+    return this.http.post<Vivienda>(API_URL + viviendas, vivienda);
   }
 }
