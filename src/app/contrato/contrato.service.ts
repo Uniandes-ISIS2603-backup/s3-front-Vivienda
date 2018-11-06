@@ -9,7 +9,6 @@ const contratos = 'assets/contratos.json';
 const contracts = '/contratos';
 const viviendas = '/viviendas';
 
-
 @Injectable()
 export class ContratoService {
 
