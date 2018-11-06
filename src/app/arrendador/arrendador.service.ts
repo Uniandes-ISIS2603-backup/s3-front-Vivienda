@@ -26,4 +26,8 @@ export class ArrendadorService {
     createArrendador(arrendador): Observable<Arrendador> {
         return this.http.post<Arrendador>(API_URL + arrendadores, arrendador);
     }
+     generarDatos(): Observable<any> {
+    return this.http.post<any>(API_URL + arrendadores + "/generardatos", null);
+  }
+    
 }

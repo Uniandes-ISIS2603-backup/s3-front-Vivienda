@@ -5,7 +5,7 @@ import {Contrato} from './contrato';
 
 const API_URL = 'http://localhost:8080/s3_vivienda-api/api/';
 const contratos = 'assets/contratos.json';
-
+ 
 
 @Injectable()
 export class ContratoService {
