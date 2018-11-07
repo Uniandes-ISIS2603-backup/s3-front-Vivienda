@@ -5,6 +5,7 @@ import {Vivienda} from './vivienda';
 import {ViviendaDetail} from './vivienda-detail';
 
 import {environment} from '../../environments/environment';
+import {Calificacion} from "../calificacion/calificacion";
 
 const API_URL = environment.apiURL;
 const viviendas = '/viviendas';
@@ -30,5 +31,9 @@ export class ViviendaService {
 
   generarDatos(): Observable<any> {
     return this.http.post<any>(API_URL + viviendas + '/generardatos', null);
+  }
+
+  getCalificaciones(viviendaId: number): Observable<Calificacion[]> {
+    return this.http.get<Calificacion[]>(API_URL + viviendas + "/" + viviendaId + "/calificaciones");
   }
 }
