@@ -11,31 +11,56 @@ const universidades = 'universidades';
 
 @Injectable()
 export class EstudianteService {
-  constructor(private http: HttpClient) {
-  }
+    
+    /**
+     * Constructor for the service provider
+     */
+    constructor(private http: HttpClient) {
+    }
+    
+    /**
+     * Retrieves all the students in UniVivienda
+     */
+    getEstudiantes(): Observable<Estudiante[]> {
+      return this.http.get<Estudiante[]>(API_URL + estudiantes);
+    }
 
-  getEstudiantes(): Observable<Estudiante[]> {
-    return this.http.get<Estudiante[]>(API_URL + estudiantes);
-  }
+    /**
+     * Retrieves a student
+     * @param estudianteId The student's id
+     */
+    getEstudiante(estudianteId: number): Observable<Estudiante> {
+      return this.http.get<Estudiante>(API_URL + estudiantes + '/' + estudianteId);
+    }
 
-  getEstudiante(estudianteId: number): Observable<Estudiante> {
-    return this.http.get<Estudiante>(API_URL + estudiantes + '/' + estudianteId);
-  }
+    /**
+     * Retrieves all the reviews made by a student
+     * @param estudianteId The student's id
+     */
+    getCalificaciones(estudianteId: number): Observable<Calificacion[]> {
+      return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/calificaciones');
+    }
 
-  getCalificaciones(estudianteId: number): Observable<Calificacion[]> {
-    return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/calificaciones');
-  }
-  
-  getUniversidades(): Observable<Universidad[]> {
-    return this.http.get<Universidad[]>(API_URL + universidades );
-  }
-  
-  createEstudiante(estudiante: Estudiante): Observable<boolean>{
-      return this.http.post<boolean>(API_URL + estudiantes, estudiante);
-  }
+    /**
+     * Retrieves all the universities in UniVivienda
+     */
+    getUniversidades(): Observable<Universidad[]> {
+      return this.http.get<Universidad[]>(API_URL + universidades );
+    }
+    
+    /**
+     * Creates a new student
+     * @param estudiante The new student to create
+     */
+    createEstudiante(estudiante: Estudiante): Observable<boolean>{
+        return this.http.post<boolean>(API_URL + estudiantes, estudiante);
+    }
 
-  generarDatos(): Observable<any> {
-    return this.http.post<any>(API_URL + estudiantes + "/generardatos", null);
-  }
+    /**
+     * Generates data to populate UniVivienda's data base
+     */
+    generarDatos(): Observable<any> {
+      return this.http.post<any>(API_URL + estudiantes + "/generardatos", null);
+    }
 
 }

@@ -8,12 +8,22 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class RegistrarseComponent implements OnInit {
 
-  soyEstudiante: boolean;
-  
-  constructor(private route: ActivatedRoute) { }
+    /**
+     * Boolean attribute modeling the button to register a student or a householder
+     */
+    soyEstudiante: boolean;
 
-  ngOnInit() {
-      this.soyEstudiante = true;
-  }
+    /**
+     * The constructor for the component
+     * @param route The route
+     */
+    constructor(private route: ActivatedRoute) { }
+
+      /**
+       * Initializes the component
+       */
+    ngOnInit() {
+        this.soyEstudiante = true;
+    }
 
 }

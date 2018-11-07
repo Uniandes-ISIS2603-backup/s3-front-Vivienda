@@ -9,18 +9,40 @@ import { CalificacionService } from '../calificacion.service';
   templateUrl: './calificacion-list.component.html'
 })
 export class CalificacionEstudianteListComponent implements OnInit{
+    
+    /**
+     * Constructor for the component
+     * @param calificacionService The reviews' service provider
+     * @param route The route
+     */
     constructor (private calificacionService:CalificacionService,
                  private route: ActivatedRoute){}
                  
+    /**
+     * Id number of the strudent
+     */
     estudiante_id : number;
+    
+    /**
+     * String refencing the type of table to show
+     */
     listaDe: String = 'estudiante';
+    
+    /**
+     * List of reviews of the student
+     */
     calificaciones: Calificacion[];
 
-
+    /**
+     * Retrieves all the reviews made by the student
+     */
     getCalificaciones(): void {
         this.calificacionService.getCalificacionesEstudiante(this.estudiante_id).subscribe(calificaciones => this.calificaciones = calificaciones);
     }
 
+    /**
+     * Initializes the component
+     */
     ngOnInit() {
         this.estudiante_id = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();

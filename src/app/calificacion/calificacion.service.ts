@@ -10,18 +10,35 @@ const calificaciones = 'calificaciones';
 
 @Injectable()
 export class CalificacionService {
-  constructor(private http: HttpClient) {
-  }
+    
+    /**
+     * Constructor of the service provider
+     * @param http The http client
+     */
+    constructor(private http: HttpClient) {
+    }
+    
+    /**
+     * Retrieves all the reviews made by the student
+     * @param estudinateId The Id numbre of the student
+     */
+    getCalificacionesEstudiante(estudianteId: number): Observable<Calificacion[]> {
+      return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/' + calificaciones);
+    }
 
-  getCalificacionesEstudiante(estudianteId: number): Observable<Calificacion[]> {
-    return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/' + calificaciones);
-  }
+    /**
+     * Retrieves all the reviews made to the housing
+     * @param viviendaId The Id numbre of the housing
+     */
+    getCalificacionesVivienda(viviendaId: number): Observable<Calificacion[]> {
+      return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/' + calificaciones);
+    }
 
-  getCalificacionesVivienda(viviendaId: number): Observable<Calificacion[]> {
-    return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/' + calificaciones);
-  }
-  
-  createCalificacion(calificacion: Calificacion): Observable<Boolean> {
-      return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
-  }
+    /**
+     * creates a new review
+     * @param calificacion The new review to create
+     */
+    createCalificacion(calificacion: Calificacion): Observable<Boolean> {
+        return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
+    }
 }
