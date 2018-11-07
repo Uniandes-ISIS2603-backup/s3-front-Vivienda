@@ -20,4 +20,8 @@ export class CalificacionService {
   getCalificacionesVivienda(viviendaId: number): Observable<Calificacion[]> {
     return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/' + calificaciones);
   }
+  
+  createCalificacion(calificacion: Calificacion): Observable<Boolean> {
+      return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
+  }
 }

@@ -5,6 +5,7 @@ export class Estudiante {
     id: number;
     nombre: String;
     login: String;
+    password: String;
     universidad: Universidad;
     calificaciones: Calificacion[];
 }

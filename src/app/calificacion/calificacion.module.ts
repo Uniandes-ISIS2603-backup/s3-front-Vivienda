@@ -10,6 +10,7 @@ import {CalificacionEstudianteListCollapseComponent} from "./calificacion-list/c
 import {CalificacionViviendaListComponent} from "./calificacion-list/calificacionvivienda-list.component";
 import {CalificacionService} from "./calificacion.service";
 import { CalificacionDetailComponent } from './calificacion-detail/calificacion-detail.component';
+import { CalificacionCreateComponent } from './calificacion-create/calificacion-create.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { CalificacionDetailComponent } from './calificacion-detail/calificacion-
     CalificacionEstudianteListComponent,
     CalificacionEstudianteListCollapseComponent,
     CalificacionViviendaListComponent,
-    CalificacionDetailComponent
+    CalificacionDetailComponent,
+    CalificacionCreateComponent
   ],
   providers: [
     CalificacionService
@@ -33,7 +35,8 @@ import { CalificacionDetailComponent } from './calificacion-detail/calificacion-
     CalificacionEstudianteListComponent,
     CalificacionEstudianteListCollapseComponent,
     CalificacionViviendaListComponent,
-    CalificacionDetailComponent
+    CalificacionDetailComponent,
+    CalificacionCreateComponent
   ]
 })
 
