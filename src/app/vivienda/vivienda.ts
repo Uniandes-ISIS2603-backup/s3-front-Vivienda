@@ -1,3 +1,6 @@
+import {ViviendaService} from "./vivienda.service";
+import {Calificacion} from "../calificacion/calificacion";
+
 export class Vivienda {
   direccion: string;
   ciudad: string;
@@ -5,6 +8,7 @@ export class Vivienda {
   nombre: string;
   descripcion: string;
   tipo: string;
+  calificacion: number;
   serviciosIncluidos: string[];
   latitud: number;
   longitud: number;
