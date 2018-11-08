@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { UniversidadService } from '../universidad.service';
 import { Universidad } from '../universidad';
 
@@ -17,6 +18,7 @@ export class UniversidadCreateComponent implements OnInit {
     */
   constructor(
         private universidadService: UniversidadService,
+        private router: Router,
         private toastrService: ToastrService) { }
 
   /**
@@ -60,7 +62,8 @@ export class UniversidadCreateComponent implements OnInit {
     * user no longer wants to create an user
     */
     cancelCreation(): void {
-        this.cancel.emit();
+        this.toastrService.warning('No se creo la universidad', 'Universidad creation');
+        this.router.navigate(['/universidades/list']);
     }
     
     /**
