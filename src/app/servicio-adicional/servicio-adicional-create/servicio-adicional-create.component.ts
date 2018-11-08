@@ -1,7 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { ServicioAdicionalService } from '../servicio-adicional.service';
 import { ServicioAdicional } from '../servicio-adicional';
+import { ViviendaService } from '../../vivienda/vivienda.service';
+import { Vivienda } from '../../vivienda/vivienda';
 
 @Component({
   selector: 'app-servicio-adicional-create',
@@ -17,13 +20,20 @@ export class ServicioAdicionalCreateComponent implements OnInit {
     */
   constructor(
         private servicioAdicionalService: ServicioAdicionalService,
-        private toastrService: ToastrService) { }
+        private toastrService: ToastrService,
+        private viviendaService: ViviendaService,
+        private router: Router
+        ) { }
 
   /**
     * El nuevo servicio adicional
     */
     servicioAdicional: ServicioAdicional;
     
+    /**
+    * The list of all the editorials in the BookStore
+    */
+    viviendas: Vivienda[];
     /**
     * The output which tells the parent component
     * that the user no longer wants to create a servicio adicional
@@ -36,22 +46,38 @@ export class ServicioAdicionalCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
     
-  /**
-    * Crea un servicio adicional
+    /**
+    * Retrieves the list of editorials in the BookStore
     */
-    //createServicioAdicional(): void {
-       // var servicio_adicional_create = {
-          //  name: this.servicioAdicional.nombre,
-           // descripcion: this.servicioAdicional.descripcion,
-       // };
-       // this.servicioAdicionalService.createServicioAdicional(servicio_adicional_create)
-           // .subscribe(() => {
-             //   this.create.emit();
-              //  this.toastrService.success("Servicio Adicional Creado", "ServicioAdicional creation");
-          //  }, err => {
-              //  this.toastrService.error(err, "Error");
-           // });
-   // }
+    getViviendas(): void {
+        this.viviendaService.getViviendas()
+            .subscribe(viviendas => {
+                this.viviendas = viviendas;
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+    }
+  /**
+    * Creates a new servicioadicional
+    */
+    createServicioAdicional(): void {
+        if (this.servicioAdicional.vivienda == null) {
+            this.toastrService.error('The servicio must have a vivienda!', 'Error');
+        } else {
+            var servicio_adicional_create = {
+                name: this.servicioAdicional.nombre,
+                descripcion: this.servicioAdicional.descripcion,
+                vivienda: this.servicioAdicional.vivienda,
+            };
+            this.servicioAdicionalService.createServicioAdicional(servicio_adicional_create)
+                .subscribe(servicioAdicional => {
+                    this.router.navigate(['/servicios-adicionales/' + servicioAdicional.id + '/details']);
+                    this.toastrService.success("The servicio adicional was successfully created", 'ServicioAdicional creation');
+                }, err => {
+                    this.toastrService.error(err, 'Error');
+                });
+        }
+    }
     
     /**
     * Emits the signal to tell the parent component that the
@@ -66,6 +92,7 @@ export class ServicioAdicionalCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.servicioAdicional = new ServicioAdicional();
+        this.getViviendas();
     }
 
 }

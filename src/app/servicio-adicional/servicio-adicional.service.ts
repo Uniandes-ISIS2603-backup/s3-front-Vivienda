@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { ServicioAdicional } from './servicio-adicional';
-//import {ServicioAdicionalDetail} from './servicio-adicional-detail';
-import { Vivienda } from '../vivienda/vivienda';
 
 import {environment} from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const serviciosAdicionales = '/servicios-adicionales';
-const viviendas = '/viviendas';
 
+/**
+* The service provider for everything related to servicios adicionales
+*/
 @Injectable()
 export class ServicioAdicionalService {
 
@@ -21,21 +21,31 @@ export class ServicioAdicionalService {
     */
   constructor(private http: HttpClient) { }
   
+   /**
+    * Retrieves the list of servicios adicionales in univivienda
+    * @returns La lista de servicios adicionales
+    */
    getServiciosAdicionales(): Observable<ServicioAdicional[]> {
         return this.http.get<ServicioAdicional[]>(API_URL + serviciosAdicionales);
     }
     
     /**
-     * creates a new review
-     * @param calificacion The new review to create
-     */
-    //createServicioAdicional(servicioAdicional: ServicioAdicional): Observable<Boolean> {
-      //  return this.http.post<Boolean>(API_URL + viviendas + '/' + servicio-adicional.vivienda.id + '/' + serviciosAdicionales, servicioAdicional);
-    //}
+    * Recupera la informacion de un servicio adicional en una vivienda dado su id
+    * @param servicioAdicionalId eL id del servicio adicional
+    * @returns El servicio adicional
+    */
+    getServicioAdicional(servicioAdicionalId): Observable<ServicioAdicional> {
+        return this.http.get<ServicioAdicional>(API_URL + serviciosAdicionales + '/' + servicioAdicionalId);
+    }
     
-   // getServicioAdicionalDetail(servicioAdicionalId): Observable<ServicioAdicionalDetail> {
-       // return this.http.get<ServicioAdicionalDetail>(API_URL + serviciosAdicionales + '/' + servicioAdicionalId);
-    //}
+   /**
+    * Crea un nuevo servicio adicional
+    * @param book El nuevo servicio adicional
+    * @returns El servicio adicional con su nuevo id si fue creado, false si no
+    */
+    createServicioAdicional(servicioAdicional): Observable<ServicioAdicional> {
+        return this.http.post<ServicioAdicional>(API_URL + serviciosAdicionales, servicioAdicional);
+    }
     
 
     
