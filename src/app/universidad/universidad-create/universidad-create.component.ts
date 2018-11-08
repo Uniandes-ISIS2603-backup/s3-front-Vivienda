@@ -39,15 +39,20 @@ export class UniversidadCreateComponent implements OnInit {
   /**
     * Crea una universidad
     */
-        createUniversidad(): Universidad {
-            
-        this.universidadService.createUniversidad(this.universidad)
-            .subscribe((universidad) => {
-                this.universidad = universidad;
+    createUniversidad(): void {
+        var universidad_create = {
+            name: this.universidad.nombre,
+            latitud: this.universidad.latitud,
+            longitud: this.universidad.longitud,
+            image: this.universidad.imgUrl
+        };
+        this.universidadService.createUniversidad(universidad_create)
+            .subscribe(() => {
                 this.create.emit();
-                this.toastrService.success("La universidad fue creada", "Universidad creation");                
+                this.toastrService.success("Universidad Creada", "Universidad creation");
+            }, err => {
+                this.toastrService.error(err, "Error");
             });
-            return this.universidad;
     }
     
     /**

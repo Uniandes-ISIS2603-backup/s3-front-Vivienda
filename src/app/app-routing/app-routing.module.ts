@@ -25,6 +25,7 @@ import {UniversidadCreateComponent} from '../universidad/universidad-create/univ
 import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
 import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adicional-list/servicio-adicional-list.component';
 import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
+import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-adicional-create/servicio-adicional-create.component';
 
 const routes: Routes = [
 
