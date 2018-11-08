@@ -21,6 +21,7 @@ import {RegistrarseComponent} from '../shared/registrarse/registrarse.component'
 import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
 import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
+import {UniversidadCreateComponent} from '../universidad/universidad-create/universidad-create.component';
 import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
 import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adicional-list/servicio-adicional-list.component';
 import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
@@ -105,6 +106,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: UniversidadListComponent
+      },
+      {
+        path: 'create',
+        component: UniversidadCreateComponent
       }
     ]
   },

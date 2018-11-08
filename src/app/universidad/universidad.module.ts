@@ -6,6 +6,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { UniversidadService } from './universidad.service';
+import { UniversidadCreateComponent } from './universidad-create/universidad-create.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { UniversidadService } from './universidad.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [UniversidadListComponent],
+  declarations: [UniversidadListComponent, UniversidadCreateComponent],
   providers: [UniversidadService],
   exports:[UniversidadListComponent]
 })

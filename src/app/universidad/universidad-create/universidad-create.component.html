@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Registrar Universidad</h2>
+        <br>
+        <form name="universidad" (ngSubmit)="f.form.valid && createUniversidad()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="universidadNombre"><b>Nombre</b></label>
+                <input type="text" name="universidadNombre" class="form-control" id="universidadNombre" [(ngModel)]="universidad.nombre"
+                    #universidadNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Ingresar Nombre Universidad</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="universidadLatitud"><b>Latitud</b></label>
+                <input type="text" name="universidadLatitud" class="form-control" id="universidadLatitud" [(ngModel)]="universidad.latitud"
+                    #universidadLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadLatitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar Latitud Universidad</div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label for="universidadLongitud"><b>Longitud</b></label>
+                <input type="text" name="universidadLongitud" class="form-control" id="universidadLongitud" [(ngModel)]="universidad.longitud"
+                    #universidadLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ingresar Longitud Universidad</div>
+                </div>
+            </div>
+              
+            <div class="form-group">
+                <label for="universidadImage"><b>URL Imagen</b></label>
+                <input type="text" name="universidadImage" class="form-control" id="universidadImage" [(ngModel)]="universidad.imgURL"
+                    #universidadImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadImage.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Ingresar URL Imagen Universidad</div>
+                </div>
+            </div>
+              
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
