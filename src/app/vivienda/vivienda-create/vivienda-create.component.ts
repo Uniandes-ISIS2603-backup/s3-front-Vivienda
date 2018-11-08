@@ -4,8 +4,7 @@ import {ViviendaService} from '../vivienda.service';
 import {ToastrService} from 'ngx-toastr';
 import {Cuarto} from '../../cuarto/cuarto';
 import {CuartoService} from '../../cuarto/cuarto.service';
-import {isEmpty} from 'rxjs/operators';
-import {and} from '../../../../node_modules/@angular/router/src/utils/collection';
+import {Router} from "@angular/router";
 
 // Componente usado para crear un vivienda y sus cuartos
 @Component({
@@ -24,7 +23,8 @@ export class ViviendaCreateComponent implements OnInit {
 
   constructor(private viviendaService: ViviendaService,
               private cuartosService: CuartoService,
-              private toastrService: ToastrService) {
+              private toastrService: ToastrService,
+              private router: Router) {
   }
 
   @Output() cancel = new EventEmitter();
@@ -82,6 +82,7 @@ export class ViviendaCreateComponent implements OnInit {
 
   cancelCreation() {
     this.cancel.emit();
+    this.router.navigate(['viviendas/list'])
   }
 
   ngOnInit() {

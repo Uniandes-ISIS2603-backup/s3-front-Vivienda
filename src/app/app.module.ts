@@ -39,7 +39,11 @@ import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.m
     UniversidadModule,
     CuartoModule,
     ServicioAdicionalModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
