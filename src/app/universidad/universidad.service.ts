@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Universidad} from './universidad';
 
@@ -10,38 +10,39 @@ const universidades = '/universidades';
 
 @Injectable()
 export class UniversidadService {
-   
-   /**
-    * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
-    */
-   constructor(private http: HttpClient) { }
-   
-   
-   getUniversidades() : Observable<Universidad[]> {
-   return this.http.get<Universidad[]>(API_URL + universidades);
-   }
-   
-   /**
-    * Retrieves a universidad given its id
-    * @param universidadId El id de la universidad
-    * @returns La Universidad
-    */
-    getUniversidad(universidadId): Observable<Universidad> {
-        return this.http.get<Universidad>(API_URL + universidades + '/' + universidadId);
-    }
-    
-   /**
-    * Crea una universidad
-    * @param universidad La nueva universidad
-    * @returns La nueva universidad con un nuevo id
-    */
-    createUniversidad(universidad): Observable<Universidad> {
-        return this.http.post<Universidad>(API_URL + universidades, universidad);
-    }
-    
-    generarDatos(): Observable<any> {
+
+  /**
+   * Constructor of the service
+   * @param http The HttpClient - This is necessary in order to perform requests
+   */
+  constructor(private http: HttpClient) {
+  }
+
+
+  getUniversidades(): Observable<Universidad[]> {
+    return this.http.get<Universidad[]>(API_URL + universidades);
+  }
+
+  /**
+   * Retrieves a universidad given its id
+   * @param universidadId El id de la universidad
+   * @returns La Universidad
+   */
+  getUniversidad(universidadId): Observable<Universidad> {
+    return this.http.get<Universidad>(API_URL + universidades + '/' + universidadId);
+  }
+
+  /**
+   * Crea una universidad
+   * @param universidad La nueva universidad
+   * @returns La nueva universidad con un nuevo id
+   */
+  createUniversidad(universidad): Observable<Universidad> {
+    return this.http.post<Universidad>(API_URL + universidades, universidad);
+  }
+
+  generarDatos(): Observable<any> {
     return this.http.post<any>(API_URL + universidades + '/generardatos', null);
   }
-   
+
 }

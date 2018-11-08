@@ -42,8 +42,10 @@ export class ContratoService {
    * Da los contratos que se consiguen por medio de la peticion http
    */
   getContratos(): Observable<Contrato[]> {
+    // return this.http.get<Contrato[]>(API_URL + contracts);
     return this.http.get<Contrato[]>(contratos);
   }
+
 
   /**
    * Da el contrato detail por medio de una peticion http

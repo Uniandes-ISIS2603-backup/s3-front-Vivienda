@@ -26,6 +26,7 @@ import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-crea
 import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adicional-list/servicio-adicional-list.component';
 import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
 import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-adicional-create/servicio-adicional-create.component';
+import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 
 const routes: Routes = [
 
@@ -81,6 +82,15 @@ const routes: Routes = [
       {
         path: ':id',
         component: CalificacionDetailComponent
+      }
+    ]
+  },
+  {
+    path: 'cuartos',
+    children: [
+      {
+        path: 'list/:id',
+        component: CuartoListComponent
       }
     ]
   },

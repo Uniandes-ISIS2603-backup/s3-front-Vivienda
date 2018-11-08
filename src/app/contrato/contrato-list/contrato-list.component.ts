@@ -24,6 +24,16 @@ export class ContratoListComponent implements OnInit {
   }
 
   /**
+   * Id number of the housing
+   */
+  vivienda_id: number;
+
+  /**
+   * String referencing the type of table to show
+   */
+  listaDe: String = 'vivienda';
+
+  /**
    * Lista de contratos que se van a desplegar
    */
   contratos: Contrato[];

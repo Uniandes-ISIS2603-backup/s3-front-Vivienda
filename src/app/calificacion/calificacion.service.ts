@@ -10,35 +10,35 @@ const calificaciones = 'calificaciones';
 
 @Injectable()
 export class CalificacionService {
-    
-    /**
-     * Constructor of the service provider
-     * @param http The http client
-     */
-    constructor(private http: HttpClient) {
-    }
-    
-    /**
-     * Retrieves all the reviews made by the student
-     * @param estudinateId The Id numbre of the student
-     */
-    getCalificacionesEstudiante(estudianteId: number): Observable<Calificacion[]> {
-      return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/' + calificaciones);
-    }
 
-    /**
-     * Retrieves all the reviews made to the housing
-     * @param viviendaId The Id numbre of the housing
-     */
-    getCalificacionesVivienda(viviendaId: number): Observable<Calificacion[]> {
-      return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/' + calificaciones);
-    }
+  /**
+   * Constructor of the service provider
+   * @param http The http client
+   */
+  constructor(private http: HttpClient) {
+  }
 
-    /**
-     * creates a new review
-     * @param calificacion The new review to create
-     */
-    createCalificacion(calificacion: Calificacion): Observable<Boolean> {
-        return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
-    }
+  /**
+   * Retrieves all the reviews made by the student
+   * @param estudianteId The Id numbre of the student
+   */
+  getCalificacionesEstudiante(estudianteId: number): Observable<Calificacion[]> {
+    return this.http.get<Calificacion[]>(API_URL + estudiantes + '/' + estudianteId + '/' + calificaciones);
+  }
+
+  /**
+   * Retrieves all the reviews made to the housing
+   * @param viviendaId The Id numbre of the housing
+   */
+  getCalificacionesVivienda(viviendaId: number): Observable<Calificacion[]> {
+    return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/' + calificaciones);
+  }
+
+  /**
+   * creates a new review
+   * @param calificacion The new review to create
+   */
+  createCalificacion(calificacion: Calificacion): Observable<Boolean> {
+    return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
+  }
 }

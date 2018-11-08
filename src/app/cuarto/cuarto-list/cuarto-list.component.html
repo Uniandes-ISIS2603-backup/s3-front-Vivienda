@@ -1,3 +1,15 @@
-<p>
-  cuarto-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-xs-6" *ngFor="let cuarto of cuartos">
+      <div class="card" routerLink="/cuartos/list/{{cuarto}}" style="cursor: pointer;">
+        <div class="card-body">
+          <h4 class="card-title">Contrato {{cuarto.id}}</h4>
+          <p><b>Nombre: {{cuarto.nombre}}</b></p>
+          <p> <strong>Descripcion: </strong> {{cuarto.descripcion}} </p>
+          <p> <strong>Costo Arriendo: </strong> {{cuarto.costoArriendo}} </p>
+          <p>0.0<i class="fas fa-star"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
