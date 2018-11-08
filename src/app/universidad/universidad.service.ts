@@ -6,7 +6,7 @@ import {Universidad} from './universidad';
 import {environment} from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const universidades = 'assets/universidades.json';
+const universidades = '/universidades';
 
 @Injectable()
 export class UniversidadService {
@@ -14,7 +14,7 @@ export class UniversidadService {
    constructor(private http: HttpClient) { }
    
    getUniversidades() : Observable<Universidad[]> {
-   return this.http.get<Universidad[]>(universidades);
+   return this.http.get<Universidad[]>(API_URL + universidades);
    }
    
    

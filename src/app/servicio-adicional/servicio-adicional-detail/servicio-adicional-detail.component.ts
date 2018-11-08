@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { ServicioAdicionalService } from '../servicio-adicional.service';
+//import {ServicioAdicionalDetail} from '../servicio-adicional-detail';
 
 @Component({
   selector: 'app-servicio-adicional-detail',
@@ -7,9 +12,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicioAdicionalDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+        private servicioAdicionalService: ServicioAdicionalService,
+        private route: ActivatedRoute) { }
+  
+  /**
+   * The service whose details we want to show
+   */
+  // servicioAdicionalDetail: ServicioAdicionalDetail;
+   
+ /**
+  * The services's id retrieved from the address
+  */
+  //servicioAdicional_id: number;
+  
+  //getServicioAdicionalDetail(): void {
+    //this.servicioAdicionalService.getServicioAdicionalDetail(this.servicioAdicional_id)
+      //.subscribe(servicioAdicionalDetail => {
+       // this.servicioAdicionalDetail = servicioAdicionalDetail;
+      //});
+ // }
 
-  ngOnInit() {
+  ngOnInit() {    
+      //this.servicioAdicional_id = +this.route.snapshot.paramMap.get('id');
+     // this.servicioAdicionalDetail = new ServicioAdicionalDetail();
+      //this.getServicioAdicionalDetail();
   }
 
 }
