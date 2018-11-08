@@ -22,7 +22,15 @@ export class UniversidadService {
    return this.http.get<Universidad[]>(API_URL + universidades);
    }
    
-   
+   /**
+    * Retrieves a universidad given its id
+    * @param universidadId El id de la universidad
+    * @returns La Universidad
+    */
+    getUniversidad(universidadId): Observable<Universidad> {
+        return this.http.get<Universidad>(API_URL + universidades + '/' + universidadId);
+    }
+    
    /**
     * Crea una universidad
     * @param universidad La nueva universidad

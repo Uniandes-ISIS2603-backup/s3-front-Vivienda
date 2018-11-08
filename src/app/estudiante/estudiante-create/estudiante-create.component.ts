@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { EstudianteService } from '../estudiante.service';
+import { UniversidadService } from '../../universidad/universidad.service';
 import { Estudiante } from '../estudiante';
-import { Universidad } from '../universidad';
+import { Universidad } from '../../universidad/universidad';
 
 @Component({
   selector: 'app-estudiante-create',
@@ -18,6 +19,7 @@ export class EstudianteCreateComponent implements OnInit {
      */
     constructor(
         private estudianteService: EstudianteService,
+        private universidadService: UniversidadService,
         private toastrService: ToastrService
     ) { }
     
@@ -56,10 +58,13 @@ export class EstudianteCreateComponent implements OnInit {
     /**
      * Retrieves all the universities in UniVivienda
      */
-    getUniversidades(): void{
-        this.estudianteService.getUniversidades().subscribe((univs) =>{
-            this.universidades = univs;
-        });
+    getUniversidades(): void {
+        this.universidadService.getUniversidades()
+            .subscribe(universidades => {
+                this.universidades = universidades;
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
     }
     
     /**

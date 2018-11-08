@@ -1,4 +1,4 @@
-import {Universidad} from './universidad'
+import { Universidad } from '../universidad/universidad';
 import {Calificacion} from '../calificacion/calificacion'
 
 export class Estudiante {
