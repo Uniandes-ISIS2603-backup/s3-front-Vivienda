@@ -12,17 +12,26 @@ import {Vivienda} from '../../vivienda/vivienda';
 })
 export class ContratoCreateComponent implements OnInit {
 
-  // El contrato
+  /**
+   * Contrato que se va a crear
+   */
   contrato: Contrato;
 
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
+  /**
+   * Constructor de la clase
+   * @param contratoService - Servicio del contrato que se asocia
+   * @param toastrService - Servicio de Toastr que se usa para revisar la logica del forum
+   */
   constructor(private contratoService: ContratoService,
               private toastrService: ToastrService) {
   }
 
-  // Metodo donde se crea un contrato y se hace submit
+  /**
+   * Metodo donde se crea un contrato y se hace submit
+   */
   crearContrato() {
     // Manda el post request del contrato
     this.contratoService.createContrato(this.contrato).subscribe((contratoCreado: Contrato) => {
@@ -33,10 +42,16 @@ export class ContratoCreateComponent implements OnInit {
     });
   }
 
+  /**
+   * Cancela una creacion de un contrato
+   */
   cancelCreation() {
     this.cancel.emit();
   }
 
+  /**
+   * Se invoca cuando se inicia el proyecto con angular
+   */
   ngOnInit() {
     this.contrato = new Contrato();
   }

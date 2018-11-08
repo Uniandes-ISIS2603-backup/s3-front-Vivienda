@@ -9,16 +9,35 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './contrato-list.component.html',
   styleUrls: ['./contrato-list.component.css']
 })
+
+/**
+ * Clase encargada del componente para listar contratos
+ */
 export class ContratoListComponent implements OnInit {
+
+  /**
+   * Constructor de la clase ContratoListComponent
+   * @param contratoService - Servicio asociado a la clase
+   * @param route - Enrutador por el que se hara las conexiones
+   */
   constructor(private contratoService: ContratoService, private route: ActivatedRoute) {
   }
 
+  /**
+   * Lista de contratos que se van a desplegar
+   */
   contratos: Contrato[];
 
+  /**
+   * Da los contratos por medio de una suscripcion a una peticion de http
+   */
   getContratos(): void {
     this.contratoService.getContratos().subscribe(pp => this.contratos = pp);
   }
 
+  /**
+   * Se llama cuando se inicia angular
+   */
   ngOnInit() {
     this.getContratos();
   }
