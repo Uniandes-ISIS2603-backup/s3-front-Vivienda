@@ -35,27 +35,25 @@ export class AppComponent implements OnInit {
     this.viviendaService.generarDatos().subscribe(() => {
       this.create.emit();
       this.toastrService.success('Se generaron datos para las viviendas', 'Resultado');
-    }, error1 => {
-      this.toastrService.error('No se pudieron generar datos', 'resultado');
-    });
+      this.estudiantesService.generarDatos().subscribe(() => {
+        this.create.emit();
+        this.toastrService.success('Se generaron datos para los estudiantes', 'Resultado');
+        this.arrendadorService.generarDatos().subscribe(() => {
+          this.create.emit();
+          this.toastrService.success('Se generaron datos para los arrendadores', 'Resultado');
+          this.universidadService.generarDatos().subscribe(() => {
+            this.create.emit();
+            this.toastrService.success('Se generaron datos para las universidades', 'Resultado');
+          }, error1 => {
+            this.toastrService.error('No se pudieron generar datos', 'resultado');
+          });
+        }, error1 => {
+          this.toastrService.error('No se pudieron generar datos', 'resultado');
+        });
 
-    this.estudiantesService.generarDatos().subscribe(() => {
-      this.create.emit();
-      this.toastrService.success('Se generaron datos para los estudiantes', 'Resultado');
-    }, error1 => {
-      this.toastrService.error('No se pudieron generar datos', 'resultado');
-    });
-
-    this.arrendadorService.generarDatos().subscribe(() => {
-      this.create.emit();
-      this.toastrService.success('Se generaron datos para los arrendadores', 'Resultado');
-    }, error1 => {
-      this.toastrService.error('No se pudieron generar datos', 'resultado');
-    });
-    
-    this.universidadService.generarDatos().subscribe(() => {
-      this.create.emit();
-      this.toastrService.success('Se generaron datos para las universidades', 'Resultado');
+      }, error1 => {
+        this.toastrService.error('No se pudieron generar datos', 'resultado');
+      });
     }, error1 => {
       this.toastrService.error('No se pudieron generar datos', 'resultado');
     });
