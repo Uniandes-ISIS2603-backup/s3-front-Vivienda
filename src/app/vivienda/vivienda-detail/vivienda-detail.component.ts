@@ -29,19 +29,8 @@ export class ViviendaDetailComponent implements OnInit {
       });
   }
 
-  darCalificacion(viviendaId): number {
-    // let calificacion = 0;
-    // this.viviendaService.getCalificaciones(viviendaId).subscribe(calificaciones => {
-    //   let suma = 0;
-    //   let n = 0;
-    //   for (let calificacion of calificaciones){
-    //     suma += calificacion.puntaje;
-    //     n++;
-    //   }
-    //   calificacion = suma/n;
-    // });
-    // return calificacion;
-    return 8.4;
+  darCalificacion(): String {
+      return this.viviendaService.promediarCalificaciones(this.viviendaDetail);
   }
 
 

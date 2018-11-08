@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import {CalificacionModule} from '../calificacion/calificacion.module';
 import {ViviendaListComponent} from './vivienda-list/vivienda-list.component';
 import {ViviendaService} from './vivienda.service';
 import {ViviendaDetailComponent} from './vivienda-detail/vivienda-detail.component';
@@ -19,7 +19,8 @@ import {ViviendaCreateComponent} from './vivienda-create/vivienda-create.compone
     HttpClientModule,
     CommonModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    CalificacionModule
   ],
   declarations: [
     ViviendaListComponent,

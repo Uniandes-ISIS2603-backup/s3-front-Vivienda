@@ -1,12 +1,12 @@
 <p>
   <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-    Calificaciones del Estudiante
+    Calificaciones
   </button>
 </p>
 <div class="row">
   <div class="col" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
-    <table class="table table-hover">
+    <table class="table table-hover" style="text-align: center">
       <thead class="thead-light">
       <tr>
         <th *ngIf="listaDe == 'estudiante'">Vivienda</th>

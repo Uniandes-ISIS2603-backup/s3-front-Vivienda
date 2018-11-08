@@ -19,19 +19,9 @@ export class ViviendaListComponent implements OnInit {
     getViviendas(): void {
       this.viviendaService.getViviendas().subscribe(viviendas => {
         this.viviendas = viviendas;
-        this.mapearCalificaciones();
+        this.mapeoCalificaciones = this.viviendaService.mapearCalificaciones(this.viviendas);
         console.log(this.viviendas);
       });
-    }
-
-    mapearCalificaciones(): void {
-        for (let vivienda of this.viviendas){
-            let suma:number = 0;
-            for (let calificacion of vivienda.calificaciones)
-                suma += calificacion.puntaje;
-            this.mapeoCalificaciones[vivienda.id] = (vivienda.calificaciones && vivienda.calificaciones.length > 0)?
-                (suma / vivienda.calificaciones.length).toFixed(2):"N/A";
-        }
     }
 
     ngOnInit() {

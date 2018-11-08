@@ -9,7 +9,11 @@
     <div class="col-lg-7 col-sm-12">
       <p>{{viviendaDetail.descripcion}}</p>
     </div>
-
-
+    <div class="col-lg-12 col-sm-12" *ngIf="viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0">
+      <calificacion-vivienda-listcollapse [calificaciones]="viviendaDetail.calificaciones">Calificaciones</calificacion-vivienda-listcollapse>
+    </div>
+    <div class="col-lg-12 col-sm-12" *ngIf="!(viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0)">
+      No tiene calificaciones
+    </div>
   </div>
 </div>

@@ -36,4 +36,22 @@ export class ViviendaService {
   getCalificaciones(viviendaId: number): Observable<Calificacion[]> {
     return this.http.get<Calificacion[]>(API_URL + viviendas + "/" + viviendaId + "/calificaciones");
   }
+  
+    mapearCalificaciones(viviendas: Vivienda[]): any {
+        let mapeoCalificaciones = {};
+        for (let vivienda of viviendas)
+            mapeoCalificaciones[vivienda.id] = this.promediarCalificaciones(vivienda);
+        return mapeoCalificaciones;
+    }
+    
+    promediarCalificaciones(vivienda: Vivienda): String{
+        if (vivienda.calificaciones && vivienda.calificaciones.length > 0){ 
+            let suma:number = 0;
+            for (let calificacion of vivienda.calificaciones)
+                suma += calificacion.puntaje;
+            return (suma / vivienda.calificaciones.length).toFixed(2);
+        }else
+            return "N/A";
+    }
+    
 }
