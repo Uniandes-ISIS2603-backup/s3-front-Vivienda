@@ -9,37 +9,33 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./vivienda-list.component.css']
 })
 export class ViviendaListComponent implements OnInit {
-  constructor(private viviendaService: ViviendaService, private route: ActivatedRoute) {
-  }
+    constructor(private viviendaService: ViviendaService, private route: ActivatedRoute) {}
 
-  viviendas: Vivienda[];
+    mapeoCalificaciones = {};
+    viviendas: Vivienda[];
 
 
-  //Obtiene el json de viviendas y se lo asigna a la lista de viviendas
-  getViviendas(): void {
-    this.viviendaService.getViviendas().subscribe(viviendas => {
-      this.viviendas = viviendas;
-      console.log(this.viviendas);
-    });
-  }
+    //Obtiene el json de viviendas y se lo asigna a la lista de viviendas
+    getViviendas(): void {
+      this.viviendaService.getViviendas().subscribe(viviendas => {
+        this.viviendas = viviendas;
+        this.mapearCalificaciones();
+        console.log(this.viviendas);
+      });
+    }
 
-  darCalificacion(viviendaId): number {
-    // let calificacion = 0;
-    // this.viviendaService.getCalificaciones(viviendaId).subscribe(calificaciones => {
-    //   let suma = 0;
-    //   let n = 0;
-    //   for (let calificacion of calificaciones){
-    //     suma += calificacion.puntaje;
-    //     n++;
-    //   }
-    //   calificacion = suma/n;
-    // });
-    // return calificacion;
-    return 8.4;
-  }
+    mapearCalificaciones(): void {
+        for (let vivienda of this.viviendas){
+            let suma:number = 0;
+            for (let calificacion of vivienda.calificaciones)
+                suma += calificacion.puntaje;
+            this.mapeoCalificaciones[vivienda.id] = (vivienda.calificaciones && vivienda.calificaciones.length > 0)?
+                (suma / vivienda.calificaciones.length).toFixed(2):"N/A";
+        }
+    }
 
-  ngOnInit() {
-    this.getViviendas();
-  }
+    ngOnInit() {
+      this.getViviendas();
+    }
 
 }

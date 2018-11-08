@@ -8,7 +8,7 @@ export class Vivienda {
   nombre: string;
   descripcion: string;
   tipo: string;
-  calificacion: number;
+  calificaciones: Calificacion[];
   serviciosIncluidos: string[];
   latitud: number;
   longitud: number;
