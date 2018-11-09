@@ -9,6 +9,7 @@ import {EstudianteListComponent} from './estudiante-list/estudiante-list.compone
 import {EstudianteService} from './estudiante.service';
 import {EstudianteDetailComponent} from './estudiante-detail/estudiante-detail.component';
 import {EstudianteCreateComponent} from './estudiante-create/estudiante-create.component';
+import { EstudianteEditComponent } from './estudiante-edit/estudiante-edit.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {EstudianteCreateComponent} from './estudiante-create/estudiante-create.c
   declarations: [
     EstudianteListComponent,
     EstudianteDetailComponent,
-    EstudianteCreateComponent
+    EstudianteCreateComponent,
+    EstudianteEditComponent
   ],
   providers: [
     EstudianteService
@@ -30,7 +32,8 @@ import {EstudianteCreateComponent} from './estudiante-create/estudiante-create.c
   exports: [
     EstudianteListComponent,
     EstudianteDetailComponent,
-    EstudianteCreateComponent
+    EstudianteCreateComponent,
+    EstudianteEditComponent
   ]
 })
 

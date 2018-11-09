@@ -47,6 +47,14 @@ export class EstudianteService {
     createEstudiante(estudiante: Estudiante): Observable<boolean>{
         return this.http.post<boolean>(API_URL + estudiantes, estudiante);
     }
+    
+    /**
+     * Edits the student 
+     * @param estudiante The student with new attributes
+     */
+    updateEstudiante(estudiante:Estudiante): Observable<Estudiante>{
+        return this.http.put<Estudiante>(API_URL + estudiantes + '/' + estudiante.id, estudiante);
+    }
 
     /**
      * Generates data to populate UniVivienda's data base

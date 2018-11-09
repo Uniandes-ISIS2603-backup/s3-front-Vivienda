@@ -7,6 +7,7 @@ import {SignInComponent} from '../sign-in/sign-in.component';
 import {EstudianteListComponent} from '../estudiante/estudiante-list/estudiante-list.component';
 import {EstudianteDetailComponent} from '../estudiante/estudiante-detail/estudiante-detail.component';
 import {EstudianteCreateComponent} from '../estudiante/estudiante-create/estudiante-create.component';
+import {EstudianteEditComponent} from '../estudiante/estudiante-edit/estudiante-edit.component';
 import {CalificacionCreateComponent} from '../calificacion/calificacion-create/calificacion-create.component';
 import {CalificacionEstudianteListComponent} from '../calificacion/calificacion-list/calificacionestudiante-list.component';
 import {CalificacionViviendaListComponent} from '../calificacion/calificacion-list/calificacionvivienda-list.component';
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: EstudianteCreateComponent
+      },
+      {
+        path: 'edit/:id',
+        component: EstudianteEditComponent
       },
       {
         path: ':id',

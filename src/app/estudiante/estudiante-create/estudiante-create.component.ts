@@ -45,8 +45,7 @@ export class EstudianteCreateComponent implements OnInit {
      * Creates a new student
      */
     createEstudiante(): void{
-        this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre = par.nombre))[0];
-        window.alert(this.estudiante.universidad.nombre);
+        this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre == par.nombre))[0];
         this.estudianteService.createEstudiante(this.estudiante).subscribe(() => {
             this.create.emit();
             this.toastrService.success("El estudiante se creó", "Creación de Estudiante")
