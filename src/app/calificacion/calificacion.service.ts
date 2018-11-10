@@ -41,4 +41,20 @@ export class CalificacionService {
   createCalificacion(calificacion: Calificacion): Observable<Boolean> {
     return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
   }
+  
+  /**
+   * updates a review
+   * @param calificacion The review with new information
+   */
+  updateCalificacion(calificacion: Calificacion): Observable<Calificacion> {
+      return this.http.put<Calificacion>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones + '/' + calificacion.id, calificacion);
+  }
+  
+  /**
+   * deletes a review
+   * @param calificacion The review to delete
+   */
+  deleteCalificacion(calificacion: Calificacion): Observable<boolean> {
+      return this.http.delete<boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones + '/' + calificacion.id);
+  }
 }

@@ -11,10 +11,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let e of estudiantes">
-                        <td>
-                            <dd id="estudiante-name" class="figure-caption" routerLink="/estudiante/{{e.id}}"> {{ e.nombre }}</dd>
-                        </td>
+                    <tr *ngFor = "let e of estudiantes" routerLink="/estudiante/{{e.id}}">
+                        <td>{{ e.nombre }}</td>
                         <td>{{e.login}}</td>
                         <td>{{e.universidad.nombre}}</td>
 

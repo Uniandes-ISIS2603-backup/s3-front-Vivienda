@@ -1,11 +1,14 @@
-<p>
-  <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-    Calificaciones
-  </button>
-</p>
+<div class='row'>
+    <div class='col-6'><p>
+        <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          Calificaciones
+        </button>
+    </p></div>
+</div>
+
 <div class="row">
-  <div class="col" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
+  <div class="col-12" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
     <table class="table table-hover" style="text-align: center">
       <thead class="thead-light">
       <tr>
@@ -27,4 +30,8 @@
       </tbody>
     </table>
   </div>
+   <div class='col-12' style='text-align: center; vertical-align: top' [ngbCollapse]="isCollapsed">
+        <a *ngIf="listaDe == 'estudiante'" routerLink='/calificacion/listestudiante/{{calificaciones[0].estudiante.id}}'>
+            Editar/Mostrar Todas</a>
+    </div>
 </div>

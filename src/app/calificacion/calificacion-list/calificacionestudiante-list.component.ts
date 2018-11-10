@@ -17,7 +17,12 @@ export class CalificacionEstudianteListComponent implements OnInit{
      */
     constructor (private calificacionService:CalificacionService,
                  private route: ActivatedRoute){}
-                 
+        
+    /**
+     * The review that the user chose to edit
+     */
+    calificacionPorEditar : Calificacion;
+
     /**
      * Id number of the strudent
      */
@@ -44,6 +49,7 @@ export class CalificacionEstudianteListComponent implements OnInit{
      * Initializes the component
      */
     ngOnInit() {
+        this.calificacionPorEditar = null;
         this.estudiante_id = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
     }

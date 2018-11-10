@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col">
+        <br>
+        <h2 class="text-center">Editar/Eliminar Calificación</h2>
+        <br>
+        <form name="estudiante" (ngSubmit)="f.form.valid && editCalificacion()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="oPassword"><h4>Contraseña</h4></label>
+              <input type="password" name="oPassword" class="form-control" id="oPassword" [(ngModel)]="password"
+                    #oPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && oPassword.invalid }" required>
+              <div class="invalid-feedback">
+                   <div>Falta la contraseña</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="puntaje"><h4>Puntaje</h4></label>
+              <input type="number" name="puntaje" class="form-control" id="puntaje" [(ngModel)]="calificacion.puntaje"
+                    #puntaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntaje.invalid }" required>
+              <div class="invalid-feedback">
+                   <div>Falta el puntaje</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="descripcion"><h4>Descripción</h4></label>
+              <input type="text" name="descripcion" class="form-control" id="descripcion" [(ngModel)]="calificacion.descripcion"
+                    #descripcion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && descripcion.invalid }" required>
+              <div class="invalid-feedback">
+                   <div>Falta la descripción</div>
+              </div>
+            </div>
+             <div class="row form-inline justify-content-center align-self-center">
+                 <div class="col" style="text-align:center">
+                     <button type="submit" class="btn btn-primary"><h4>Editar</h4></button>
+                 </div>
+                 <div class="col" style="text-align:center">
+                    <button type="button" class="btn btn-danger" (click)="deleteCalificacion()"><h4>Eliminar</h4></button>
+                 </div>
+            </div>
+        </form>
+    </div>
+</div>

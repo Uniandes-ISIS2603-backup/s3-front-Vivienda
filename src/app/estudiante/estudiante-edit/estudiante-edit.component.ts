@@ -60,13 +60,13 @@ export class EstudianteEditComponent implements OnInit {
 
     /**
     * The output which tells the parent component
-    * that the user no longer wants to create an author
+    * that the user no longer wants to edit a student
     */
     @Output() cancel = new EventEmitter();
 
     /**
     * The output which tells the parent component
-    * that the user updated a new author
+    * that the user updated the student's information
     */
     @Output() update = new EventEmitter();
     

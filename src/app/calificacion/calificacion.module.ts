@@ -12,6 +12,7 @@ import {CalificacionViviendaListComponent} from './calificacion-list/calificacio
 import {CalificacionService} from './calificacion.service';
 import {CalificacionDetailComponent} from './calificacion-detail/calificacion-detail.component';
 import {CalificacionCreateComponent} from './calificacion-create/calificacion-create.component';
+import { CalificacionEditComponent } from './calificacion-edit/calificacion-edit.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {CalificacionCreateComponent} from './calificacion-create/calificacion-cr
     CalificacionViviendaListComponent,
     CalificacionDetailComponent,
     CalificacionCreateComponent,
-    CalificacionViviendaListCollapseComponent
+    CalificacionViviendaListCollapseComponent,
+    CalificacionEditComponent
   ],
   providers: [
     CalificacionService
