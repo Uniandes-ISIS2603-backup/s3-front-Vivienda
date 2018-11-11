@@ -8,6 +8,7 @@ import {SitioInteres} from '../sitioInteres';
 })
 export class ViviendaSitiosInteresComponent implements OnInit {
   @Input() viviendaSitioInteres: SitioInteres [];
+  @Input() viviendaId: string;
   public isCollapsed = true;
 
   ngOnInit() {

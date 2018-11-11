@@ -1,25 +1,26 @@
 
-<p>
+<p id="boton">
     <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
             [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
         Sitios de interes de la Vivienda
     </button>
 </p>
-<div id="collapseExample">
-<div class="container">
 <div class="row">
-<div class="col-lg-4 col-xs-6" *ngFor="let sitioInteres of viviendaSitioInteres">
-  <div id="sitios">
-  <div class="card border-info">
-    <img class="card-img-top img responsive" src="{{sitioInteres.img}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{sitioInteres.nombre}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Descripcción:</h6>
-      <p class="card-text">{{sitioInteres.descripccion}}</p>
-    </div>
-    </div>
-     </div>
+  <div class="col-12" id="collapse-vivienda-sitioInteres" [ngbCollapse]="isCollapsed">
+    <table class="table table-hover" style="text-align: center">
+      <thead class="thead-light">
+      <tr>
+        <th>Sitio de Interes</th>
+        <th>Descripcción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr routerLink="/sitioInteres/{{viviendaId}}" style="cursor: pointer;" *ngFor="let sitioInteres of viviendaSitioInteres">
+          <td>{{sitioInteres.nombre}}</td>
+        
+          <td>{{sitioInteres.descripccion}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-    </div>
-    </div>

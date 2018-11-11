@@ -3,7 +3,7 @@ export class SitioInteres {
 
   nombre: string;
 
-  descripcion: string;
+  descripccion: string;
 
   latitud: number;
 

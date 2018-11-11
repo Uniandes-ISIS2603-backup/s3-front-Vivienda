@@ -28,6 +28,7 @@ import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adi
 import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
 import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-adicional-create/servicio-adicional-create.component';
 import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
+import { SitioInteresListComponent } from '../vivienda/sitio-interes-list/sitio-interes-list.component';
 
 const routes: Routes = [
 
@@ -174,6 +175,15 @@ const routes: Routes = [
       {
         path: 'logIn',
         component: RegistrarseComponent
+      }
+    ]
+  },
+  {
+    path: 'sitioInteres',
+    children: [
+      {
+        path: ':id',
+        component: SitioInteresListComponent
       }
     ]
   }
