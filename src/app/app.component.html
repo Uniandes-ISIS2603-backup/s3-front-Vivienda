@@ -27,18 +27,18 @@
       <div class="form-group mb-2">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary" type="submit">Search</button>
-        <button class="btn btn-outline-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar
-          Datos
-        </button>
       </div>
     </form>
     <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active" routerLink="/ingresar/signIn">Ingresar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/registrarse/logIn">Registrarse</a>
-      </li>
+        <li class="nav-item">
+            <button class="btn btn-outline-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()" style="color:orangered">Generar Datos</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/ingresar/signIn">Ingresar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/registrarse/logIn">Registrarse</a>
+        </li>
     </ul>
   </div>
 </nav>
