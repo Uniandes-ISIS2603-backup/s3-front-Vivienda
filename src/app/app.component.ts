@@ -37,25 +37,28 @@ export class AppComponent implements OnInit {
       this.toastrService.success('Se generaron datos para las viviendas', 'Resultado');
       this.estudiantesService.generarDatos().subscribe(() => {
         this.create.emit();
-        this.toastrService.success('Se generaron datos para los estudiantes', 'Resultado');
+        this.toastrService.success('Se generaron datos para los estudiantes y las calificaciones', 'Resultado');
         this.arrendadorService.generarDatos().subscribe(() => {
           this.create.emit();
           this.toastrService.success('Se generaron datos para los arrendadores', 'Resultado');
+          /**
           this.universidadService.generarDatos().subscribe(() => {
             this.create.emit();
             this.toastrService.success('Se generaron datos para las universidades', 'Resultado');
           }, error1 => {
             this.toastrService.error('No se pudieron generar datos', 'resultado');
           });
+          */
+          
+          this.toastrService.success('Actualice la página para ver los cambios', 'Datos Generados');
         }, error1 => {
-          this.toastrService.error('No se pudieron generar datos', 'resultado');
+          this.toastrService.error('No se pudieron generar datos', 'Resultado');
         });
-
       }, error1 => {
-        this.toastrService.error('No se pudieron generar datos', 'resultado');
+        this.toastrService.error('No se pudieron generar datos', 'Resultado');
       });
     }, error1 => {
-      this.toastrService.error('No se pudieron generar datos', 'resultado');
+      this.toastrService.error('No se pudieron generar datos', 'Resultado');
     });
   }
 
