@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 import {Vivienda} from './vivienda';
-import {SitioInteres} from './sitioInteres';
+import {SitioInteres} from '../sitio-interes/sitioInteres';
 
 export class ViviendaDetail extends Vivienda {
   sitiosDeInteres: SitioInteres[];

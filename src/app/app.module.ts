@@ -18,6 +18,7 @@ import {LogInComponent} from './log-in/log-in.component';
 import {SharedModule} from './shared/shared.module';
 import {CuartoModule} from './cuarto/cuarto.module';
 import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.module';
+import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.m
     UniversidadModule,
     CuartoModule,
     ServicioAdicionalModule,
+    SitioInteresModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',

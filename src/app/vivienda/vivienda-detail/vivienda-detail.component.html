@@ -16,12 +16,7 @@
       No tiene calificaciones
     </div>
             <div class="col" id="sitiosInteres">
-                <div *ngIf = "viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0">
-                    <app-vivienda-sitios-interes  [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres" [viviendaId]="viviendaDetail.id"></app-vivienda-sitios-interes>
-                </div>
-            <div *ngIf = "!(viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0)">
-                    <h5> No tiene Sitios De Interes</h5>
-                </div>
+                    <app-vivienda-sitios-interes  [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres" [viviendaDetail]="viviendaDetail"></app-vivienda-sitios-interes>                    
             </div>
-  </div>
+            </div>
 </div>

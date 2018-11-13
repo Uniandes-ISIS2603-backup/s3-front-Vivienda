@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 import {ViviendaService} from '../vivienda.service';
 import {ViviendaDetail} from '../vivienda-detail';
-import {SitioInteres} from '../sitioInteres';
+import {SitioInteres} from '../../sitio-interes/sitioInteres';
 
 @Component({
   selector: 'app-vivienda-detail',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {ViviendaService} from '../vivienda.service';
-import {ViviendaDetail} from '../vivienda-detail';
+import {ViviendaService} from '../../vivienda/vivienda.service';
+import {ViviendaDetail} from '../../vivienda/vivienda-detail';
 
 @Component({
   selector: 'app-sitio-interes-list',
