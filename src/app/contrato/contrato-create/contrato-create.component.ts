@@ -4,6 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {ContratoService} from '../contrato.service';
 import {Contrato} from '../contrato';
 import {Vivienda} from '../../vivienda/vivienda';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contrato-create',
@@ -26,7 +27,8 @@ export class ContratoCreateComponent implements OnInit {
    * @param toastrService - Servicio de Toastr que se usa para revisar la logica del forum
    */
   constructor(private contratoService: ContratoService,
-              private toastrService: ToastrService) {
+              private toastrService: ToastrService,
+              private router: Router) {
   }
 
   /**
@@ -47,6 +49,7 @@ export class ContratoCreateComponent implements OnInit {
    */
   cancelCreation() {
     this.cancel.emit();
+    this.router.navigate(['contratos/list']);
   }
 
   /**

@@ -4,7 +4,7 @@ import {ViviendaService} from '../vivienda.service';
 import {ToastrService} from 'ngx-toastr';
 import {Cuarto} from '../../cuarto/cuarto';
 import {CuartoService} from '../../cuarto/cuarto.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 // Componente usado para crear un vivienda y sus cuartos
 @Component({
@@ -82,7 +82,7 @@ export class ViviendaCreateComponent implements OnInit {
 
   cancelCreation() {
     this.cancel.emit();
-    this.router.navigate(['viviendas/list'])
+    this.router.navigate(['viviendas/list']);
   }
 
   ngOnInit() {

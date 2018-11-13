@@ -12,12 +12,16 @@
   color: #0c283a;
 }
 
-#botonGenerarDatos {
-  margin-left: 0.5vw;
+#btnIngresar{
+  color: white;
 }
 
-.nav * {
+#btnRegistrar{
   color: white;
+}
+
+#botonGenerarDatos {
+  margin-left: 0.5vw;
 }
 
 .nav-item {

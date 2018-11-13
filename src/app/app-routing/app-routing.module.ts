@@ -28,8 +28,8 @@ import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adi
 import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
 import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-adicional-create/servicio-adicional-create.component';
 import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
-import { SitioInteresListComponent } from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
-import { SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
+import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
+import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
 
 const routes: Routes = [
 
@@ -75,8 +75,8 @@ const routes: Routes = [
     path: 'calificacion',
     children: [
       {
-          path: 'create/:id',
-          component: CalificacionCreateComponent
+        path: 'create/:id',
+        component: CalificacionCreateComponent
       },
       {
         path: 'listestudiante/:id',
@@ -182,17 +182,16 @@ const routes: Routes = [
   {
     path: 'sitioInteres',
     children: [
-    
+
       {
         path: 'create',
-        children:[
-            
-        {
+        children: [
+
+          {
             path: ':id',
             component: SitioInteresCreateComponent
-        }
+          }
         ]
-        
       },
       {
         path: ':id',
