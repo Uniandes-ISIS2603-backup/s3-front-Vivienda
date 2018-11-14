@@ -15,7 +15,7 @@ export class ArrendadorDetailComponent implements OnInit {
   private arrendadorService: ArrendadorService,
   private route: ActivatedRoute
   ) { }
-
+    public isCollapsed = true;
   arrendadorDetail: ArrendadorDetail;
   
   arrendador_id: number;

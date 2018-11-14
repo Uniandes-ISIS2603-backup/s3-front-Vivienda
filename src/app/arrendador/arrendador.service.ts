@@ -18,7 +18,7 @@ export class ArrendadorService {
       return this.http.get<Arrendador[]>(API_URL + arrendadores)
   }
   
-  getArrendadorDetail(arrendadorId): Observable<ArrendadorDetail>
+  getArrendadorDetail(arrendadorId: number): Observable<ArrendadorDetail>
   {
       return this.http.get<ArrendadorDetail>(API_URL + arrendadores + "/" + arrendadorId)
   }
