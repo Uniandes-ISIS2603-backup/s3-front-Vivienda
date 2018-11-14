@@ -1,26 +1,73 @@
-<div class='row'>
-    <div class='col-6'><p>
+<div class="container-fluid" style="padding: 1px">
+<div class='row' *ngIf="isCollapsed">
+    <div class='col-3'><p>
         <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
           Calificaciones
-        </button>
-    </p></div>
+        </button></p></div>
 </div>
 
-<div class="row">
+<form *ngIf="!isCollapsed" name="filtro" (ngSubmit)="f.form.valid && filtrar()" #f="ngForm" novalidate>
+    <div class='form-row' >
+     <div class='col-3'>
+        <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          Ocultar
+        </button></div> 
+    <div class="col-9" *ngIf="listaDe == 'estudiante'">
+        <input class="form-control" name="filtroVivienda" type="text" [(ngModel)]="fVivienda"
+         #filtroVivienda="ngModel" placeholder="Vivienda">
+            </div> 
+    <div class="col-5" *ngIf="listaDe == 'vivienda'">
+        <input class="form-control" name="filtroNombre" type="text" [(ngModel)]="fNombre"
+         #filtroNombre="ngModel" value="" placeholder="Nombre">
+            </div>
+    <div class="col-4" *ngIf="listaDe == 'vivienda'">
+        <input class="form-control" name="filtroLogin" type="text" [(ngModel)]="fLogin"
+         #filtroLogin="ngModel" value="" placeholder="Login">
+            </div>
+        <div class="col-2 columna"><p style="vertical-align: central">Puntaje</p></div>
+    <div class="col-3 columna">
+    <input class="custom-range" type="range" name="filtroPuntajeMinR" [(ngModel)]="fPuntajeMin"
+         #filtroPuntajeMinR="ngModel" min="0" max="5" step="0.1" value="0" [ngClass]="{'on-update':verificarMin()}" placeholder="Puntaje Mínimo">
+    </div> 
+        <div class="col-2 columna" style="text-align: center">{{fPuntajeMin}} a {{fPuntajeMax}}</div>
+        <!--
+        <div class="col-1 columna">
+   <input class="form-control" type="number" value="0" name="filtroPuntajeMin" [(ngModel)]="fPuntajeMin"
+         #filtroPuntajeMin="ngModel" [ngClass]="{'is-invalid': fPuntajeMin < 0 || fPuntajeMin > 5 ||(fPuntajeMax && fPuntajeMax < fPuntajeMin)}" placeholder="Puntaje Mínimo">
+         <div class="invalid-feedback">número entre 0 y 5</div>
+        </div>
+        <div class="col-1 columna">
+    <input class="form-control" type="number" name="filtroPuntajeMax" [(ngModel)]="fPuntajeMax"
+         #filtroPuntajeMax="ngModel" [ngClass]="{'is-invalid': fPuntajeMax < 0 || fPuntajeMax > 5 ||(fPuntajeMin && fPuntajeMax < fPuntajeMin)}" placeholder="Puntaje Máximo">
+    <div class="invalid-feedback">número entre 0 y 5</div>
+    </div>-->
+    <div class="col-3 columna">
+        <input class="custom-range" type="range" name="filtroPuntajeMaxR" [(ngModel)]="fPuntajeMax"
+         #filtroPuntajeMaxR="ngModel" min="0" max="5" step="0.1" value="5" [ngClass]="{'on-update':verificarMax()}" placeholder="Puntaje Mínimo">
+        </div>
+        
+    <div class="col-2 columna" style="text-align: right">
+        <button type="submit" class="btn btn-success">Filtrar</button>
+    </div>
+ </div>
+</form>
+
+<div class="row" style="padding-top: 10px">
   <div class="col-12" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
     <table class="table table-hover" style="text-align: center">
       <thead class="thead-light">
       <tr>
-        <th *ngIf="listaDe == 'estudiante'">Vivienda</th>
-        <th *ngIf="listaDe == 'vivienda'">Estudiante</th>
-        <th *ngIf="listaDe == 'vivienda'">Login</th>
-        <th>Puntaje</th>
+        <th *ngIf="listaDe == 'estudiante'" (click)="viviendaSort()">Vivienda {{viviSort}}</th>
+        <th *ngIf="listaDe == 'vivienda'" (click)="nombreSort()">Estudiante {{nombSort}}</th>
+        <th *ngIf="listaDe == 'vivienda'" (click)="loginSort()">Login {{logiSort}}</th>
+        <th (click)="puntajeSort()">Puntaje {{puntSort}}</th>
         <th>Descripción</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let calificacion of calificaciones">
+      <tr *ngFor="let calificacion of calificacionesFiltradas">
         <td *ngIf="listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
         <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
         <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
@@ -34,4 +81,5 @@
         <a *ngIf="listaDe == 'estudiante'" routerLink='/calificacion/listestudiante/{{calificaciones[0].estudiante.id}}'>
             Editar/Mostrar Todas</a>
     </div>
+</div>
 </div>
