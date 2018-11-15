@@ -11,6 +11,7 @@ import {ViviendaService} from './vivienda.service';
 import {ViviendaDetailComponent} from './vivienda-detail/vivienda-detail.component';
 import {ViviendaSitiosInteresComponent} from './vivienda-sitios-interes/vivienda-sitios-interes.component';
 import {ViviendaCreateComponent} from './vivienda-create/vivienda-create.component';
+import { ViviendaEditComponent } from './vivienda-edit/vivienda-edit.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {ViviendaCreateComponent} from './vivienda-create/vivienda-create.compone
     ViviendaListComponent,
     ViviendaDetailComponent,
     ViviendaSitiosInteresComponent,
-    ViviendaCreateComponent
+    ViviendaCreateComponent,
+    ViviendaEditComponent
   ],
   providers: [
     ViviendaService

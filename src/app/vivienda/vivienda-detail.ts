@@ -5,9 +5,13 @@
  */
 import {Vivienda} from './vivienda';
 import {SitioInteres} from '../sitio-interes/sitioInteres';
+import {Cuarto} from '../cuarto/cuarto';
 
 export class ViviendaDetail extends Vivienda {
   sitiosDeInteres: SitioInteres[];
+  cuartos: Cuarto[];
+  serviciosIncluidos: string[];
+
 }
 
 

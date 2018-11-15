@@ -29,6 +29,10 @@ export class ViviendaService {
     return this.http.post<Vivienda>(API_URL + viviendas, vivienda);
   }
 
+  updateVivienda(vivienda: Vivienda): Observable<Vivienda> {
+    return this.http.put<Vivienda>(API_URL + viviendas + "/" +vivienda.id, vivienda);
+  }
+
   generarDatos(): Observable<any> {
     return this.http.post<any>(API_URL + viviendas + '/generardatos', null);
   }

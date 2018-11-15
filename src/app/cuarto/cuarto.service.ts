@@ -27,7 +27,14 @@ export class CuartoService {
    * Da todos los cuartos de una vivienda
    */
   getCuartos(viviendaId: number): Observable<Cuarto[]> {
-    return this.http.get<Cuarto[]>(API_URL + '/' + viviendas + '/' + viviendaId + '/' + cuartos);
+    return this.http.get<Cuarto[]>(API_URL +  viviendas + '/' + viviendaId + '/' + cuartos);
+  }
+
+  /**
+   * Modifica el cuarto segun los valores del cuarto que entra como parametro
+   */
+  updateCuarto(cuarto: Cuarto, viviendaId: number): Observable<Cuarto> {
+    return this.http.put<Cuarto>(API_URL + viviendas + '/' + viviendaId + '/' + cuartos + '/' + cuarto.id, cuarto);
   }
 
 }

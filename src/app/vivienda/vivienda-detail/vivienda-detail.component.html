@@ -2,21 +2,32 @@
   <img class="img-fluid" src={{viviendaDetail.imgUrl}}/>
   <div class="row">
     <div class="col-lg-5 col-sm-12">
-      <h1>{{viviendaDetail.nombre}}</h1>
+      <div class="d-flex flex-row">
+        <h1>{{viviendaDetail.nombre}}</h1>
+        <button class="btn btn-primary" id="btnEditar" routerLink="/viviendas/edit/{{viviendaDetail.id}}">
+          <i class="fas fa-edit"></i>  Editar
+        </button>
+      </div>
       <h3>{{viviendaDetail.ciudad}}</h3>
-      <h5>{{darCalificacion(viviendaDetail.id)}} <i class="fas fa-star"></i><button class="btn btn-primary btn-small" routerLink="/calificacion/create/{{viviendaDetail.id}}">Calificar</button></h5>
+      <h5>{{darCalificacion(viviendaDetail.id)}} <i class="fas fa-star"></i>
+        <button class="btn btn-primary btn-small" routerLink="/calificacion/create/{{viviendaDetail.id}}">Calificar
+        </button>
+      </h5>
     </div>
     <div class="col-lg-7 col-sm-12">
       <p>{{viviendaDetail.descripcion}}</p>
     </div>
     <div class="col-lg-12 col-sm-12" *ngIf="viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0">
-      <calificacion-vivienda-listcollapse [calificaciones]="viviendaDetail.calificaciones">Calificaciones</calificacion-vivienda-listcollapse>
+      <calificacion-vivienda-listcollapse [calificaciones]="viviendaDetail.calificaciones">Calificaciones
+      </calificacion-vivienda-listcollapse>
     </div>
-    <div class="col-lg-12 col-sm-12" *ngIf="!(viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0)">
+    <div class="col-lg-12 col-sm-12"
+         *ngIf="!(viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0)">
       No tiene calificaciones
     </div>
-            <div class="col" id="sitiosInteres">
-                    <app-vivienda-sitios-interes  [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres" [viviendaDetail]="viviendaDetail"></app-vivienda-sitios-interes>                    
-            </div>
-            </div>
+    <div class="col" id="sitiosInteres">
+      <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
+                                   [viviendaDetail]="viviendaDetail"></app-vivienda-sitios-interes>
+    </div>
+  </div>
 </div>
