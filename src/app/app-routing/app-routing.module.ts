@@ -30,6 +30,7 @@ import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-a
 import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
+import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-update/sitio-interes-update.component';
 
 const routes: Routes = [
 
@@ -190,6 +191,20 @@ const routes: Routes = [
           {
             path: ':id',
             component: SitioInteresCreateComponent
+          }
+        ]
+      },
+      {
+        path: 'update',
+        children: [
+          {
+            path: ':id',
+            children: [
+          {
+            path: ':id2',
+            component: SitioInteresUpdateComponent
+          }
+        ]
           }
         ]
       },

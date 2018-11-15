@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Editar un Sitio de Interes</h2>
+        <br>
+        <form name="sitioInteres" (ngSubmit)="f.form.valid && editSitioInteres()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="sitioInteresName"><b>Nuevo Nombre</b></label>
+                <input type="text" name="sitioInteresName" class="form-control" id="sitioInteresName" [(ngModel)]="sitioInteres.nombre"
+                    #sitioInteresName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresName.invalid }">
+            </div>
+          <label for="sitioInteresDescripcion">Nueva Descripción</label>
+          <textarea type="text" name="sitioInteresDescripcion" id="sitioInteresDescripcion" form="viviendaForm"
+                    class="form-control" rows="6"
+                    [(ngModel)]="sitioInteres.descripccion"></textarea>
+                        <div class="form-group">
+                <label for="sitioInteresImg"><b>Nueva Imagen URL</b></label>
+                <input type="text" name="sitioInteresImg" class="form-control" id="sitioInteresImg" [(ngModel)]="sitioInteres.img"
+                    #sitioInteresImg="ngModel" >
+            </div>
+                        <div class="form-group">
+                <label for="sitioInteresLatitud"><b>Nueva Latitud</b></label>
+                <input type="text" name="sitioInteresLatitud" class="form-control" id="sitioInteresLatitud" [(ngModel)]="sitioInteres.latitud"
+                    #sitioInteresLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresLatitud.invalid }">
+            </div>
+                        <div class="form-group">
+                <label for="sitioInteresLongitud"><b>Nueva Longitud</b></label>
+                <input type="text" name="sitioInteresLongitud" class="form-control" id="sitioInteresLongitud" [(ngModel)]="sitioInteres.longitud"
+                    #sitioInteresLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresLongitud.invalid }">
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/list">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

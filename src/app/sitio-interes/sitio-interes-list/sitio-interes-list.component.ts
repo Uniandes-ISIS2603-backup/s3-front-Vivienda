@@ -15,7 +15,7 @@ export class SitioInteresListComponent implements OnInit {
   
   viviendaId: number;
   
-    viviendaDetail: ViviendaDetail;
+  viviendaDetail: ViviendaDetail;
 
   getViviendaDetail(): void {
     this.viviendaService.getViviendaDetail(this.viviendaId)
