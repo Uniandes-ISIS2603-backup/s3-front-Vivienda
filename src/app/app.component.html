@@ -1,11 +1,11 @@
-<nav id="barra" class="navbar navbar-expand-xl navbar-dark ">
+<nav id="navbarToggler" class="navbar navbar-expand-xl navbar-dark navbar-collapse">
   <a class="navbar-brand" routerLink="">UniVivienda</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
+          aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div id="navbar-content" class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/viviendas/list">Viviendas</a>
@@ -30,15 +30,17 @@
       </div>
     </form>
     <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <button class="btn btn-outline-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar Datos</button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" id="btnIngresar" routerLink="/ingresar/signIn">Ingresar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="btnRegistrar" routerLink="/registrarse/logIn">Registrarse</a>
-        </li>
+      <li class="nav-item">
+        <button class="btn btn-outline-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar
+          Datos
+        </button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" id="btnIngresar" routerLink="/ingresar/signIn">Ingresar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btnRegistrar" routerLink="/registrarse/logIn">Registrarse</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -48,4 +50,3 @@
 <div class="signIn">
   <router-outlet></router-outlet>
 </div>
-

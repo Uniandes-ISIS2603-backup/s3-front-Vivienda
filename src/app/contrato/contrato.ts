@@ -8,12 +8,12 @@ export class Contrato {
   /**
    * Fecha de inicio del contrato
    */
-  fechaInicio: Date;
+  fechaInicio: string;
 
   /**
    * Fecha final del contrato
    */
-  fechaFin: Date;
+  fechaFin: string;
 
   /**
    * Metodo de pago del cliente

@@ -8,6 +8,7 @@ import {UniversidadService} from './universidad/universidad.service';
 import {SitioInteresService} from './sitio-interes/sitioInteres.service';
 import {Vivienda} from './vivienda/vivienda';
 import {ToastrService} from 'ngx-toastr';
+import {ContratoService} from './contrato/contrato.service';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
               private arrendadorService: ArrendadorService,
               private universidadService: UniversidadService,
               private sitioInteresService: SitioInteresService,
+              private contratoService: ContratoService,
               private toastrService: ToastrService
   ) {
 
@@ -46,6 +48,11 @@ export class AppComponent implements OnInit {
           this.sitioInteresService.generarDatos().subscribe(() => {
             this.create.emit();
             this.toastrService.success('Se generaron datos para los Sitios de Interes', 'Resultado');
+
+            this.contratoService.generarDatos().subscribe( () => {
+              this.create.emit();
+              this.toastrService.success('Se generaron datos para los Sitios de Interes', 'Resultado');
+            }),
             /**
              this.universidadService.generarDatos().subscribe(() => {
             this.create.emit();
