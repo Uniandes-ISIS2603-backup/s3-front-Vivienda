@@ -64,7 +64,6 @@ export class ViviendaCreateComponent implements OnInit {
       }
       this.vivienda.serviciosIncluidos = serviciosList;
     }
-
   }
 
   //Revisa si un string es valido

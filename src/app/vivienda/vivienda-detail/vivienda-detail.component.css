@@ -19,9 +19,17 @@
 
 .btn-small{
   margin-left: 40px;
-
 }
 
+.fa-edit{
+  font-size: 20px;
+}
+
+#btnEditar{
+  margin-left: 20px;
+  background-color: orangered;
+  border-color: orangered;
+}
 
 #sitiosInteres
 {

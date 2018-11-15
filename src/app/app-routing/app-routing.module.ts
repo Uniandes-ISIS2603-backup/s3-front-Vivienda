@@ -31,6 +31,7 @@ import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
 import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-update/sitio-interes-update.component';
+import {ViviendaEditComponent} from '../vivienda/vivienda-edit/vivienda-edit.component';
 
 const routes: Routes = [
 
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: ':id',
         component: ViviendaDetailComponent
+      },
+      {
+        path:'edit/:id',
+        component: ViviendaEditComponent
       }
     ]
   },
