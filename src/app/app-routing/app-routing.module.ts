@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ViviendaListComponent} from '../vivienda/vivienda-list/vivienda-list.component';
-import {SignInComponent} from '../sign-in/sign-in.component';
 import {EstudianteListComponent} from '../estudiante/estudiante-list/estudiante-list.component';
 import {EstudianteDetailComponent} from '../estudiante/estudiante-detail/estudiante-detail.component';
 import {EstudianteCreateComponent} from '../estudiante/estudiante-create/estudiante-create.component';
@@ -17,8 +16,8 @@ import {ContratoDetailComponent} from '../contrato/contrato-detail/contrato-deta
 import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
 import {ArrendadorListComponent} from '../arrendador/arrendador-list/arrendador-list.component';
 import {ArrendadorDetailComponent} from '../arrendador/arrendador-detail/arrendador-detail.component';
+import {ArrendadorUpdateComponent} from '../arrendador/arrendador-update/arrendador-update.component';
 import {LogInComponent} from '../log-in/log-in.component';
-import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
 import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
 import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
@@ -157,26 +156,17 @@ const routes: Routes = [
         component: ArrendadorCreateComponent
       },
       {
+        path: 'update',
+        children:[
+                {
+                  path: ':id',
+                  component: ArrendadorUpdateComponent
+                }
+        ]
+      },
+      {
         path: ':id',
         component: ArrendadorDetailComponent
-      }
-    ]
-  },
-  {
-    path: 'ingresar',
-    children: [
-      {
-        path: 'signIn',
-        component: SignInComponent
-      }
-    ]
-  },
-  {
-    path: 'registrarse',
-    children: [
-      {
-        path: 'logIn',
-        component: RegistrarseComponent
       }
     ]
   },

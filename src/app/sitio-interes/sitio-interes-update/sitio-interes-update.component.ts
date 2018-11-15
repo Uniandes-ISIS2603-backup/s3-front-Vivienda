@@ -65,10 +65,8 @@ viviendaId: number;
     }
 
   ngOnInit() {
-        console.log("HOLI asd");
       this.sitioInteres= new SitioInteresDetail();
         this.sitioInteresId = +this.route.snapshot.paramMap.get('id2');
-        console.log(this.sitioInteresId + "AQUIIIIIIIIIIIIIIIIIIIIIII");
         this.viviendaId = +this.route.snapshot.paramMap.get('id');
         this.getSitioInteres();
   }
