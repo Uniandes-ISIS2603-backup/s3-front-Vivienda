@@ -10,7 +10,7 @@ import {ArrendadorService} from "./arrendador.service";
 import { ArrendadorListComponent } from './arrendador-list/arrendador-list.component';
 import { ArrendadorDetailComponent } from './arrendador-detail/arrendador-detail.component';
 import { ArrendadorCreateComponent } from './arrendador-create/arrendador-create.component';
-import { ArrendadorUpdateComponent } from './arrendador-update/arrendador-update.component';
+import { ArrendadorEditComponent } from './arrendador-edit/arrendador-edit.component';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { ArrendadorUpdateComponent } from './arrendador-update/arrendador-update
         NgbModule
   ],
   providers: [ ArrendadorService ],
-  declarations: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent, ArrendadorUpdateComponent],
+  declarations: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent, ArrendadorEditComponent],
   exports: [ArrendadorListComponent, ArrendadorDetailComponent, ArrendadorCreateComponent]
 })
 export class ArrendadorModule { }

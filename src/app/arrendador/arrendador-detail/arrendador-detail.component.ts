@@ -28,6 +28,13 @@ export class ArrendadorDetailComponent implements OnInit {
               console.log(this.arrendadorDetail);
       });
   }
+  
+    deleteArrendador(): void
+  {
+      this.arrendadorService.deleteArrendador(this.arrendador_id)
+          .subscribe();
+  }
+  
   ngOnInit() {
       this.arrendador_id = +this.route.snapshot.paramMap.get('id');
       this.arrendadorDetail = new ArrendadorDetail();

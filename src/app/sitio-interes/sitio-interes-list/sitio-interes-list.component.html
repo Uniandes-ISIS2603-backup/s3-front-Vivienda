@@ -7,7 +7,7 @@
       <p class="card-text">{{sitioInteres.descripccion}}</p>
           <div class="card-body text-center" id="interior">
       <button type="button" class="btn btn-warning" routerLink="/sitioInteres/update/{{viviendaDetail.id}}/{{sitioInteres.id}}">Update</button>
-      <button type="button" class="btn btn-danger"  routerLink="/sitioInteres/delete/">Delete</button>
+      <button type="button" class="btn btn-danger"(click)="deleteSitioInteres(sitioInteres.id)">Delete</button>
           </div>
     </div>
   </div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArrendadorUpdateComponent } from './arrendador-update.component';
+import { ArrendadorEditComponent } from './arrendador-edit.component';
 
 describe('ArrendadorUpdateComponent', () => {
-  let component: ArrendadorUpdateComponent;
-  let fixture: ComponentFixture<ArrendadorUpdateComponent>;
+  let component: ArrendadorEditComponent;
+  let fixture: ComponentFixture<ArrendadorEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArrendadorUpdateComponent ]
+      declarations: [ ArrendadorEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArrendadorUpdateComponent);
+    fixture = TestBed.createComponent(ArrendadorEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

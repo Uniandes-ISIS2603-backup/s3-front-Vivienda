@@ -16,7 +16,7 @@ import {ContratoDetailComponent} from '../contrato/contrato-detail/contrato-deta
 import {ViviendaDetailComponent} from '../vivienda/vivienda-detail/vivienda-detail.component';
 import {ArrendadorListComponent} from '../arrendador/arrendador-list/arrendador-list.component';
 import {ArrendadorDetailComponent} from '../arrendador/arrendador-detail/arrendador-detail.component';
-import {ArrendadorUpdateComponent} from '../arrendador/arrendador-update/arrendador-update.component';
+import {ArrendadorEditComponent} from '../arrendador/arrendador-edit/arrendador-edit.component';
 import {LogInComponent} from '../log-in/log-in.component';
 import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
@@ -29,8 +29,7 @@ import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-a
 import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
-import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-update/sitio-interes-update.component';
-import {ViviendaEditComponent} from '../vivienda/vivienda-edit/vivienda-edit.component';
+import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-edit/sitio-interes-update.component';
 
 const routes: Routes = [
 
@@ -48,10 +47,6 @@ const routes: Routes = [
       {
         path: ':id',
         component: ViviendaDetailComponent
-      },
-      {
-        path:'edit/:id',
-        component: ViviendaEditComponent
       }
     ]
   },
@@ -165,7 +160,7 @@ const routes: Routes = [
         children:[
                 {
                   path: ':id',
-                  component: ArrendadorUpdateComponent
+                  component: ArrendadorEditComponent
                 }
         ]
       },

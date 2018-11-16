@@ -39,6 +39,15 @@ export class SitioInteresService {
     updateSitioInteres(viviendaId: number, sitioInteresId:number, sitio: SitioInteres): Observable<SitioInteres>{
         return this.http.put<SitioInteres>(API_URL + viviendas + '/' + viviendaId + sitioInteres + "/" + sitioInteresId , sitio);
     }
+    
+        /**
+    * Deletes a book
+    * @param bookId The book's id
+    * @returns True if the book was deleted, false otherwise
+    */
+    deleteSitioInteres(viviendaId: number, sitioInteresId: number): Observable<SitioInteresDetail> {
+        return this.http.delete<SitioInteresDetail>(API_URL + viviendas + "/" + viviendaId + sitioInteres + '/' + sitioInteresId);
+    }
 }
 
 

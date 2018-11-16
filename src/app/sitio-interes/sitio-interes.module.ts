@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SitioInteresService } from './sitioInteres.service';
 import { SitioInteresListComponent } from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import { SitioInteresCreateComponent } from './sitio-interes-create/sitio-interes-create.component';
-import { SitioInteresUpdateComponent } from './sitio-interes-update/sitio-interes-update.component';
+import { SitioInteresUpdateComponent } from './sitio-interes-edit/sitio-interes-update.component';
 
 @NgModule({
   imports: [

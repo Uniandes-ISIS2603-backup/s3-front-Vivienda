@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {ViviendaService} from '../../vivienda/vivienda.service';
+import {SitioInteresService} from '../sitioInteres.service';
 import {ViviendaDetail} from '../../vivienda/vivienda-detail';
 
 @Component({
@@ -11,7 +12,7 @@ import {ViviendaDetail} from '../../vivienda/vivienda-detail';
 })
 export class SitioInteresListComponent implements OnInit {
 
-  constructor(private viviendaService: ViviendaService,private route: ActivatedRoute) { }
+  constructor(private viviendaService: ViviendaService, private sitioInteresService: SitioInteresService, private route: ActivatedRoute) { }
   
   viviendaId: number;
   
@@ -22,6 +23,12 @@ export class SitioInteresListComponent implements OnInit {
       .subscribe(viviendaDetail => {
         this.viviendaDetail = viviendaDetail;
       });
+  }
+  
+  deleteSitioInteres(sitioInteresId: number): void
+  {
+      this.sitioInteresService.deleteSitioInteres(this.viviendaId, sitioInteresId)
+      .subscribe();
   }
 
   ngOnInit() {

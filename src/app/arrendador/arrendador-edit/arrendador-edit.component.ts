@@ -6,11 +6,11 @@ import { ArrendadorDetail } from '../arrendador-detail';
 import { ArrendadorService } from '../arrendador.service';
 
 @Component({
-  selector: 'app-arrendador-update',
-  templateUrl: './arrendador-update.component.html',
-  styleUrls: ['./arrendador-update.component.css']
+  selector: 'app-arrendador-edit',
+  templateUrl: './arrendador-edit.component.html',
+  styleUrls: ['./arrendador-edit.component.css']
 })
-export class ArrendadorUpdateComponent implements OnInit {
+export class ArrendadorEditComponent implements OnInit {
 
   constructor(private arrendadorService: ArrendadorService,
                   private route: ActivatedRoute,

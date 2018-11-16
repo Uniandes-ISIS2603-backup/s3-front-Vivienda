@@ -38,4 +38,13 @@ export class ArrendadorService {
         return this.http.put<Arrendador>(API_URL + arrendadores + "/" + arrendadorId , arrendador);
     }
     
+            /**
+    * Deletes a book
+    * @param bookId The book's id
+    * @returns True if the book was deleted, false otherwise
+    */
+    deleteArrendador(arrendadorId: number): Observable<ArrendadorDetail> {
+        return this.http.delete<ArrendadorDetail>(API_URL + arrendadores + '/' + arrendadorId);
+    }
+    
 }

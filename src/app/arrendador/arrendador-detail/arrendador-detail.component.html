@@ -13,12 +13,12 @@
         </button>
         <button routerLink="/viviendas/create" type="button" class="btn btn-outline-success">Añadir Vivienda</button>                  
         </div>
-            <div *ngIf = "!(arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0)">
+        <div *ngIf = "!(arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0)">
                 <h5> No tiene Viviendas<button routerLink="/viviendas/create" type="button" class="btn btn-outline-success">Añadir Vivienda</button></h5>             
         </div>
     
           <button type="button" class="btn btn-warning" routerLink="/arrendadores/update/{{arrendadorDetail.id}}">Update</button>
-      <button type="button" class="btn btn-danger"  routerLink="/arrendadores/delete/{{arrendadorDetail.id}}">Delete</button>
+      <button type="button" class="btn btn-danger" (click)="deleteArrendador()">Delete</button>
           
     
 <div class="row">
