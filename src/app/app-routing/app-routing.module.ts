@@ -20,6 +20,7 @@ import {ArrendadorEditComponent} from '../arrendador/arrendador-edit/arrendador-
 import {LogInComponent} from '../log-in/log-in.component';
 import {ArrendadorCreateComponent} from '../arrendador/arrendador-create/arrendador-create.component';
 import {ViviendaCreateComponent} from '../vivienda/vivienda-create/vivienda-create.component';
+import {ViviendaEditComponent} from '../vivienda/vivienda-edit/vivienda-edit.component';
 import {UniversidadListComponent} from '../universidad/universidad-list/universidad-list.component';
 import {UniversidadCreateComponent} from '../universidad/universidad-create/universidad-create.component';
 import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: ':id',
         component: ViviendaDetailComponent
+      },
+      {
+        path:'edit/:id',
+        component: ViviendaEditComponent
       }
     ]
   },
