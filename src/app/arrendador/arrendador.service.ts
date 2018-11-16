@@ -29,5 +29,13 @@ export class ArrendadorService {
   generarDatos(): Observable<ArrendadorDetail[]> {
     return this.http.post<ArrendadorDetail[]>(API_URL + arrendadores + "/generardatos", null);
   }
+  
+        /**
+     * Edits the sitioInteres
+     * @param sitioInteres The sitioInteres with new attributes
+     */
+    updateArrendador(arrendadorId:number, arrendador: Arrendador): Observable<Arrendador>{
+        return this.http.put<Arrendador>(API_URL + arrendadores + "/" + arrendadorId , arrendador);
+    }
     
 }

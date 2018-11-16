@@ -12,7 +12,6 @@ import {EstudianteModule} from './estudiante/estudiante.module';
 import {ArrendadorModule} from './arrendador/arrendador.module';
 import {UniversidadModule} from './universidad/universidad.module';
 import {RouterModule} from '@angular/router';
-import {SignInComponent} from './sign-in/sign-in.component';
 import {ContratoModule} from './contrato/contrato.module';
 import {LogInComponent} from './log-in/log-in.component';
 import {SharedModule} from './shared/shared.module';
@@ -23,7 +22,6 @@ import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
     LogInComponent,
   ],
   imports: [
