@@ -5,11 +5,18 @@
     object-fit: cover;
     padding-bottom: 2vh;
 }
-.container{
-  margin-top: 2vh;
-  width: 50%;
+
+.container-fluid{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 2% auto;
   min-width: 800px;
 }
+
+.row{
+  margin: 0;
+}
+
 .fa-star{
   width: 5px;
   height: 5px;
@@ -23,6 +30,18 @@
 
 .fa-edit{
   font-size: 20px;
+}
+#rowTitulo{
+  margin-bottom: 2%;
+}
+#colDerecha{
+}
+
+#tituloCuartos{
+  margin-top: 20px;
+}
+
+#divCalificaciones{
 }
 
 #btnEditar{

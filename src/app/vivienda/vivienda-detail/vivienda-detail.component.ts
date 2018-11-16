@@ -33,7 +33,6 @@ export class ViviendaDetailComponent implements OnInit {
       return this.viviendaService.promediarCalificaciones(this.viviendaDetail);
   }
 
-
   ngOnInit() {
     this.vivienda_id = +this.route.snapshot.paramMap.get('id');
     this.viviendaDetail = new ViviendaDetail();
