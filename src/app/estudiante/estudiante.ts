@@ -1,5 +1,6 @@
 import { Universidad } from '../universidad/universidad';
 import {Calificacion} from '../calificacion/calificacion'
+import {Contrato} from '../contrato/contrato'
 
 export class Estudiante {
     /**
@@ -31,4 +32,9 @@ export class Estudiante {
      * All the reviews made by the student
      */
     calificaciones: Calificacion[];
+    
+    /**
+     * The agreement with the householder
+     */
+    contrato: Contrato;
 }

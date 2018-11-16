@@ -55,7 +55,15 @@ export class EstudianteService {
     updateEstudiante(estudiante:Estudiante): Observable<Estudiante>{
         return this.http.put<Estudiante>(API_URL + estudiantes + '/' + estudiante.id, estudiante);
     }
-
+    
+    /**
+     * Deletes a student
+     * @param estudiante The student to delete
+     */
+     deleteEstudiante(estudiante:Estudiante): Observable<boolean>{
+         return this.http.delete<boolean>(API_URL + estudiantes + '/' + estudiante.id);
+     }
+     
     /**
      * Generates data to populate UniVivienda's data base
      */

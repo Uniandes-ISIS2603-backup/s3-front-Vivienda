@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router'
 import { EstudianteService } from '../estudiante.service';
 import { UniversidadService } from '../../universidad/universidad.service';
+import { CalificacionService } from '../../calificacion/calificacion.service';
 import { Estudiante } from '../estudiante';
 import { Universidad } from '../../universidad/universidad';
 
@@ -18,6 +19,7 @@ export class EstudianteEditComponent implements OnInit {
      * @param route The route
      */
     constructor(private estudianteService: EstudianteService,
+                private calificacionService: CalificacionService,
                 private route: ActivatedRoute,
                 private router: Router,
                 private universidadService: UniversidadService,
@@ -96,9 +98,16 @@ export class EstudianteEditComponent implements OnInit {
             });
     }
     
+    validarContraseña(): boolean{
+        if (this.oldPasswordUser && this.oldPasswordUser != this.oldPassword){
+            this.toastrService.error("Contraseña Antigua Incorrecta.", "Error");
+        }
+        return this.oldPasswordUser == this.oldPassword;
+    }
+    
     editEstudiante():void{
-        this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre == par.nombre))[0];
-        if (this.oldPasswordUser == this.oldPassword){
+        if (this.validarContraseña()){
+            this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre == par.nombre))[0];
             if (this.estudiante.password != null && this.estudiante.password.length == 0){
                 this.estudiante.password = null;
             }
@@ -109,10 +118,6 @@ export class EstudianteEditComponent implements OnInit {
                     });
             this.update.emit();
         }
-        else{
-            this.toastrService.error("Contraseña Antigua Incorrecta.", "Error");
-            return;
-        }
     }
     
     /**
@@ -122,6 +127,29 @@ export class EstudianteEditComponent implements OnInit {
     cancelEdition(): void {
         this.cancel.emit();
         this.router.navigate(["/estudiante/" + this.estudiante_id]);
+    }
+    
+    deleteEstudiante(): void {
+        if (this.estudiante.contrato)
+            this.toastrService.error("El estudiante tiene un contrato vigente. No es posible eliminar la cuenta", "Error");
+        else if (this.validarContraseña()){
+            let cadena : string = '¿Está seguro que quiere eliminar la cuenta?'
+            if (this.estudiante.calificaciones && this.estudiante.calificaciones.length >0)
+                cadena += '\nLas '+this.estudiante.calificaciones.length+' calificacion(es) realizada(s) se eliminará(n).'
+                
+            cadena += '\nOK - Eliminar cuenta\nCancel - No eliminar la cuenta'
+            if (window.confirm(cadena)){
+                if (this.estudiante.calificaciones)
+                    for (let cal of this.estudiante.calificaciones)
+                        this.calificacionService.deleteCalificacion(cal);
+                this.estudianteService.deleteEstudiante(this.estudiante).subscribe( ()=>{
+                    this.toastrService.success("El estudiante se Eliminó", "Eliminar Estudiante")
+                    this.router.navigate(["/estudiante/list"]);
+                }, err => {
+                        this.toastrService.error(err, "Error");
+                    });
+            }
+        }
     }
     
     /**
