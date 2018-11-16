@@ -1,0 +1,77 @@
+<div class="container" id="containerPrincipal">
+  <h1>Editar Vivienda</h1>
+  <form name="vivienda" id="viviendaForm" (ngSubmit)="f.form.valid && guardarCambios()" #f="ngForm" novalidate>
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="{{vivienda.imgUrl}}"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5">
+
+
+          <label for="viviendaNombre">Nombre</label>
+          <input type="text" name="viviendaNombre" class="form-control" id="viviendaNombre"
+                 [(ngModel)]="vivienda.nombre">
+
+          <label for="viviendaCiudad">Ciudad</label>
+          <input type="text" name="viviendaCiudad" class="form-control" id="viviendaCiudad"
+                 [(ngModel)]="vivienda.ciudad">
+
+          <label for="viviendaDireccion">Dirección</label>
+          <input type="text" name="viviendaCiudad" class="form-control" id="viviendaDireccion"
+                 [(ngModel)]="vivienda.direccion">
+
+          <label for="viviendaImg">Url Imagen</label>
+          <input type="text" name="viviendaImg" class="form-control" id="viviendaImg" [(ngModel)]="vivienda.imgUrl">
+
+        </div>
+
+        <div class="col-lg-7">
+          <label for="viviendaDescripcion">Descripción</label>
+          <textarea type="text" name="viviendaDescripcion" id="viviendaDescripcion" form="viviendaForm"
+                    class="form-control" rows="6"
+                    [(ngModel)]="vivienda.descripcion"></textarea>
+
+          <label for="serviciosIncluidos">Servicios Incluidos</label>
+          <textarea id="serviciosIncluidos" name="viviendaServiciosIncluidos" form="viviendaForm" class="form-control"
+                    rows="2"
+                    placeholder="Internet, nevera, lavadora" [(ngModel)]="serviciosIncluidosString"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div id="divCuartos">
+      <h3>Editar Cuartos</h3>
+      <div class="form-row" *ngFor="let cuarto of cuartos, let i = index">
+
+        <div class="col-lg-2">
+          <label for="nombreCuarto-{{i}}">Nombre</label>
+          <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="nombreCuarto-{{i}}" class="form-control"
+                 [(ngModel)]="cuartos[i].nombre">
+        </div>
+
+        <div class="col-lg-2">
+          <label for="costoCuarto-{{i}}">Costo</label>
+          <input form="viviendaForm" type="number" name="cuarto-{{i}}" id="costoCuarto-{{i}}" class="form-control"
+                 [(ngModel)]="cuartos[i].costoArriendo">
+        </div>
+
+        <div class="col-lg-8">
+          <label for="descripcionCuarto-{{i}}">Descripción</label>
+          <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="descripcionCuarto-{{i}}" class="form-control"
+                 [(ngModel)]="cuartos[i].descripcion">
+        </div>
+      </div>
+    </div>
+
+    <div align="right">
+      <button type="submit" class="btn btn-primary"><h6>Guardar Cambios</h6></button>
+      <button type="button" class="btn btn-danger" (click)="cancelUpdate()"><h6> Cancelar </h6></button>
+    </div>
+
+  </form>
+</div>

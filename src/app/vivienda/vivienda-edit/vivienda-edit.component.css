@@ -1,0 +1,15 @@
+.img-fluid {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+  padding-bottom: 2vh;
+}
+#containerPrincipal {
+  margin: 4vh auto 4vh ;
+  width: 50%;
+  min-width: 800px;
+}
+
+#divCuartos{
+  margin: 5vh 0 5vh 0;
+}
