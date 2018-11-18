@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">{{sitioInteres.nombre}}</h5>
       <p class="card-text">{{sitioInteres.descripccion}}</p>
-          <div class="card-body text-center" id="interior">
+          <div class="card-body text-center" id="interior" *ngxPermissionsOnly="['ADMIN', 'ARRENDADOR']">
       <button type="button" class="btn btn-warning" routerLink="/sitioInteres/update/{{viviendaDetail.id}}/{{sitioInteres.id}}">Update</button>
       <button type="button" class="btn btn-danger"(click)="deleteSitioInteres(sitioInteres.id)">Delete</button>
           </div>

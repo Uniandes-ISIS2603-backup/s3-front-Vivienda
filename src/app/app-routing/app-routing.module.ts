@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {ViviendaListComponent} from '../vivienda/vivienda-list/vivienda-list.component';
 import {EstudianteListComponent} from '../estudiante/estudiante-list/estudiante-list.component';
@@ -31,6 +32,7 @@ import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
 import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-edit/sitio-interes-update.component';
+import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
 
 const routes: Routes = [
 
@@ -43,7 +45,7 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ViviendaCreateComponent
+        component: ViviendaCreateComponent,
       },
       {
         path: ':id',
@@ -208,7 +210,20 @@ const routes: Routes = [
         component: SitioInteresListComponent
       }
     ]
-  }
+  },
+  {
+    path: 'ingresar',
+    children: [
+      {
+        path: 'signIn',
+        component: RegistrarseComponent
+      },
+      {
+        path: 'logIn',
+        component: LogInComponent
+      }
+    ]
+  },
 ];
 
 @NgModule({

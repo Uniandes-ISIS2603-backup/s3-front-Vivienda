@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { SitioInteresService } from './sitioInteres.service';
 import { SitioInteresListComponent } from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
@@ -18,7 +19,8 @@ import { SitioInteresUpdateComponent } from './sitio-interes-edit/sitio-interes-
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+      NgxPermissionsModule
   ],
   declarations: [
     SitioInteresListComponent,

@@ -18,6 +18,10 @@ import {SharedModule} from './shared/shared.module';
 import {CuartoModule} from './cuarto/cuarto.module';
 import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.module';
 import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
+import { FormsModule }   from '@angular/forms';
+import {UserService} from './log-in/user.service';
+import { NgxPermissionsModule } from 'ngx-permissions';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    FormsModule,
     HttpClientModule,
     ViviendaModule,
     EstudianteModule,
@@ -39,6 +44,7 @@ import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
     CuartoModule,
     ServicioAdicionalModule,
     SitioInteresModule,
+    NgxPermissionsModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
@@ -52,7 +58,8 @@ import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
-    }
+    },
+    UserService
   ]
 })
 export class AppModule {
