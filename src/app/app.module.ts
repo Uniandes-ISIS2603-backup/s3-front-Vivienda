@@ -18,10 +18,9 @@ import {SharedModule} from './shared/shared.module';
 import {CuartoModule} from './cuarto/cuarto.module';
 import {ServicioAdicionalModule} from './servicio-adicional/servicio-adicional.module';
 import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {UserService} from './log-in/user.service';
 import { NgxPermissionsModule } from 'ngx-permissions';
-
 
 @NgModule({
   declarations: [
