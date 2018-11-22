@@ -1,3 +1,6 @@
+import {Vivienda} from '../vivienda/vivienda';
+import {Estudiante} from '../estudiante/estudiante';
+
 export class Contrato {
 
   /**
@@ -19,4 +22,15 @@ export class Contrato {
    * Metodo de pago del cliente
    */
   metodoPago: number;
+
+  /**
+   * Vivienda asociada
+   */
+  vivienda: Vivienda;
+
+
+  /**
+   * Estudiante asociado al contrato
+   */
+  estudiante: Estudiante;
 }

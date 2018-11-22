@@ -11,14 +11,51 @@
                  [(ngModel)]="contrato.metodoPago">
 
           <label for="contratoFechaInicio">Fecha Inicio</label>
-          <input type="date" data-date-inline-picker="true" name="contratoFechaInicio" class="form-control"
+          <input type="text"  name="contratoFechaInicio" class="form-control"
                  id="contratoFechaInicio"
                  [(ngModel)]="contrato.fechaInicio"/>
 
           <label for="contratoFechaFin">Fecha Fin</label>
-          <input type="date" data-date-inline-picker="true" name="contratoFechaFin" class="form-control"
+          <input type="text"  name="contratoFechaFin" class="form-control"
                  id="contratoFechaFin"
                  [(ngModel)]="contrato.fechaFin"/>
+
+          <label for="contratoVivienda">Vivienda</label>
+          <input type="text"  name="contratoVivienda" class="form-control"
+                 id="contratoVivienda"
+                 [(ngModel)]="contrato.vivienda"/>
+
+          <label for="contratoEstudiante">Estudiante</label>
+          <input type="text"  name="contratoEstudiante" class="form-control"
+                 id="contratoEstudiante"
+                 [(ngModel)]="contrato.estudiante"/>
+
+
+          <!--<div class="form-group">-->
+            <!--<label for="contratoVivienda"><h4>Vivienda</h4></label>-->
+            <!--<input list="viviendasOpciones"  type="text" name="contratoVivienda" class="form-control" id="contratoVivienda" [(ngModel)]="viviendaId"-->
+                   <!--#contratoVivienda="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contratoVivienda.invalid }" required>-->
+            <!--<datalist id="viviendasOpciones">-->
+              <!--<option *ngFor="let v of viviendas" value={{v.id}}>-->
+            <!--</datalist>-->
+            <!--<div class="invalid-feedback">-->
+              <!--<div>Falta la vivienda del contrato</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+
+          <!--<div class="form-group">-->
+            <!--<label for="contratoEstudiante"><h4>Estudiante</h4></label>-->
+            <!--<input list="estudiantesOpciones"  type="text" name="contratoEstudiante" class="form-control" id="contratoEstudiante" [(ngModel)]="estudianteId"-->
+                   <!--#contratoVivienda="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contratoEstudiante.invalid }" required>-->
+            <!--<datalist id="estudiantesOpciones">-->
+              <!--<option *ngFor="let e of estudiantes" value={{e.id}}>-->
+            <!--</datalist>-->
+            <!--<div class="invalid-feedback">-->
+              <!--<div>Falta la vivienda del contrato</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
         </div>
 
         <div class="col-lg-7">

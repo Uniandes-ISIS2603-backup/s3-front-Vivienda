@@ -15,7 +15,7 @@ import {Injectable} from '@angular/core';
 export class HttpErrorInterceptor extends HttpErrorResponse {
 
   constructor(private toastrService: ToastrService) {
-    super(toastrService)
+    super(toastrService);
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -27,13 +27,11 @@ export class HttpErrorInterceptor extends HttpErrorResponse {
           // Client Side Error
           if (error.error instanceof ErrorEvent) {
             errMsg = `Error: ${error.error.message}`;
-          }
-          else {  // Server Side Error
+          } else {  // Server Side Error
             if (error.status == 0) {
               errMsg = `${error.status}, "No hay conexión con el servidor"} `;
               errorType = 'Major Error';
-            }
-            else {
+            } else {
               errMsg = `${error.status}: ${error.error}`;
             }
             this.toastrService.error(errMsg, errorType, {closeButton: true});
@@ -42,6 +40,6 @@ export class HttpErrorInterceptor extends HttpErrorResponse {
           console.log(errMsg);
           return throwError(errMsg);
         })
-      )
+      );
   }
 }

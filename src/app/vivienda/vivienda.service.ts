@@ -5,7 +5,7 @@ import {Vivienda} from './vivienda';
 import {ViviendaDetail} from './vivienda-detail';
 
 import {environment} from '../../environments/environment';
-import {Calificacion} from "../calificacion/calificacion";
+import {Calificacion} from '../calificacion/calificacion';
 
 const API_URL = environment.apiURL;
 const viviendas = '/viviendas';
@@ -30,7 +30,7 @@ export class ViviendaService {
   }
 
   updateVivienda(vivienda: Vivienda): Observable<Vivienda> {
-    return this.http.put<Vivienda>(API_URL + viviendas + "/" +vivienda.id, vivienda);
+    return this.http.put<Vivienda>(API_URL + viviendas + '/' + vivienda.id, vivienda);
   }
 
   generarDatos(): Observable<any> {
@@ -38,24 +38,25 @@ export class ViviendaService {
   }
 
   getCalificaciones(viviendaId: number): Observable<Calificacion[]> {
-    return this.http.get<Calificacion[]>(API_URL + viviendas + "/" + viviendaId + "/calificaciones");
+    return this.http.get<Calificacion[]>(API_URL + viviendas + '/' + viviendaId + '/calificaciones');
   }
-  
-    mapearCalificaciones(viviendas: Vivienda[]): any {
-        let mapeoCalificaciones = {};
-        for (let vivienda of viviendas)
-            mapeoCalificaciones[vivienda.id] = this.promediarCalificaciones(vivienda);
-        return mapeoCalificaciones;
+
+  mapearCalificaciones(viviendas: Vivienda[]): any {
+    let mapeoCalificaciones = {};
+    for (let vivienda of viviendas)
+      mapeoCalificaciones[vivienda.id] = this.promediarCalificaciones(vivienda);
+    return mapeoCalificaciones;
+  }
+
+  promediarCalificaciones(vivienda: Vivienda): String {
+    if (vivienda.calificaciones && vivienda.calificaciones.length > 0) {
+      let suma: number = 0;
+      for (let calificacion of vivienda.calificaciones)
+        suma += calificacion.puntaje;
+      return (suma / vivienda.calificaciones.length).toFixed(2);
+    } else {
+      return 'N/A';
     }
-    
-    promediarCalificaciones(vivienda: Vivienda): String{
-        if (vivienda.calificaciones && vivienda.calificaciones.length > 0){ 
-            let suma:number = 0;
-            for (let calificacion of vivienda.calificaciones)
-                suma += calificacion.puntaje;
-            return (suma / vivienda.calificaciones.length).toFixed(2);
-        }else
-            return "N/A";
-    }
-    
+  }
+
 }
