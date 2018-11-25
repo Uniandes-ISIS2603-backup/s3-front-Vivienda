@@ -11,7 +11,6 @@ import { Calificacion } from '../calificacion';
 export class CalificacionEditComponent implements OnInit {
     
     @Input() calificacion: Calificacion;
-    
     password : String;
     
     /**
@@ -19,6 +18,8 @@ export class CalificacionEditComponent implements OnInit {
     * that the user updated a the review
     */
     @Output() update = new EventEmitter();
+    
+    @Output() cancel = new EventEmitter();
     
     constructor(private calificacionService: CalificacionService,
                 private toastrService: ToastrService) { }
@@ -34,23 +35,27 @@ export class CalificacionEditComponent implements OnInit {
     editCalificacion(): void{
         if (this.verificarPassword()){
             this.calificacionService.updateCalificacion(this.calificacion).subscribe(() => {
-                this.toastrService.success("La calificación se modificó", "Modificar Calificación")
+                this.toastrService.success("La calificación se modificó", "Modificar Calificación");
+                this.update.emit();
                 }, err => {
                         this.toastrService.error(err, "Error");
                     });
-            this.update.emit();
         }
     }
     
     deleteCalificacion(): void{
         if (this.verificarPassword()){
             this.calificacionService.deleteCalificacion(this.calificacion).subscribe(() => {
-                this.toastrService.success("La calificación se eliminó", "Eliminar Calificación")
+                this.toastrService.success("La calificación se eliminó", "Eliminar Calificación");
+                this.update.emit();
                 }, err => {
                         this.toastrService.error(err, "Error");
                     });
-            this.update.emit();
         }
+    }
+    
+    cancelEdit():void{
+        this.cancel.emit();
     }
 
     ngOnInit() {

@@ -11,12 +11,12 @@ export class Estudiante {
     /**
      * The name
      */
-    nombre: String;
+    nombre: string;
     
     /**
      * The account's login
      */
-    login: String;
+    login: string;
     
     /**
      * The account's password
@@ -37,4 +37,4 @@ export class Estudiante {
      * The agreement with the householder
      */
     contrato: Contrato;
-}
+    }

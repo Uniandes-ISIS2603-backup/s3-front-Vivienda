@@ -23,8 +23,8 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
 
     filtrar(): void{
         this.calificacionesFiltradas = this.calificaciones.filter( cal =>{
-            return (!this.fNombre || cal.estudiante.nombre.toLowerCase().startsWith(this.fNombre.toLowerCase())) &&
-            (!this.fLogin || cal.estudiante.login.toLowerCase().startsWith(this.fLogin.toLowerCase())) &&
+            return (!this.fNombre || super.compararString(cal.estudiante.nombre, this.fNombre)) &&
+                (!this.fLogin || super.compararString(cal.estudiante.login, this.fLogin)) &&
                 (! this.fPuntajeMin || cal.puntaje >= this.fPuntajeMin) &&
                 (! this.fPuntajeMax || cal.puntaje <= this.fPuntajeMax);
         });

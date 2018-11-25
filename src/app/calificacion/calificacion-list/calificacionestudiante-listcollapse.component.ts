@@ -1,6 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Calificacion} from '../calificacion';
 import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
+import { CalificacionService } from '../calificacion.service';
 
 @Component({
   selector: 'calificacion-estudiante-listcollapse',
@@ -8,11 +9,20 @@ import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
   styleUrls: ['./calificacion-listcollapse.component.css']
 })
 export class CalificacionEstudianteListCollapseComponent extends CalificacionListCollapseComponent implements OnInit {
+    editable: boolean = false;
+    
+    calificacionPorEditar: Calificacion;
     
     fVivienda: string;
     
     viviSort: string = "(asc)";
-
+    
+    isCollapsed = false;
+    
+    @Output() update = new EventEmitter();
+    
+    constructor (private calificacionService:CalificacionService){super()}
+    
     /**
      * String referencing the type of table to show
      */
@@ -20,7 +30,7 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
 
     filtrar(): void{
         this.calificacionesFiltradas = this.calificaciones.filter( cal =>{
-            return (!this.fVivienda || cal.vivienda.nombre.toLowerCase().startsWith(this.fVivienda.toLowerCase())) &&
+            return (!this.fVivienda || super.compararString(cal.vivienda.nombre, this.fVivienda)) &&
                 (! this.fPuntajeMin || cal.puntaje >= this.fPuntajeMin) &&
                 (! this.fPuntajeMax || cal.puntaje <= this.fPuntajeMax);
         });
@@ -43,6 +53,21 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     puntajeSort(){
         super.puntajeSort();
         this.viviSort = "";
+    }
+    
+    copyCalificacion(calificacion:Calificacion):Calificacion{
+        return JSON.parse(JSON.stringify(calificacion));
+    }
+    
+    /**
+     * Retrieves all the reviews made by the student
+     */
+    actualizarCalificaciones(){
+        this.update.emit();
+        this.calificacionService.getCalificacionesEstudiante(this.calificaciones[0].estudiante.id).subscribe(ss =>{
+            this.calificaciones = ss;
+            this.filtrar();
+        });
     }
     
     /**

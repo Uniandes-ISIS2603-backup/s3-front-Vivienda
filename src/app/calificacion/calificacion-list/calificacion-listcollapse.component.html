@@ -3,22 +3,24 @@
     <div class='col-3'><p>
         <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-          Calificaciones
+          Mostrar Calificaciones
         </button></p></div>
 </div>
 
 <form *ngIf="!isCollapsed" name="filtro" (ngSubmit)="f.form.valid && filtrar()" #f="ngForm" novalidate>
     <div class='form-row' >
-     <div class='col-3'>
+     <div class='col-4'>
         <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-          Ocultar
-        </button></div> 
-    <div class="col-9" *ngIf="listaDe == 'estudiante'">
+          Ocultar Calificaciones
+        </button>
+     </div> 
+     <div class="col-1" *ngIf="listaDe == 'estudiante'"></div>
+    <div class="col-7" *ngIf="listaDe == 'estudiante'">
         <input class="form-control" name="filtroVivienda" type="text" [(ngModel)]="fVivienda"
          #filtroVivienda="ngModel" placeholder="Vivienda">
             </div> 
-    <div class="col-5" *ngIf="listaDe == 'vivienda'">
+    <div class="col-4" *ngIf="listaDe == 'vivienda'">
         <input class="form-control" name="filtroNombre" type="text" [(ngModel)]="fNombre"
          #filtroNombre="ngModel" value="" placeholder="Nombre">
             </div>
@@ -67,7 +69,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let calificacion of calificacionesFiltradas">
+      <tr *ngFor="let calificacion of calificacionesFiltradas" (click)="calificacionPorEditar = copyCalificacion(calificacion)">
         <td *ngIf="listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
         <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
         <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
@@ -77,9 +79,18 @@
       </tbody>
     </table>
   </div>
-   <div class='col-12' style='text-align: center; vertical-align: top' [ngbCollapse]="isCollapsed">
-        <a *ngIf="listaDe == 'estudiante'" routerLink='/calificacion/listestudiante/{{calificaciones[0].estudiante.id}}'>
-            Editar/Mostrar Todas</a>
+    <div class='col-12' style='text-align: center; vertical-align: top' [ngbCollapse]="isCollapsed">
+        <button class="btn" *ngIf="listaDe == 'estudiante' && !editable" (click)='editable = true'>Editar/Eliminar Calificación</button>
     </div>
 </div>
+    <div class="row"  *ngIf = "listaDe == 'estudiante' && editable" [ngbCollapse]="isCollapsed">
+        <div class="col-12" *ngIf = "calificacionPorEditar != null">
+            <app-calificacion-edit [calificacion]="calificacionPorEditar" (cancel)="editable = false; calificacionPorEditar = null"
+                (update)="actualizarCalificaciones()">
+            </app-calificacion-edit>
+        </div>
+        <div class="col-12" *ngIf = "calificacionPorEditar == null">
+             <h3>Selecciona una calificación para editarla o eliminarla</h3>
+        </div>
+    </div>
 </div>

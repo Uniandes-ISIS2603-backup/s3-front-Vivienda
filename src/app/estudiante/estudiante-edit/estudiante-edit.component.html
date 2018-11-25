@@ -6,55 +6,62 @@
         <br>
         <form name="estudiante" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
             <div class="form-group">
-              <label for="oPassword"><h4>Contraseña Antigua</h4></label>
+              <label for="oPassword"><h4>Contraseña</h4></label>
               <input type="password" name="oPassword" class="form-control" id="oPassword" [(ngModel)]="oldPasswordUser"
                     #oPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && oPassword.invalid }" required>
               <div class="invalid-feedback">
                    <div>Falta la contraseña antigua</div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="estudianteNombre"><h4>Nombre Nuevo</h4></label>
-              <input type="text" name="estudianteNombre" class="form-control" id="estudianteNombre" [(ngModel)]="estudiante.nombre"
-                    #estudianteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteNombre.invalid }" required>
-              <div class="invalid-feedback">
-                   <div>Falta el nombre del estudiante</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="estudianteLogin"><h4>Login Nuevo</h4></label>
-              <input type="text" name="estudianteLogin" class="form-control" id="estudianteLogin" [(ngModel)]="estudiante.login"
-                    #estudianteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteLogin.invalid }" required>
-              <div class="invalid-feedback">
-                   <div>Falta el login del estudiante</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="estudiantePassword"><h4>Contraseña Nueva</h4></label>
-              <input type="password" name="estudiantePassword" class="form-control" id="estudiantePassword" [(ngModel)]="estudiante.password"
-                    #estudiantePassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudiantePassword.invalid }">
-            </div>
-            <div class="form-group">
-                <label for="estudianteUniversidad"><h4>Universidad Nueva</h4></label>
-                <input list="universidadesOpciones"  type="text" name="estudianteUniversidad" class="form-control" id="estudianteUniversidad" [(ngModel)]="universidadNombre"
-                      #estudianteUniversidad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteUniversidad.invalid }" required>
-                        <datalist id="universidadesOpciones">
-                          <option *ngFor="let universidad of universidades" value={{universidad.nombre}}>
-                        </datalist>
-                <div class="invalid-feedback">
-                     <div>Falta la universidad del estudiante</div>
+            <div class="container-fluid" style="border: solid; border-color: grey; border-width: thin; border-radius: 4%;">
+                <br>
+                <h3 class="text-center">Nueva Información</h3>
+                <br>
+                <div class="form-group">
+                    <label for="estudianteNombre"><h4>Nombre</h4></label>
+                    <input type="text" name="estudianteNombre" class="form-control" id="estudianteNombre" [(ngModel)]="estudiante.nombre"
+                          #estudianteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteNombre.invalid }" required>
+                    <div class="invalid-feedback">
+                         <div>Falta el nombre del estudiante</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="estudianteLogin"><h4>Login</h4></label>
+                  <input type="text" name="estudianteLogin" class="form-control" id="estudianteLogin" [(ngModel)]="estudiante.login"
+                        #estudianteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteLogin.invalid }" required>
+                  <div class="invalid-feedback">
+                       <div>Falta el login del estudiante</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="estudiantePassword"><h4>Contraseña</h4></label>
+                  <input type="password" name="estudiantePassword" class="form-control" id="estudiantePassword" [(ngModel)]="estudiante.password"
+                        #estudiantePassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudiantePassword.invalid }">
+                </div>
+                <div class="form-group">
+                    <label for="estudianteUniversidad"><h4>Universidad</h4></label>
+                    <input list="universidadesOpciones"  type="text" name="estudianteUniversidad" class="form-control" id="estudianteUniversidad" [(ngModel)]="universidadNombre"
+                          #estudianteUniversidad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteUniversidad.invalid }" required>
+                            <datalist id="universidadesOpciones">
+                              <option *ngFor="let universidad of universidades" value={{universidad.nombre}}>
+                            </datalist>
+                    <div class="invalid-feedback">
+                         <div>Falta la universidad del estudiante</div>
+                    </div>
                 </div>
             </div>
-             <div class="row form-inline justify-content-center align-self-center">
-                 
-                 <div class="col" style="text-align:center">
-                     <button type="submit" class="btn btn-primary" (click)="editEstudiante()"><h4>Editar</h4></button>
-                 </div>
-                 <div class="col" style="text-align:center">
-                    <button type="button" class="btn" (click)="cancelEdition()"><h4> Cancelar </h4></button>
-                 </div>
-                 <div class="col" style="text-align:center">
-                    <button type="submit" class="btn btn-danger" (click)="deleteEstudiante()"><h4>Eliminar</h4></button>
+            <br>
+             <div class="row justify-content-center align-self-center">
+                 <div class="row">
+                    <div class="col" style="text-align:center">
+                        <button type="submit" class="btn btn-primary" (click)="editEstudiante()"><h4>Editar</h4></button>
+                    </div>
+                    <div class="col" style="text-align:center">
+                       <button type="button" class="btn" (click)="cancelEdition()"><h4> Cancelar </h4></button>
+                    </div>
+                    <div class="col" style="text-align:center">
+                       <button type="submit" class="btn btn-danger" (click)="deleteEstudiante()"><h4>Eliminar</h4></button>
+                    </div>
                  </div>
             </div>
         </form>

@@ -47,6 +47,17 @@ export class CalificacionListCollapseComponent implements OnInit {
       this.fPuntajeMin = this.fPuntajeMax - 0.1;
     return true;
   }
+  
+  compararString(s1_p: string, s2_p:string): boolean{
+    let ss1: string[] = s1_p.toLowerCase().split(" ");
+    let ss2: string[] = s2_p.toLowerCase().split(" ");
+
+    for (let s1 of ss1)
+        for (let s2 of ss2)
+            if (s1.startsWith(s2))
+                  return true;
+    return false;
+  }
 
   /**
    * Initializes the component
