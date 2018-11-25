@@ -20,6 +20,7 @@ export class CalificacionListCollapseComponent implements OnInit {
    */
   public isCollapsed = true;
 
+  listaDe: String;
 
   compPuntaje(a: Calificacion, b: Calificacion): number {
     if (a.puntaje === b.puntaje) {
@@ -58,6 +59,12 @@ export class CalificacionListCollapseComponent implements OnInit {
                   return true;
     return false;
   }
+  
+    copyCalificacion(calificacion:Calificacion):Calificacion{
+        if (this.listaDe == 'estudiante')
+            return JSON.parse(JSON.stringify(calificacion));
+        return null;
+    }
 
   /**
    * Initializes the component

@@ -55,10 +55,6 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
         this.viviSort = "";
     }
     
-    copyCalificacion(calificacion:Calificacion):Calificacion{
-        return JSON.parse(JSON.stringify(calificacion));
-    }
-    
     /**
      * Retrieves all the reviews made by the student
      */
