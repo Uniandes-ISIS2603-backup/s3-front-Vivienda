@@ -36,7 +36,7 @@
               
             <div class="form-group">
                 <label for="universidadImage"><b>URL Imagen</b></label>
-                <input type="text" name="universidadImage" class="form-control" id="universidadImage" [(ngModel)]="universidad.imgURL"
+                <input type="text" name="universidadImage" class="form-control" id="universidadImage" [(ngModel)]="universidad.imgUrl"
                     #universidadImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadImage.invalid }" required>
                 <div class="invalid-feedback">
                     <div>Ingresar URL Imagen Universidad</div>

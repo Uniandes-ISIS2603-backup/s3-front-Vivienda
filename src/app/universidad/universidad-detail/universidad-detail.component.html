@@ -1,0 +1,43 @@
+<div class="panel panel-default"> 
+    <div>
+        <div class="border margin">
+            <p class="h3 p-3">{{universidadDetail.nombre}}</p> 
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="thumb">
+                                <img class="img-fluid" src="{{universidadDetail.imgUrl}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="showEdit" >
+                        <br>
+                        <div class="row justify-content-center align-self-center">
+                            <button class="btn btn-primary text-center" routerLink="/universidades/edit/{{universidadDetail.id}}">Editar Universidad</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <dl>  
+                        <hr>
+                        <dt> Nombre</dt>                      
+                        <dd>{{universidadDetail.nombre}}</dd>
+                        <hr>
+                        <dt> Latitud</dt>
+                        <dd>{{universidadDetail.latitud}}</dd>
+                        <hr>
+                        <dt>Longitud</dt>
+                        <dd>{{universidadDetail.longitud}}</dd>
+                        <hr>
+                        <dt class="bold">Imagen URL</dt>
+                        <dd>{{universidadDetail.imgUrl}}</dd>
+                        <hr>  
+                   </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

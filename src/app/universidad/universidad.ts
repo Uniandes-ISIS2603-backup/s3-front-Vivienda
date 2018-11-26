@@ -1,3 +1,5 @@
+ import { Estudiante } from '../estudiante/estudiante';
+ 
  /**
   * Esta clase representa una Universidad de las viviendas universitarias. 
   * Contiene la informacion relevante para una universidad.
@@ -29,4 +31,9 @@
     * El url de la imagen de la universidad
     */
     imgUrl: string;
+    
+    /**
+    * All the reviews made by the student
+    */
+    estudiantes: Estudiante[];
 }

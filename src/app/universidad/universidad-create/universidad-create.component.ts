@@ -51,7 +51,7 @@ export class UniversidadCreateComponent implements OnInit {
         this.universidadService.createUniversidad(universidad_create)
             .subscribe(() => {
                 this.create.emit();
-                this.toastrService.success("Universidad Creada", "Universidad creation");
+                this.toastrService.success("Universidad Creada", "Universidad Creation");
             }, err => {
                 this.toastrService.error(err, "Error");
             });
@@ -62,7 +62,7 @@ export class UniversidadCreateComponent implements OnInit {
     * user no longer wants to create an user
     */
     cancelCreation(): void {
-        this.toastrService.warning('No se creo la universidad', 'Universidad creation');
+        this.toastrService.warning('No se creo la universidad', 'Universidad Creation');
         this.router.navigate(['/universidades/list']);
     }
     

@@ -39,28 +39,27 @@ export class AppComponent implements OnInit {
     this.viviendaService.generarDatos().subscribe(() => {
       this.create.emit();
       this.toastrService.success('Se generaron datos para las viviendas', 'Resultado');
+      
       this.estudiantesService.generarDatos().subscribe(() => {
         this.create.emit();
         this.toastrService.success('Se generaron datos para los estudiantes y las calificaciones', 'Resultado');
+        
         this.arrendadorService.generarDatos().subscribe(() => {
           this.create.emit();
           this.toastrService.success('Se generaron datos para los arrendadores', 'Resultado');
+          
           this.sitioInteresService.generarDatos().subscribe(() => {
             this.create.emit();
             this.toastrService.success('Se generaron datos para los Sitios de Interes', 'Resultado');
-
+            
+            this.universidadService.generarDatos().subscribe(() => {
+            this.create.emit();
+            this.toastrService.success('Se generaron datos para las Universidades', 'Resultado');
+            
             this.contratoService.generarDatos().subscribe( () => {
               this.create.emit();
-              this.toastrService.success('Se generaron datos para los Sitios de Interes', 'Resultado');
+              this.toastrService.success('Se generaron datos para los Contratos', 'Resultado');
             }),
-            /**
-             this.universidadService.generarDatos().subscribe(() => {
-            this.create.emit();
-            this.toastrService.success('Se generaron datos para las universidades', 'Resultado');
-          }, error1 => {
-            this.toastrService.error('No se pudieron generar datos', 'resultado');
-          });
-             */
 
             this.toastrService.success('Actualice la página para ver los cambios', 'Datos Generados');
           }, error1 => {
@@ -75,6 +74,9 @@ export class AppComponent implements OnInit {
     }, error1 => {
       this.toastrService.error('No se pudieron generar datos', 'Resultado');
     });
+    }, error1 => {
+        this.toastrService.error('No se pudieron generar datos', 'Resultado');
+      });
   }
 
   ngOnInit(): void {

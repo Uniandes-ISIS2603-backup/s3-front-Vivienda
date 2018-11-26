@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import { ServicioAdicionalService } from './servicio-adicional.service';
 import { ServicioAdicionalDetailComponent } from './servicio-adicional-detail/servicio-adicional-detail.component';
 import { ServicioAdicionalCreateComponent } from './servicio-adicional-create/servicio-adicional-create.component';
+import { ServicioAdicionalEditComponent } from './servicio-adicional-edit/servicio-adicional-edit.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ServicioAdicionalCreateComponent } from './servicio-adicional-create/se
     CommonModule,
     FormsModule
   ],
-  declarations: [ServicioAdicionalListComponent, ServicioAdicionalDetailComponent, ServicioAdicionalCreateComponent],
+  declarations: [ServicioAdicionalListComponent, ServicioAdicionalDetailComponent, ServicioAdicionalCreateComponent, ServicioAdicionalEditComponent],
   providers: [ServicioAdicionalService],
   exports:[ServicioAdicionalListComponent]
 })

@@ -1,0 +1,70 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Editar Universidad</h2>
+            <br>
+            
+            <form name="universidad" (ngSubmit)="f.form.valid && updateUniversidad()" #f="ngForm" novalidate>
+                  <div class="row">
+                    <div class="col-md-3">
+                        <div class="thumb">
+                            <img class="img-fluid" src="{{universidad.imgUrl}}"/>
+                        </div>
+                    </div>
+                      
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="universidadNombre"><b>Nombre</b></label>
+                            <input type="text" name="universidadNombre" class="form-control" id="universidadNombre" [(ngModel)]="universidad.nombre"
+                                   #universidadNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadNombre.invalid }" required>
+                                   <div class="invalid-feedback">
+                                <div>Ingresar Nombre Universidad</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="universidadLatitud"><b>Latitud</b></label>
+                            <input type="text" name="universidadLatitud" class="form-control" id="universidadLatitud" [(ngModel)]="universidad.latitud"
+                                   #universidadLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadLatitud.invalid }" required>
+                                   <div class="invalid-feedback">
+                                <div>Ingresar Latitud Universidad</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="universidadLongitud"><b>Longitud</b></label>
+                            <input type="text" name="universidadLongitud" class="form-control" id="universidadLongitud" [(ngModel)]="universidad.longitud"
+                                   #universidadLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadLongitud.invalid }" required>
+                                   <div class="invalid-feedback">
+                                <div>Ingresar Longitud Universidad</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="universidadImagen"><b>Imagen</b></label>
+                            <input type="text" name="universidadImagen" class="form-control" id="bookISBN" [(ngModel)]="universidad.imgUrl"
+                                   #universidadImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && universidadImagen.invalid }" required>
+                                   <div class="invalid-feedback">
+                                <div>Ingresar URL Imagen Universidad</div>
+                            </div>
+                        </div>   
+                    </div> 
+                </div>
+                <br>
+                <br>
+                <div class="row form-inline justify-content-center ">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+
+                    <div class="divider"></div>
+
+                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+

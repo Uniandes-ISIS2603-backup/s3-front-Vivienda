@@ -1,27 +1,31 @@
-<div id="alertPanel" style="text-align: center"></div>
-<div class="container-fluid">
+<div class="container">
+    <br>
     <div class="row">
-        <div class="col-md-2">
+
             <br>
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn btn-success" id="botonCrearContrato" routerLink="/universidades/create"
-                    (click)="showHideCreate()">Registrar Nueva Universidad</button>
+                <button class="btn btn-success" id="botonCrearUniversidad" routerLink="/universidades/create" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"
+                        (click)="showHideCreate()"> Registrar Nueva Universidad</button>
             <br>
     </div>
     
     <div class="row">
         <div class="col-lg-3 col-xs-6" *ngFor = "let universidad of universidades">
-             <figure class="figure"> 
+           <br>
+             <figure class="figure" routerLink="/universidades/{{universidad.id}}" style="cursor: pointer;"> 
                 <div class="img-thumbnail border-0">                        
-                    <img class="img-fluid" src='{{universidad.imgURL}}' alt="{{universidad.nombre}}" />                                     
+                    <img class="img-fluid " src='{{universidad.imgUrl}}' alt="{{universidad.nombre}}" />                                     
                 </div>
                 <figcaption class="figure-caption text-center">{{universidad.nombre}}</figcaption>
             </figure>
         </div>   
-    </div>
-        
-    <div class="col-md-8">
-        <app-universidad-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-universidad-create>
-    </div>
-  </div>
+    </div> 
+    
+    <div class="col-8">
+            
+            <div *ngIf="showCreate">
+                <app-universidad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-universidad-create>
+            </div>  
+   </div>  
+    
 </div>
-<router-outlet></router-outlet>
+

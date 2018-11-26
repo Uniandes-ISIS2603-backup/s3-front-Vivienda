@@ -7,6 +7,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { UniversidadService } from './universidad.service';
 import { UniversidadCreateComponent } from './universidad-create/universidad-create.component';
+import { UniversidadEditComponent } from './universidad-edit/universidad-edit.component';
+import { UniversidadDetailComponent } from './universidad-detail/universidad-detail.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { UniversidadCreateComponent } from './universidad-create/universidad-cre
     CommonModule,
     FormsModule
   ],
-  declarations: [UniversidadListComponent, UniversidadCreateComponent],
+  declarations: [UniversidadListComponent, UniversidadCreateComponent, UniversidadEditComponent, UniversidadDetailComponent],
   providers: [UniversidadService],
   exports:[UniversidadListComponent]
 })
