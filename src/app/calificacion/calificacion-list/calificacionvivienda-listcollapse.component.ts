@@ -17,7 +17,7 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
     fNombre: string;
     fLogin: string;
     
-    nombSort: string = "(asc)";
+    nombSort: string = "";
     logiSort: string = "";
 
 
@@ -38,8 +38,10 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
     }
     
     nombreSort(){
-        this.calificacionesFiltradas = (this.nombSort != "") ? this.calificacionesFiltradas.reverse():
-                                        this.calificacionesFiltradas.sort(this.compNombre);
+        if (this.nombSort != "")
+            this.calificacionesFiltradas.reverse();
+        else
+            this.calificacionesFiltradas.sort(this.compNombre);
         this.nombSort = (this.nombSort == "(asc)")? "(des)":"(asc)";
         this.puntSort = "";
         this.logiSort = "";
@@ -53,8 +55,10 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
     }
     
     loginSort(){
-        this.calificacionesFiltradas = (this.logiSort != "") ? this.calificacionesFiltradas.reverse():
-                                        this.calificacionesFiltradas.sort(this.compLogin);
+        if(this.logiSort != "")
+            this.calificacionesFiltradas.reverse();
+        else
+            this.calificacionesFiltradas.sort(this.compLogin);
         this.logiSort = (this.logiSort == "(asc)")? "(des)":"(asc)";
         this.puntSort = "";
         this.nombSort = "";
@@ -71,5 +75,6 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
      */
     ngOnInit() {
         this.calificacionesFiltradas = this.calificaciones;
+        this.nombreSort();
     }
 }

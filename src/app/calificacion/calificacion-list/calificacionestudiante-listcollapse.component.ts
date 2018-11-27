@@ -15,7 +15,7 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     
     fVivienda: string;
     
-    viviSort: string = "(asc)";
+    viviSort: string = "";
     
     isCollapsed = false;
     
@@ -44,8 +44,10 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     }
     
     viviendaSort(){
-        this.calificacionesFiltradas = (this.viviSort != "") ? this.calificacionesFiltradas.reverse():
-                                        this.calificacionesFiltradas.sort(this.compVivienda);
+        if (this.viviSort != "")
+            this.calificacionesFiltradas.reverse();
+        else
+            this.calificacionesFiltradas.sort(this.compVivienda);
         this.viviSort = (this.viviSort == "(asc)")? "(des)":"(asc)";
         this.puntSort = "";
     }
@@ -63,6 +65,8 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
         this.calificacionService.getCalificacionesEstudiante(this.calificaciones[0].estudiante.id).subscribe(ss =>{
             this.calificaciones = ss;
             this.filtrar();
+            this.viviSort = "";
+            this.viviendaSort();
         });
     }
     
@@ -71,5 +75,6 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
      */
     ngOnInit() {
         this.calificacionesFiltradas = this.calificaciones;
+        this.viviendaSort();
     }
 }

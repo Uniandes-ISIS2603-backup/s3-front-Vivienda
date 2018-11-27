@@ -32,8 +32,10 @@ export class CalificacionListCollapseComponent implements OnInit {
   }
 
   puntajeSort() {
-    this.calificacionesFiltradas = (this.puntSort !== '') ? this.calificacionesFiltradas.reverse() :
-      this.calificacionesFiltradas.sort(this.compPuntaje);
+    if (this.puntSort !== '')
+        this.calificacionesFiltradas.reverse();
+    else
+        this.calificacionesFiltradas.sort(this.compPuntaje);
     this.puntSort = (this.puntSort === '(asc)') ? '(des)' : '(asc)';
   }
 
