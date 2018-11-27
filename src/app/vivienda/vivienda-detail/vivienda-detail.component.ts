@@ -29,7 +29,7 @@ export class ViviendaDetailComponent implements OnInit {
       });
   }
 
-  darCalificacion(): String {
+  darCalificacion(): string {
       return this.viviendaService.promediarCalificaciones(this.viviendaDetail);
   }
 

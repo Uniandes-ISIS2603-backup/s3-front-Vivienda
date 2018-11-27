@@ -10,7 +10,7 @@ export class Calificacion {
   /**
    * The description
    */
-  descripcion: String;
+  descripcion: string;
 
   /**
    * The score

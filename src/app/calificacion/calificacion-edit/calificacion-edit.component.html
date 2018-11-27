@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <h3 class="text-center">Editar/Eliminar Calificación</h3>
+        <h4 class="text-center">Editar/Eliminar Calificación de {{calificacion.vivienda.nombre}}</h4>
         <br>
         <form name="estudiante" (ngSubmit)="f.form.valid && editCalificacion()" #f="ngForm" novalidate>
             <div class="form-group">
@@ -48,7 +48,7 @@
                     <button type="button" class="btn" (click)="cancelEdit()"><h4>Cancelar</h4></button>
                  </div>
                  <div class="col" style="text-align:center">
-                    <button type="button" class="btn btn-danger" (click)="deleteCalificacion()"><h4>Eliminar</h4></button>
+                    <button type="submit" class="btn btn-danger" (click)="deleteCalificacion()"><h4>Eliminar</h4></button>
                  </div>
                  </div>
             </div>

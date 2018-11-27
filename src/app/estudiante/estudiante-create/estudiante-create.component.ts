@@ -29,9 +29,9 @@ export class EstudianteCreateComponent implements OnInit {
     estudiante: Estudiante;
     
     /**
-     * The new student's university
+     * The student's new university
      */
-    universidadNombre: String;
+    universidadNombre: string;
     
     /**
      * List of all the universities in UniVivienda

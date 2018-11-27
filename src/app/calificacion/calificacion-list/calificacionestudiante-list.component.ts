@@ -31,7 +31,7 @@ export class CalificacionEstudianteListComponent implements OnInit{
     /**
      * String refencing the type of table to show
      */
-    listaDe: String = 'estudiante';
+    listaDe: string = 'estudiante';
     
     /**
      * List of reviews of the student

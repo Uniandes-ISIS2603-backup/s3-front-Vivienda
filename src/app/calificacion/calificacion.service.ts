@@ -38,8 +38,8 @@ export class CalificacionService {
    * creates a new review
    * @param calificacion The new review to create
    */
-  createCalificacion(calificacion: Calificacion): Observable<Boolean> {
-    return this.http.post<Boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
+  createCalificacion(calificacion: Calificacion): Observable<boolean> {
+    return this.http.post<boolean>(API_URL + viviendas + '/' + calificacion.vivienda.id + '/' + calificaciones, calificacion);
   }
   
   /**

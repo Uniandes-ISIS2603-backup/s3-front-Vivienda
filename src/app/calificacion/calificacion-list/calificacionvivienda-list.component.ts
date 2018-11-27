@@ -27,7 +27,7 @@ export class CalificacionViviendaListComponent implements OnInit {
   /**
    * String referencing the type of table to show
    */
-  listaDe: String = 'vivienda';
+  listaDe: string = 'vivienda';
 
   /**
    * List of reviews of the housing

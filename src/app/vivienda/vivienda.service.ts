@@ -48,7 +48,7 @@ export class ViviendaService {
     return mapeoCalificaciones;
   }
 
-  promediarCalificaciones(vivienda: Vivienda): String {
+  promediarCalificaciones(vivienda: Vivienda): string {
     if (vivienda.calificaciones && vivienda.calificaciones.length > 0) {
       let suma: number = 0;
       for (let calificacion of vivienda.calificaciones)

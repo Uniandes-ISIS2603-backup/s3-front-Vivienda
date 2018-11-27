@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {Calificacion} from '../calificacion';
+import {Router } from '@angular/router';
 import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
 import { CalificacionService } from '../calificacion.service';
 
@@ -17,16 +18,17 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     
     viviSort: string = "";
     
-    isCollapsed = false;
+    isCollapsed: boolean = false;
     
     @Output() update = new EventEmitter();
     
-    constructor (private calificacionService:CalificacionService){super()}
+    constructor (private calificacionService:CalificacionService,
+                    private router: Router){super()}
     
     /**
      * String referencing the type of table to show
      */
-    listaDe: String = 'estudiante';
+    listaDe: string = 'estudiante';
 
     filtrar(): void{
         this.calificacionesFiltradas = this.calificaciones.filter( cal =>{
@@ -60,7 +62,7 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     /**
      * Retrieves all the reviews made by the student
      */
-    actualizarCalificaciones(){
+    actualizarCalificaciones():void{
         this.update.emit();
         this.calificacionService.getCalificacionesEstudiante(this.calificaciones[0].estudiante.id).subscribe(ss =>{
             this.calificaciones = ss;
@@ -68,6 +70,13 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
             this.viviSort = "";
             this.viviendaSort();
         });
+    }
+    
+    clickRow(calificacion: Calificacion):void{
+        if (this.editable)
+            this.calificacionPorEditar = super.copyCalificacion(calificacion);
+        else
+            this.router.navigate(["/viviendas/" + calificacion.vivienda.id]);
     }
     
     /**

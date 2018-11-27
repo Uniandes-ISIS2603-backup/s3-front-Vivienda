@@ -21,7 +21,7 @@ export class Estudiante {
     /**
      * The account's password
      */
-    password: String;
+    password: string;
     
     /**
      * The university

@@ -1,5 +1,6 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import { Calificacion } from '../calificacion';
+import {Router } from '@angular/router';
 import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
 
 @Component({
@@ -9,10 +10,12 @@ import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
 })
 export class CalificacionViviendaListCollapseComponent extends CalificacionListCollapseComponent implements OnInit{
     
+    constructor (private router: Router){super()}
+    
     /**
      * String referencing the type of table to show
      */
-    listaDe: String = 'vivienda';
+    listaDe: string = 'vivienda';
     
     fNombre: string;
     fLogin: string;
@@ -68,6 +71,10 @@ export class CalificacionViviendaListCollapseComponent extends CalificacionListC
         super.puntajeSort();
         this.nombSort = "";
         this.logiSort = "";
+    }
+    
+    clickRow(calificacion:Calificacion):void {
+        this.router.navigate(["/estudiante/" + calificacion.estudiante.id]);
     }
 
     /**

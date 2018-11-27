@@ -10,24 +10,23 @@ export class CalificacionListCollapseComponent implements OnInit {
 
   calificacionesFiltradas: Calificacion[];
 
-  fPuntajeMin = 0;
-  fPuntajeMax = 5;
+  fPuntajeMin: number = 0;
+  fPuntajeMax: number = 5;
 
-  puntSort = '';
+  puntSort: string = '';
 
   /**
    * Boolean attribute modeling the collapse button
    */
-  public isCollapsed = true;
+  public isCollapsed: boolean = true;
 
-  listaDe: String;
+  listaDe: string;
 
   compPuntaje(a: Calificacion, b: Calificacion): number {
     if (a.puntaje === b.puntaje) {
-
+        return 0;
     } else {
       return (a.puntaje < b.puntaje) ? -1 : 1;
-
     }
   }
 

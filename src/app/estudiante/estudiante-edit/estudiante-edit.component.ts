@@ -33,7 +33,7 @@ export class EstudianteEditComponent implements OnInit {
     /**
      * The student's id number
      */
-    universidadNombre : String;
+    universidadNombre : string;
     
     /**
      * The new student
@@ -53,12 +53,12 @@ export class EstudianteEditComponent implements OnInit {
     /**
      * The old password
      */
-    oldPassword : String;
+    oldPassword : string;
     
     /**
      * The old password signed by the user
      */
-    oldPasswordUser : String;
+    oldPasswordUser : string;
 
     /**
     * The output which tells the parent component

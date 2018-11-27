@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
             this.contratoService.generarDatos().subscribe( () => {
               this.create.emit();
               this.toastrService.success('Se generaron datos para los Contratos', 'Resultado');
-            }),
+            });
 
             this.toastrService.success('Actualice la página para ver los cambios', 'Datos Generados');
           }, error1 => {

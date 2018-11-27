@@ -11,7 +11,7 @@ import { Calificacion } from '../calificacion';
 export class CalificacionEditComponent implements OnInit {
     
     @Input() calificacion: Calificacion;
-    password : String;
+    password : string;
     
     /**
     * The output which tells the parent component
@@ -27,7 +27,7 @@ export class CalificacionEditComponent implements OnInit {
                 
     verificarPassword(): boolean{
         let resp: boolean = this.calificacion.estudiante.password == this.password; 
-        if (!resp)
+        if (this.password && !resp)
             this.toastrService.error("Contraseña Incorrecta.", "Error");
         return resp;
     }
