@@ -57,6 +57,7 @@ export class UniversidadEditComponent implements OnInit {
             this.universidadService.updateUniversidad( this.universidad)
                 .subscribe(() => {
                     this.update.emit();
+                    this.router.navigate(['/universidades/' + this.universidad.id]);
                     this.toastrService.success("Universidad Editada", 'Universidad Edition');
                 }, err => {
                 this.toastrService.error(err, "Error");
