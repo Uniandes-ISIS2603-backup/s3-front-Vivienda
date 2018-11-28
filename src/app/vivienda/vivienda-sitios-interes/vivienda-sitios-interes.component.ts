@@ -10,6 +10,7 @@ import {ViviendaDetail} from '../vivienda-detail';
 export class ViviendaSitiosInteresComponent implements OnInit {
   @Input() viviendaSitioInteres: SitioInteres [];
   @Input()  viviendaDetail: ViviendaDetail;
+  @Input()  puedeEditar: boolean;
   public isCollapsed = true;
 
   ngOnInit() {

@@ -5,7 +5,7 @@
             [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
         Sitios de interes de la Vivienda
     </button>
-    <button routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button" class="btn btn-outline-success">Añadir Sitio de Interes</button>
+    <button *ngIf="puedeEditar" routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button" class="btn btn-outline-success">Añadir Sitio de Interes</button>
 </p>                   
                 </div>
             <div *ngIf = "!(viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0)">

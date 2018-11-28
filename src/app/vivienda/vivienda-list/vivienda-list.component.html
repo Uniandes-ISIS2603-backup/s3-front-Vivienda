@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <button class="btn btn-success" id="botonCrearVivienda" routerLink="/viviendas/create">Registrar una vivienda nueva</button>
+    <button class="btn btn-success" *ngxPermissionsOnly="['ARRENDADOR', 'ADMIN']" id="botonCrearVivienda" routerLink="/viviendas/create">Registrar una vivienda nueva</button>
   </div>
   <div class="row">
     <div class="col-lg-3 col-xs-6" *ngFor="let vivienda of viviendas">

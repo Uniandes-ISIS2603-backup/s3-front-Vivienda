@@ -37,6 +37,22 @@ import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create
 import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-edit/sitio-interes-update.component';
 import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
 import {InicioComponent} from '../inicio/inicio.component';
+import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+
+export function puedeEditarArrendador(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem('role') == 'ARRENDADOR' && route.params['id'] == localStorage.getItem('id')) {
+        return ['ADMIN', 'ARRENDADOR']
+    } else {
+      return 'ADMIN'
+    }
+}
+export function puedeEditarEstudiante(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (localStorage.getItem('role') == 'ESTUDIANTE' && route.params['id'] == localStorage.getItem('id')) {
+        return ['ADMIN', 'ESTUDIANTE']
+    } else {
+      return 'ADMIN'
+    }
+}
 
 const routes: Routes = [
 
@@ -50,6 +66,12 @@ const routes: Routes = [
       {
         path: 'create',
         component: ViviendaCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN', 'ARRENDADOR']
+            }
+        }
       },
       {
         path: ':id',
@@ -57,7 +79,13 @@ const routes: Routes = [
       },
       {
         path:'edit/:id',
-        component: ViviendaEditComponent
+        component: ViviendaEditComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN', 'ARRENDADOR']
+            }
+        }
       }
     ]
   },
@@ -79,7 +107,7 @@ const routes: Routes = [
         canActivate: [NgxPermissionsGuard],
         data: {
             permissions: {
-                only: ['GUEST', 'ADMIN']
+                only: ['GUEST']
             }
         }
       },
@@ -89,7 +117,7 @@ const routes: Routes = [
         canActivate: [NgxPermissionsGuard],
         data: {
             permissions: {
-                only: ['ADMIN', 'ESTUDIANTE']
+                only: puedeEditarEstudiante
             }
         }
       },
@@ -140,7 +168,13 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ContratoCreateComponent
+        component: ContratoCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ESTUDIANTE']
+            }
+        }
       },
       {
         path: ':id',
@@ -157,11 +191,23 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: UniversidadCreateComponent
+        component: UniversidadCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN']
+            }
+        }
       },
       {
         path: 'edit/:id',
-        component: UniversidadEditComponent
+        component: UniversidadEditComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN']
+            }
+        }
       },
       {
         path: ':id',
@@ -192,14 +238,26 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: ArrendadorCreateComponent
+        component: ArrendadorCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['GUEST']
+            }
+        }
       },
       {
         path: 'update',
         children:[
                 {
-                  path: ':id',
-                  component: ArrendadorEditComponent
+                path: ':id',
+                component: ArrendadorEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: puedeEditarArrendador
+                    }
+                }
                 }
         ]
       },
@@ -219,7 +277,13 @@ const routes: Routes = [
 
           {
             path: ':id',
-            component: SitioInteresCreateComponent
+            component: SitioInteresCreateComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN', 'ARRENDADOR']
+                }
+            }
           }
         ]
       },
@@ -231,7 +295,13 @@ const routes: Routes = [
             children: [
           {
             path: ':id2',
-            component: SitioInteresUpdateComponent
+            component: SitioInteresUpdateComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN', 'ARRENDADOR']
+                }
+            }
           }
         ]
           }
@@ -248,11 +318,23 @@ const routes: Routes = [
     children: [
       {
         path: 'signIn',
-        component: RegistrarseComponent
+        component: RegistrarseComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['GUEST']
+            }
+        }
       },
       {
         path: 'logIn',
-        component: LogInComponent
+        component: LogInComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['GUEST']
+            }
+        }
       }
     ]
   },
@@ -267,5 +349,5 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule {
-
+    
 }

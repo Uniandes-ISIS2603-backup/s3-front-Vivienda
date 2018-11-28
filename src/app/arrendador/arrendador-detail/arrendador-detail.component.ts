@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import { ArrendadorService } from '../arrendador.service';
+import {UserService} from '../../log-in/user.service';
 import { ArrendadorDetail } from '../arrendador-detail';
 
 @Component({
@@ -13,12 +14,16 @@ export class ArrendadorDetailComponent implements OnInit {
 
   constructor(
   private arrendadorService: ArrendadorService,
-  private route: ActivatedRoute
+  private route: ActivatedRoute,
+  private authService: UserService,
+  private toastrService : ToastrService
   ) { }
     public isCollapsed = true;
   arrendadorDetail: ArrendadorDetail;
   
   arrendador_id: number;
+  
+  puedeEditar: boolean;
   
   getArrendadorDetail(): void
   {
@@ -29,16 +34,19 @@ export class ArrendadorDetailComponent implements OnInit {
       });
   }
   
-    deleteArrendador(): void
-  {
-      this.arrendadorService.deleteArrendador(this.arrendador_id)
-          .subscribe();
-  }
+    deleteArrendador(): void{
+        this.arrendadorService.deleteArrendador(this.arrendador_id)
+            .subscribe(() => {this.authService.logout();
+                                this.toastrService.success("El arrendador se eliminó", "Eliminar Arrendador");});
+    }
   
   ngOnInit() {
       this.arrendador_id = +this.route.snapshot.paramMap.get('id');
       this.arrendadorDetail = new ArrendadorDetail();
       this.getArrendadorDetail();
+      this.puedeEditar = (localStorage.getItem('role') == 'ADMIN' || 
+                    (localStorage.getItem('role') == 'ARRENDADOR' &&
+                    Number(localStorage.getItem('id')) == this.arrendador_id));
   }
 
 }

@@ -1,5 +1,6 @@
 import {ViviendaService} from './vivienda.service';
 import {Calificacion} from '../calificacion/calificacion';
+import {Arrendador} from '../arrendador/arrendador'
 
 export class Vivienda {
 
@@ -56,6 +57,11 @@ export class Vivienda {
    * URL de la imagen de la vivienda
    */
   imgUrl: string;
+  
+  /**
+   * Arrendador de la vivienda
+   */
+   arrendador: Arrendador;
 
   toString(): string {
     let s = '';

@@ -21,11 +21,16 @@ export class ViviendaDetailComponent implements OnInit {
   viviendaDetail: ViviendaDetail;
 
   vivienda_id: number;
+  
+  puedeEditar: boolean;
 
   getViviendaDetail(): void {
     this.viviendaService.getViviendaDetail(this.vivienda_id)
       .subscribe(viviendaDetail => {
         this.viviendaDetail = viviendaDetail;
+        this.puedeEditar = (localStorage.getItem('role') == 'ADMIN' || 
+                    (localStorage.getItem('role') == 'ARRENDADOR' &&
+                    Number(localStorage.getItem('id')) == this.viviendaDetail.arrendador.id));
       });
   }
 

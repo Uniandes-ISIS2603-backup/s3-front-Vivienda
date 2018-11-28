@@ -3,6 +3,8 @@ import {Vivienda} from '../vivienda';
 import {ViviendaService} from '../vivienda.service';
 import {ToastrService} from 'ngx-toastr';
 import {Cuarto} from '../../cuarto/cuarto';
+import {Arrendador} from '../../arrendador/arrendador';
+import {ArrendadorService} from '../../arrendador/arrendador.service';
 import {CuartoService} from '../../cuarto/cuarto.service';
 import {Router} from '@angular/router';
 
@@ -22,6 +24,7 @@ export class ViviendaCreateComponent implements OnInit {
   serviciosIncluidos: string;
 
   constructor(private viviendaService: ViviendaService,
+            private arrendadorService: ArrendadorService,
               private cuartosService: CuartoService,
               private toastrService: ToastrService,
               private router: Router) {
@@ -83,10 +86,20 @@ export class ViviendaCreateComponent implements OnInit {
     this.cancel.emit();
     this.router.navigate(['viviendas/list']);
   }
+  
+  getArrendador():void{
+      let idArrendador: number = Number(localStorage.getItem('id'));
+      if (idArrendador != null)
+        this.arrendadorService.getArrendadorDetail(idArrendador).subscribe( arr =>{
+            this.vivienda.arrendador = arr;
+        });
+  }
 
   ngOnInit() {
     this.vivienda = new Vivienda();
     this.cuartos = [];
+    if (localStorage.getItem('role') == 'ARRENDADOR')
+        this.getArrendador();
   }
 
 }

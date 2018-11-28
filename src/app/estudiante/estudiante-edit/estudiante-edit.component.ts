@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { EstudianteService } from '../estudiante.service';
 import { UniversidadService } from '../../universidad/universidad.service';
 import { CalificacionService } from '../../calificacion/calificacion.service';
+import { UserService } from '../../log-in/user.service';
 import { Estudiante } from '../estudiante';
 import { Universidad } from '../../universidad/universidad';
 
@@ -22,6 +23,7 @@ export class EstudianteEditComponent implements OnInit {
                 private calificacionService: CalificacionService,
                 private route: ActivatedRoute,
                 private router: Router,
+                private authService: UserService,
                 private universidadService: UniversidadService,
                 private toastrService: ToastrService) {}
                 
@@ -148,8 +150,8 @@ export class EstudianteEditComponent implements OnInit {
                     for (let cal of this.estudiante.calificaciones)
                         this.calificacionService.deleteCalificacion(cal);
                 this.estudianteService.deleteEstudiante(this.estudiante).subscribe( ()=>{
-                    this.toastrService.success("El estudiante se Eliminó", "Eliminar Estudiante")
-                    this.router.navigate(["/estudiante/list"]);
+                    this.authService.logout();
+                    this.toastrService.success("El estudiante se Eliminó", "Eliminar Estudiante");
                 }, err => {
                         this.toastrService.error(err, "Error");
                     });
