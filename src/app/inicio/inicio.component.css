@@ -1,0 +1,28 @@
+#btnMoreInfo {
+  border-radius: 20%/50%;
+}
+
+#front-page {
+  max-height: 100vh;
+  height: 100vh;
+}
+
+.primary1:hover {
+  color: #fff;
+  background-color: #0088CC;
+}
+
+.jumbotron {
+  background-image: url("../../assets/img/backphoto.jpg");
+  border-radius: 0;
+  height: 100vh;
+  margin: 0;
+}
+
+.jumbotron p, .h2 {
+  color: white;
+}
+
+.h2 {
+  font-weight: bold;
+}

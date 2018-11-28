@@ -36,6 +36,7 @@ import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sit
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
 import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-edit/sitio-interes-update.component';
 import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
+import {InicioComponent} from '../inicio/inicio.component';
 
 const routes: Routes = [
 
@@ -60,6 +61,11 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '',
+    component: InicioComponent
+  }
+  ,
   {
     path: 'estudiante',
     children: [
