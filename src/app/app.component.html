@@ -36,10 +36,16 @@
         </button>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id="btnIngresar" routerLink="/ingresar/logIn">Ingresar</a>
+        <a class="nav-link active" id="btnIngresar" routerLink="/ingresar/logIn" *ngxPermissionsOnly="['GUEST']">Ingresar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="btnRegistrar" routerLink="/ingresar/signIn">Registrarse</a>
+        <a class="nav-link" id="btnRegistrar" routerLink="/ingresar/signIn" *ngxPermissionsOnly="['GUEST']">Registrarse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btnCuenta" (click)="irCuenta()" *ngxPermissionsOnly="['ESTUDIANTE', 'ARRENDADOR']">Cuenta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="btnSalir" (click)="logOut()" *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE', 'ARRENDADOR']">Salir</a>
       </li>
     </ul>
   </div>

@@ -44,8 +44,8 @@ export class EstudianteService {
      * Creates a new student
      * @param estudiante The new student to create
      */
-    createEstudiante(estudiante: Estudiante): Observable<boolean>{
-        return this.http.post<boolean>(API_URL + estudiantes, estudiante);
+    createEstudiante(estudiante: Estudiante): Observable<Estudiante>{
+        return this.http.post<Estudiante>(API_URL + estudiantes, estudiante);
     }
     
     /**

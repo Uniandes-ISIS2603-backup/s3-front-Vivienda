@@ -27,7 +27,7 @@ export class ArrendadorCreateComponent implements OnInit {
       this.arrendadorService.createArrendador(this.arrendador)
             .subscribe((arrendador) => {
                 this.arrendador = arrendador;
-                this.create.emit();
+                this.create.emit({id: arrendador.id});
                 this.toastrService.success("The arrendador was created", "Arrendador creation");
                 
             });

@@ -39,16 +39,20 @@ export class UserService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setEstudianteRole (): void {
+    setEstudianteRole (id:string = null): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ESTUDIANTE', ['']);
         localStorage.setItem('role', 'ESTUDIANTE');
+        if (id != null)
+            localStorage.setItem('id', id);
     }
     
-    setArrendadorRole (): void {
+    setArrendadorRole (id:string = null): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ARRENDADOR', ['']);
         localStorage.setItem('role', 'ARRENDADOR');
+        if (id != null)
+            localStorage.setItem('id', id);
     }
 
     setAdministratorRole (): void {
@@ -65,14 +69,14 @@ export class UserService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login (role): void {
+    login (role, id:string = null): void {
         if (role === 'Administrador') {
             this.setAdministratorRole();
         } else if (role==='Arrendador'){
-            this.setArrendadorRole();
+            this.setArrendadorRole(id);
         }
         else{
-            this.setEstudianteRole();
+            this.setEstudianteRole(id);
         }
         this.router.navigateByUrl('/viviendas/list');
     }
@@ -84,7 +88,8 @@ export class UserService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
-        this.router.navigateByUrl('/');
+        localStorage.removeItem('id');
+        this.router.navigateByUrl('/viviendas/list');
     }
 }
 

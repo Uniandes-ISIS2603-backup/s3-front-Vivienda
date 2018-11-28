@@ -10,6 +10,6 @@
         </div>
         <div class="col-2 col-md-3"></div>
     </div>
-    <div *ngIf="soyEstudiante"><app-estudiante-create></app-estudiante-create></div>
-    <div *ngIf="!soyEstudiante"><app-arrendador-create></app-arrendador-create></div>
+    <div *ngIf="soyEstudiante"><app-estudiante-create (cancel)="terminarRegistro()" (create)="terminarRegistro('Estudiante', $event)"></app-estudiante-create></div>
+    <div *ngIf="!soyEstudiante"><app-arrendador-create (cancel)="terminarRegistro()"  (create)="terminarRegistro('Arrendador', $event)"></app-arrendador-create></div>
 </div>

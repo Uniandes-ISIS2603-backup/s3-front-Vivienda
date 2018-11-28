@@ -36,7 +36,7 @@ export class CalificacionCreateComponent implements OnInit {
     /**
      * The list of all the students in UniVivienda
      */
-    estudiantes: Estudiante[];
+    estudiante: Estudiante;
 
     @Output() cancel = new EventEmitter();
     @Output() create = new EventEmitter();
@@ -45,16 +45,8 @@ export class CalificacionCreateComponent implements OnInit {
      * Checks the credentials of the student creating the review and creates a new review
      */
     createCalificacion(): void{
-        let estudiante = null;
-        for (let estudianteCal of this.estudiantes ){
-            if (estudianteCal.login == this.calificacion.estudiante.login){
-                if (estudianteCal.password == this.calificacion.estudiante.password)
-                    estudiante = estudianteCal;
-                break;
-            }
-        }
-        if (estudiante != null){
-            this.calificacion.estudiante = estudiante;
+        if (this.estudiante.password == this.calificacion.estudiante.password){
+            this.calificacion.estudiante = this.estudiante;
             this.calificacionService.createCalificacion(this.calificacion).subscribe(() => {
                 this.create.emit();
                 this.toastrService.success("La calificación se creó", "Calificación de Vivienda")
@@ -71,9 +63,10 @@ export class CalificacionCreateComponent implements OnInit {
     /**
      * Retrives all the students in UniVivienda
      */
-    getEstudiantes(): void{
-        this.estudianteService.getEstudiantes().subscribe((ests) =>{
-            this.estudiantes = ests;
+    getEstudiante(): void{
+        this.estudianteService.getEstudiante(Number(localStorage.getItem('id'))).subscribe((est) =>{
+            this.estudiante = est;
+            this.calificacion.estudiante.login = est.login;
         });
     }
     
@@ -92,6 +85,6 @@ export class CalificacionCreateComponent implements OnInit {
         this.calificacion.vivienda = new Vivienda();
         this.calificacion.vivienda.id =  +this.route.snapshot.paramMap.get('id');
         this.calificacion.estudiante = new Estudiante();
-        this.getEstudiantes();
+        this.getEstudiante();
     }
 }

@@ -107,16 +107,21 @@ export class EstudianteEditComponent implements OnInit {
     
     editEstudiante():void{
         if (this.validarContraseña()){
-            this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre == par.nombre))[0];
-            if (this.estudiante.password != null && this.estudiante.password.length == 0){
-                this.estudiante.password = null;
+            let universidadesFiltradas: Universidad[] = this.universidades.filter(par => this.universidadNombre.toLowerCase() == par.nombre.toLowerCase());
+            if (universidadesFiltradas.length >= 1){
+                this.estudiante.universidad = universidadesFiltradas[0];
+                if (this.estudiante.password != null && this.estudiante.password.length == 0){
+                    this.estudiante.password = null;
+                }
+                this.estudianteService.updateEstudiante(this.estudiante).subscribe(() => {
+                    this.toastrService.success("El estudiante se modificó", "Modificar Estudiante")
+                    }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                this.update.emit();
+            }else{
+                this.toastrService.error("Universidad Incorrecta. Seleccione una de la lista.", "Error");
             }
-            this.estudianteService.updateEstudiante(this.estudiante).subscribe(() => {
-                this.toastrService.success("El estudiante se modificó", "Modificar Estudiante")
-                }, err => {
-                        this.toastrService.error(err, "Error");
-                    });
-            this.update.emit();
         }
     }
     
@@ -137,7 +142,7 @@ export class EstudianteEditComponent implements OnInit {
             if (this.estudiante.calificaciones && this.estudiante.calificaciones.length >0)
                 cadena += '\nLas '+this.estudiante.calificaciones.length+' calificacion(es) realizada(s) se eliminará(n).'
                 
-            cadena += '\nOK - Eliminar cuenta\nCancel - No eliminar la cuenta'
+            cadena += '\nAceptar - Eliminar cuenta\nCancel - No eliminar la cuenta'
             if (window.confirm(cadena)){
                 if (this.estudiante.calificaciones)
                     for (let cal of this.estudiante.calificaciones)

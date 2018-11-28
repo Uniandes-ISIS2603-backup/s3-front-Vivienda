@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="estudianteLogin"><h4>Login</h4></label>
                 <input list="estudiantesOpciones"  type="text" name="estudianteLogin" class="form-control" id="estudianteLogin" [(ngModel)]="calificacion.estudiante.login"
-                      #estudianteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteLogin.invalid }" required>
+                      #estudianteLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && estudianteLogin.invalid }" disabled>
                         <datalist id="estudiantesOpciones">
                           <option *ngFor="let estudiante of estudiantes" value={{estudiante.login}}>
                         </datalist>
