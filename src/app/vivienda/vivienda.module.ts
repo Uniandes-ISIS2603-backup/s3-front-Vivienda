@@ -13,6 +13,7 @@ import {ViviendaSitiosInteresComponent} from './vivienda-sitios-interes/vivienda
 import {ViviendaCreateComponent} from './vivienda-create/vivienda-create.component';
 import { ViviendaEditComponent } from './vivienda-edit/vivienda-edit.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import {ContratoModule} from '../contrato/contrato.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     FormsModule,
     NgbModule,
     NgxPermissionsModule,
-    CalificacionModule
+    CalificacionModule,
+    ContratoModule
   ],
   declarations: [
     ViviendaListComponent,

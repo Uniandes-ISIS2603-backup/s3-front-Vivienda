@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ContratoService} from '../contrato.service';
 import {Contrato} from '../contrato';
 import {ViviendaService} from '../../vivienda/vivienda.service';
 import {ActivatedRoute} from '@angular/router';
+import {init} from '../../../../node_modules/protractor/built/launcher';
+import {ContratoDetail} from '../contrato-detail';
 
 @Component({
   selector: 'app-contrato-list',
@@ -23,33 +25,10 @@ export class ContratoListComponent implements OnInit {
   constructor(private contratoService: ContratoService, private route: ActivatedRoute) {
   }
 
-  /**
-   * Id number of the housing
-   */
-  vivienda_id: number;
+  @Input() contratos: ContratoDetail[];
 
-  /**
-   * String referencing the type of table to show
-   */
-  listaDe: String = 'vivienda';
-
-  /**
-   * Lista de contratos que se van a desplegar
-   */
-  contratos: Contrato[];
-
-  /**
-   * Da los contratos por medio de una suscripcion a una peticion de http
-   */
-  getContratos(): void {
-    this.contratoService.getContratos().subscribe(pp => this.contratos = pp);
-  }
-
-  /**
-   * Se llama cuando se inicia angular
-   */
   ngOnInit() {
-    this.getContratos();
+
   }
 
 }
