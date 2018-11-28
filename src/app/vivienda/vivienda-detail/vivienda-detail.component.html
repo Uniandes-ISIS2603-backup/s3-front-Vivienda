@@ -32,7 +32,7 @@
           <h3>{{viviendaDetail.ciudad}}</h3>
           <h5>{{darCalificacion(viviendaDetail.id)}} <i class="fas fa-star"></i>
             <button class="btn btn-primary btn-small" routerLink="/calificacion/create/{{viviendaDetail.id}}" 
-                    *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE']">Calificar
+                    *ngxPermissionsOnly="['ESTUDIANTE']">Calificar
             </button>
           </h5>
         </div>
