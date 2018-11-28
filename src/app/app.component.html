@@ -32,9 +32,11 @@
     </form>
     <ul class="nav d-flex justify-content-center">
       <li class="nav-item">
+        <a class="nav-link" id="btnGenerarDatos">
         <button class="btn btn-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar
           Datos
         </button>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="btnIngresar" routerLink="/ingresar/logIn" *ngxPermissionsOnly="['GUEST']">
@@ -48,11 +50,16 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="btnCuenta" (click)="irCuenta()" *ngxPermissionsOnly="['ESTUDIANTE', 'ARRENDADOR']">Cuenta</a>
+        <a class="nav-link" id="btnCuenta" (click)="irCuenta()"
+           *ngxPermissionsOnly="['ESTUDIANTE', 'ARRENDADOR']">
+          <button class="btn btn-pill btn-success">Cuenta</button>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="btnSalir" (click)="logOut()"
-           *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE', 'ARRENDADOR']">Salir</a>
+           *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE', 'ARRENDADOR']">
+          <button class="btn btn-pill btn-danger">Salir</button>
+        </a>
       </li>
     </ul>
   </div>
