@@ -55,15 +55,17 @@ export class AppComponent implements OnInit {
           this.sitioInteresService.generarDatos().subscribe(() => {
             this.create.emit();
             this.toastrService.success('Se generaron datos para los Sitios de Interes', 'Resultado');
+
+            this.contratoService.generarDatos().subscribe( () => {
+              this.create.emit();
+              this.toastrService.success('Se generaron datos para los Contratos', 'Resultado');
+            }, error1 => {
+              this.toastrService.error('No se pudieron generar datos para los contratos');
+            });
             
             this.universidadService.generarDatos().subscribe(() => {
             this.create.emit();
             this.toastrService.success('Se generaron datos para las Universidades', 'Resultado');
-            
-            this.contratoService.generarDatos().subscribe( () => {
-              this.create.emit();
-              this.toastrService.success('Se generaron datos para los Contratos', 'Resultado');
-            });
 
             this.toastrService.success('Actualice la página para ver los cambios', 'Datos Generados');
           }, error1 => {

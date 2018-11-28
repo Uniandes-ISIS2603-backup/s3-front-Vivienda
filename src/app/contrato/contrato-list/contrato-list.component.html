@@ -1,19 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <button class="btn btn-success" id="botonCrearContrato" routerLink="/contratos/create">Registrar un nuevo contrato</button>
-  </div>
-  <div class="row">
-    <div class="col-lg-3 col-xs-6" *ngFor="let contrato of contratos">
-          <div class="card" routerLink="/contratos/{{contrato.id}}" style="cursor: pointer;">
-            <div class="card-body">
-              <h4 class="card-title">Contrato {{contrato.id}}</h4>
-              <p><b>Metodo pago {{contrato.metodoPago}}</b></p>
-              <p> <strong>Fecha Inicio: </strong> {{contrato.fechaInicio}} </p>
-              <p> <strong>Fecha Fin: </strong> {{contrato.fechaFin}} </p>
-              <p>0.0<i class="fas fa-star"></i></p>
-              <p><strong>Click para ver más info</strong></p>
-            </div>
-          </div>
+    <div *ngFor="let contrato of contratos">
+      <p>{{contrato.vivienda}}</p>
     </div>
   </div>
 </div>
