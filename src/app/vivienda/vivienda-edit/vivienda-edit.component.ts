@@ -4,8 +4,10 @@ import {ViviendaDetail} from '../vivienda-detail';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Cuarto} from '../../cuarto/cuarto';
+import {ServicioAdicional} from '../../servicio-adicional/servicio-adicional';
 import {forEach} from '../../../../node_modules/@angular/router/src/utils/collection';
 import {CuartoService} from '../../cuarto/cuarto.service';
+import {ServicioAdicionalService} from '../../servicio-adicional/servicio-adicional.service';
 
 @Component({
   selector: 'app-vivienda-edit',
@@ -16,6 +18,7 @@ export class ViviendaEditComponent implements OnInit {
 
   vivienda: ViviendaDetail;
   cuartos: Cuarto[];
+  serviciosAdicionales: ServicioAdicional[];
   viviendaId: number;
   serviciosIncluidosString: string;
 
@@ -24,6 +27,7 @@ export class ViviendaEditComponent implements OnInit {
 
   constructor(private viviendaService: ViviendaService,
               private cuartoService: CuartoService,
+              private servicioAdicionalService: ServicioAdicionalService,
               private route: ActivatedRoute,
               private router: Router,
               private toastrService: ToastrService) {
@@ -43,6 +47,7 @@ export class ViviendaEditComponent implements OnInit {
       .subscribe(viviendaDetail => {
         this.vivienda = viviendaDetail;
         this.cuartos = viviendaDetail.cuartos;
+        this.serviciosAdicionales = viviendaDetail.serviciosAdicionales;
         let serviciosIncluidosList = viviendaDetail.serviciosIncluidos;
         for (let i = 0; i < serviciosIncluidosList.length; i++) {
           this.serviciosIncluidosString += serviciosIncluidosList[i];
@@ -84,6 +89,14 @@ export class ViviendaEditComponent implements OnInit {
         this.toastrService.success('Se guardaron los cambios del cuarto #' + index);
       }, error1 => {
         this.toastrService.error('Error en el cuarto #' + index + ': ' + error1);
+      });
+    });
+    this.serviciosAdicionales.forEach((servicioAdicional, index) => {
+      this.servicioAdicionalService.updateServicioAdicional(servicioAdicional, this.viviendaId).subscribe(() => {
+        this.update.emit();
+        this.toastrService.success('Se guardaron los cambios del Servicio Adicional #' + index);
+      }, error1 => {
+        this.toastrService.error('Error en el Servicio Adicional #' + index + ': ' + error1);
       });
     });
   }
