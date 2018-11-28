@@ -25,13 +25,14 @@ export class Cuarto {
    */
   ocupado: boolean;
 
+    
   /**
    * Constructor de la clase
    * @param nombre - Nombre del cuarto
    * @param descripcion - Descripcion del cuarto
    * @param costo - Costo del arriendo del cuarto
    */
-  constructor(nombre: string, descripcion: string, costo: number, ocupado: boolean) {
+  constructor(nombre: string=null, descripcion: string=null, costo: number=null, ocupado: boolean=null) {
     this.nombre = nombre;
     this.descripcion = descripcion;
     this.costoArriendo = costo;
