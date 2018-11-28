@@ -89,7 +89,7 @@ export class UserService {
         this.setGuestRole();
         localStorage.removeItem('role');
         localStorage.removeItem('id');
-        this.router.navigateByUrl('/viviendas/list');
+        this.router.navigateByUrl('/');
     }
 }
 

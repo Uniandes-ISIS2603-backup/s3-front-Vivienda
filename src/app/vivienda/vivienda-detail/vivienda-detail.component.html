@@ -4,10 +4,10 @@
       <!--Nombre y boton editar-->
       <div id="rowTitulo" class="d-flex flex-row">
         <h1>{{viviendaDetail.nombre}}</h1>
-        <button class="btn btn-warning" id="btnEditar" routerLink="/viviendas/edit/{{viviendaDetail.id}}">
+        <button class="btn btn-warning" id="btnEditar" *ngIf="puedeEditar" routerLink="/viviendas/edit/{{viviendaDetail.id}}">
           <i class="fas fa-edit"></i> Editar
         </button>
-        <button class="btn btn-danger" id="btnEliminar" (click)="eliminarVivienda()">
+        <button class="btn btn-danger" id="btnEliminar" *ngIf="puedeEditar" (click)="eliminarVivienda()">
           <i class="far fa-trash-alt"></i> Eliminar
         </button>
       </div>
@@ -49,7 +49,7 @@
 
         </div>
         <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
-                                     [viviendaDetail]="viviendaDetail"></app-vivienda-sitios-interes>
+                                     [viviendaDetail]="viviendaDetail" [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
       </div>
     </div>
     <!--Fin columna principal de la mitad-->

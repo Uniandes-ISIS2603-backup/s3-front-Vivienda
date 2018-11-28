@@ -13,17 +13,17 @@
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
           Viviendas
         </button>
-        <button routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
+        <button *ngIf="puedeEditar" routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
       </div>
       <div *ngIf="!(arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0)">
         <h5> No tiene Viviendas
-          <button routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
+          <button *ngIf="puedeEditar" routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
         </h5>
       </div>
 
-      <button type="button" class="btn btn-warning" routerLink="/arrendadores/update/{{arrendadorDetail.id}}">Update
+      <button type="button"*ngIf="puedeEditar"  class="btn btn-warning" routerLink="/arrendadores/update/{{arrendadorDetail.id}}">Update
       </button>
-      <button type="button" class="btn btn-danger" (click)="deleteArrendador()">Delete</button>
+      <button type="button" *ngIf="puedeEditar" class="btn btn-danger" (click)="deleteArrendador()">Delete</button>
     </div>
 
     <div class="row">

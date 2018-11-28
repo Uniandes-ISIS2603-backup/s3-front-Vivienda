@@ -57,27 +57,6 @@ export class ServicioAdicionalCreateComponent implements OnInit {
                 this.toastrService.error(err, 'Error');
             });
     }
-  /**
-    * Creates a new servicioadicional
-    */
-    createServicioAdicional(): void {
-        if (this.servicioAdicional.vivienda == null) {
-            this.toastrService.error('The servicio must have a vivienda!', 'Error');
-        } else {
-            var servicio_adicional_create = {
-                name: this.servicioAdicional.nombre,
-                descripcion: this.servicioAdicional.descripcion,
-                vivienda: this.servicioAdicional.vivienda,
-            };
-            this.servicioAdicionalService.createServicioAdicional(servicio_adicional_create)
-                .subscribe(servicioAdicional => {
-                    this.router.navigate(['/servicios-adicionales/' + servicioAdicional.id + '/details']);
-                    this.toastrService.success("The servicio adicional was successfully created", 'ServicioAdicional creation');
-                }, err => {
-                    this.toastrService.error(err, 'Error');
-                });
-        }
-    }
     
     /**
     * Emits the signal to tell the parent component that the

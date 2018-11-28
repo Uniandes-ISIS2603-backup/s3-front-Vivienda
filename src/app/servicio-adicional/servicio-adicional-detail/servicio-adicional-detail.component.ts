@@ -45,6 +45,11 @@ export class ServicioAdicionalDetailComponent implements OnInit {
   servicioAdicional_id: number;
   
   /**
+   * Id number of the housing
+   */
+    vivienda_id: number;
+  
+  /**
     * Los otros servicios adicionales shown in the sidebar
     */
     other_servicios_adicionales: ServicioAdicional[];
@@ -55,25 +60,11 @@ export class ServicioAdicionalDetailComponent implements OnInit {
     */
     navigationSubscription;
     
-    
-    /**
-    * The function which retrieves the details of the servicio adicional that
-    * we want to show
-    */
-    getServicioAdicional(): void {
-        this.servicioAdicionalService.getServicioAdicional(this.servicioAdicional_id)
-            .subscribe(servicioAdicional => {
-                this.servicioAdicional = servicioAdicional;
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
-    }
-    
     /**
     * This function retrieves all the servicios adicionales in the vivienda to show them in the list
     */
     getAllServiciosAdicionales(): void {
-        this.servicioAdicionalService.getServiciosAdicionales()
+        this.servicioAdicionalService.getServiciosAdicionales(this.vivienda_id)
             .subscribe(serviciosAdiconales => {
                 this.other_servicios_adicionales = serviciosAdiconales;
                 this.other_servicios_adicionales = this.other_servicios_adicionales.filter(servicioAdicional => servicioAdicional.id !== this.servicioAdicional_id);
@@ -88,7 +79,6 @@ export class ServicioAdicionalDetailComponent implements OnInit {
         this.servicioAdicional = new ServicioAdicional();
         this.servicioAdicional.vivienda = new Vivienda();
         this.other_servicios_adicionales = [];
-        this.getServicioAdicional();
         this.getAllServiciosAdicionales();
   }
   

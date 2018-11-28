@@ -3,7 +3,11 @@ import {Vivienda} from '../vivienda';
 import {ViviendaService} from '../vivienda.service';
 import {ToastrService} from 'ngx-toastr';
 import {Cuarto} from '../../cuarto/cuarto';
+import {Arrendador} from '../../arrendador/arrendador';
+import {ArrendadorService} from '../../arrendador/arrendador.service';
 import {CuartoService} from '../../cuarto/cuarto.service';
+import {ServicioAdicional} from '../../servicio-adicional/servicio-adicional';
+import {ServicioAdicionalService} from '../../servicio-adicional/servicio-adicional.service';
 import {Router} from '@angular/router';
 
 // Componente usado para crear un vivienda y sus cuartos
@@ -18,11 +22,15 @@ export class ViviendaCreateComponent implements OnInit {
   vivienda: Vivienda;
   //Los cuartos
   cuartos: Cuarto[];
+  //Los servicios adicionales
+  serviciosAdicionales: ServicioAdicional[];
   //String temporal de servicios incluidos
   serviciosIncluidos: string;
 
   constructor(private viviendaService: ViviendaService,
+            private arrendadorService: ArrendadorService,
               private cuartosService: CuartoService,
+              private servicioAdicionalService: ServicioAdicionalService,
               private toastrService: ToastrService,
               private router: Router) {
   }
@@ -78,15 +86,31 @@ export class ViviendaCreateComponent implements OnInit {
   nuevoFormCuarto() {
     this.cuartos.push(new Cuarto('', '', null, false));
   }
-
+  
+  //Crea una serie de inputs para un cuarto adicional
+  nuevoFormServicioAdicional() {
+    this.serviciosAdicionales.push(new ServicioAdicional());
+  }
+  
   cancelCreation() {
     this.cancel.emit();
     this.router.navigate(['viviendas/list']);
+  }
+  
+  getArrendador():void{
+      let idArrendador: number = Number(localStorage.getItem('id'));
+      if (idArrendador != null)
+        this.arrendadorService.getArrendadorDetail(idArrendador).subscribe( arr =>{
+            this.vivienda.arrendador = arr;
+        });
   }
 
   ngOnInit() {
     this.vivienda = new Vivienda();
     this.cuartos = [];
+    this.serviciosAdicionales = [];
+    if (localStorage.getItem('role') == 'ARRENDADOR')
+        this.getArrendador();
   }
 
 }

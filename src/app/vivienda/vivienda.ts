@@ -58,7 +58,10 @@ export class Vivienda {
    */
   imgUrl: string;
 
-  arrendador: Arrendador;
+  /**
+   * Arrendador de la vivienda
+   */
+   arrendador: Arrendador;
 
   toString(): string {
     let s = '';
