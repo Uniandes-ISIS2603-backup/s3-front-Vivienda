@@ -7,7 +7,9 @@ import {ArrendadorService} from './arrendador/arrendador.service';
 import {UniversidadService} from './universidad/universidad.service';
 import {SitioInteresService} from './sitio-interes/sitioInteres.service';
 import {Vivienda} from './vivienda/vivienda';
+import { UserService } from './log-in/user.service';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 import {ContratoService} from './contrato/contrato.service';
 
 
@@ -28,7 +30,9 @@ export class AppComponent implements OnInit {
               private universidadService: UniversidadService,
               private sitioInteresService: SitioInteresService,
               private contratoService: ContratoService,
-              private toastrService: ToastrService
+              private toastrService: ToastrService,
+              private router: Router,
+              private authService: UserService
   ) {
 
   }
@@ -78,8 +82,21 @@ export class AppComponent implements OnInit {
         this.toastrService.error('No se pudieron generar datos', 'Resultado');
       });
   }
-
+    
+  
+    logOut():void{
+        this.authService.logout();
+    }
+    
+    irCuenta():void{
+        if (localStorage.getItem('role') == 'ESTUDIANTE')
+            this.router.navigate(['/estudiante/'+localStorage.getItem('id')]);
+        else
+            this.router.navigate(['/arrendadores/'+localStorage.getItem('id')]);
+    }
+    
   ngOnInit(): void {
+      this.authService.start();
   }
 
 

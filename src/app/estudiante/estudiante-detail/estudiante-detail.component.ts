@@ -18,6 +18,8 @@ export class EstudianteDetailComponent implements OnInit {
     constructor(private estudianteService: EstudianteService,
                 private route: ActivatedRoute) {}
                 
+    puedeEditar: boolean;
+                
     /**
      * The student's id number
      */
@@ -44,6 +46,9 @@ export class EstudianteDetailComponent implements OnInit {
     ngOnInit() {
         this.estudiante = new Estudiante();
         this.estudiante_id = +this.route.snapshot.paramMap.get('id');
+        this.puedeEditar = (localStorage.getItem('role') == 'ADMIN' ||
+                            (localStorage.getItem('role') == 'ESTUDIANTE' &&
+                             Number(localStorage.getItem('id')) == this.estudiante_id));
         this.getEstudiante();
     }
 

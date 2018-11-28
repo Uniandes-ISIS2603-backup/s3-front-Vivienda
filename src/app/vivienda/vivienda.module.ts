@@ -12,6 +12,7 @@ import {ViviendaDetailComponent} from './vivienda-detail/vivienda-detail.compone
 import {ViviendaSitiosInteresComponent} from './vivienda-sitios-interes/vivienda-sitios-interes.component';
 import {ViviendaCreateComponent} from './vivienda-create/vivienda-create.component';
 import { ViviendaEditComponent } from './vivienda-edit/vivienda-edit.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ViviendaEditComponent } from './vivienda-edit/vivienda-edit.component';
     CommonModule,
     FormsModule,
     NgbModule,
+    NgxPermissionsModule,
     CalificacionModule
   ],
   declarations: [

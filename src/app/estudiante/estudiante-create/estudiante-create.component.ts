@@ -45,13 +45,18 @@ export class EstudianteCreateComponent implements OnInit {
      * Creates a new student
      */
     createEstudiante(): void{
-        this.estudiante.universidad = (this.universidades.filter(par => this.universidadNombre == par.nombre))[0];
-        this.estudianteService.createEstudiante(this.estudiante).subscribe(() => {
-            this.create.emit();
-            this.toastrService.success("El estudiante se creó", "Creación de Estudiante")
-        }, err => {
-                this.toastrService.error(err, "Error");
-            });
+        let universidadesFiltradas: Universidad[] = this.universidades.filter(par => this.universidadNombre.toLowerCase() == par.nombre.toLowerCase());
+        if (universidadesFiltradas.length >= 1){
+            this.estudiante.universidad = universidadesFiltradas[0];
+            this.estudianteService.createEstudiante(this.estudiante).subscribe(est => {
+                this.create.emit({id: ""+est.id});
+                this.toastrService.success("El estudiante se creó", "Creación de Estudiante")
+            }, err => {
+                    this.toastrService.error(err, "Error");
+                });
+        }else{
+            this.toastrService.error("Universidad Incorrecta. Seleccione una de la lista.", "Error");
+        }
     }
     
     /**

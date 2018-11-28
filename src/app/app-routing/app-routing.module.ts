@@ -75,11 +75,23 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: EstudianteCreateComponent
+        component: EstudianteCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['GUEST', 'ADMIN']
+            }
+        }
       },
       {
         path: 'edit/:id',
-        component: EstudianteEditComponent
+        component: EstudianteEditComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN', 'ESTUDIANTE']
+            }
+        }
       },
       {
         path: ':id',
@@ -92,7 +104,13 @@ const routes: Routes = [
     children: [
       {
         path: 'create/:id',
-        component: CalificacionCreateComponent
+        component: CalificacionCreateComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['ADMIN', 'ESTUDIANTE']
+            }
+        }
       },
       {
         path: 'listestudiante/:id',
@@ -101,10 +119,6 @@ const routes: Routes = [
       {
         path: 'listvivienda/:id',
         component: CalificacionViviendaListComponent
-      },
-      {
-        path: ':id',
-        component: CalificacionDetailComponent
       }
     ]
   },

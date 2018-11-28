@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import {Calificacion} from '../calificacion';
 import {Router } from '@angular/router';
 import {CalificacionListCollapseComponent} from './calificaciones-listcollapse';
@@ -21,6 +21,7 @@ export class CalificacionEstudianteListCollapseComponent extends CalificacionLis
     isCollapsed: boolean = false;
     
     @Output() update = new EventEmitter();
+    @Input() puedeEditar: boolean;
     
     constructor (private calificacionService:CalificacionService,
                     private router: Router){super()}

@@ -80,7 +80,7 @@
     </table>
   </div>
     <div class='col-12' style='text-align: center; vertical-align: top' [ngbCollapse]="isCollapsed">
-        <button class="btn" *ngIf="listaDe == 'estudiante' && !editable" (click)='editable = true'>Editar/Eliminar Calificación</button>
+        <button class="btn" *ngIf="listaDe == 'estudiante' && puedeEditar && !editable" (click)='editable = true'>Editar/Eliminar Calificación</button>
     </div>
 </div>
     <div class="row"  *ngIf = "listaDe == 'estudiante' && editable" [ngbCollapse]="isCollapsed">
