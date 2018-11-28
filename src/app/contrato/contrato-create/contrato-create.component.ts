@@ -31,23 +31,14 @@ export class ContratoCreateComponent implements OnInit {
   //El id de la vivienda relacionada al contrato
   viviendaId: number;
 
-  //La vivienda relacionada al contrato
-  vivienda: ViviendaDetail;
-
   //El id del estudiante asociad
   estudianteId: number;
-
-  //El estudiante asociado al contrato
-  estudiante: Estudiante;
 
   //El id del cuarto asociado al contrato
   cuartoId: number;
 
-  //El cuarto asociado al contrato
-  cuarto: Cuarto;
-
   //El costo de arrendamiento incluye el costo de los servicios adicionales
-  costo:Number;
+  costo:number;
 
   metodoPago: string;
 
@@ -69,19 +60,36 @@ export class ContratoCreateComponent implements OnInit {
               private route: ActivatedRoute) {
   }
 
-  /**
-   * Metodo donde se crea un contrato y se hace submit
-   */
-  crearContrato() {
-    this.contrato.metodoPago = this.metodosPago.indexOf(this.metodoPago) + 1; 
-    this.contratoService.createContrato(this.contrato).subscribe(() => {
-      this.toastrService.success('Se creo el contrato');
-      this.router.navigate(['viviendas/' + this.viviendaId]);
-    }, error1 => {
-      this.toastrService.error('Error al crear contrato');
-    });
-  }
-
+    /**
+     * Metodo donde se crea un contrato y se hace submit
+     */
+    crearContrato() {
+        if (this.verificarFecha()){
+            this.contrato.metodoPago = this.metodosPago.indexOf(this.metodoPago) + 1; 
+            this.contratoService.createContrato(this.contrato).subscribe(() => {
+              this.toastrService.success('Se creo el contrato');
+              this.router.navigate(['viviendas/' + this.viviendaId]);
+            }, error1 => {
+              this.toastrService.error('Error al crear contrato');
+            });
+        }
+    }
+    
+    verificarFecha():boolean{
+        //let currDate: Date = new Date();
+        let fechaInicio: Date = new Date(this.contrato.fechaInicio);
+        let fechaFin: Date = new Date(this.contrato.fechaFin);
+        let error: string = '';
+        
+        if (fechaFin <= fechaInicio)
+            error += 'La fecha de inicio debe ser antes de la fecha de terminación. ';
+        //if (currDate > fechaInicio)
+        //    error += 'La fecha actual debe ser antes de la fecha de inicio.';
+       
+        if (error.length != 0)
+            this.toastrService.error(error, 'Error');
+        return (error.length == 0)
+    }
 
 
   /**
