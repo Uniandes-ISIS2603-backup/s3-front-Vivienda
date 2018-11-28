@@ -2,21 +2,11 @@
   background-color: #0c283a;
 }
 
-.btn {
-  border-color: orangered;
-  color: orangered;
-}
-
-.btn:hover {
-  background-color: orangered;
-  color: #0c283a;
-}
-
-#btnIngresar{
+#btnIngresar {
   color: white;
 }
 
-#btnRegistrar{
+#btnRegistrar {
   color: white;
 }
 

@@ -21,11 +21,13 @@ import { SitioInteresModule } from './sitio-interes/sitio-interes.module';
 import { FormsModule } from '@angular/forms';
 import {UserService} from './log-in/user.service';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
