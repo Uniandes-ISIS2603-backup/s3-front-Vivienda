@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router'
 
 import { ArrendadorService } from '../arrendador.service';
 import { ArrendadorDetail } from '../arrendador-detail';
@@ -13,9 +14,11 @@ export class ArrendadorDetailComponent implements OnInit {
 
   constructor(
   private arrendadorService: ArrendadorService,
-  private route: ActivatedRoute
-  ) { }
-    public isCollapsed = true;
+  private route: ActivatedRoute,
+  private router: Router,
+  private toastrService: ToastrService) { }
+
+  public isCollapsed = true;
   arrendadorDetail: ArrendadorDetail;
   
   arrendador_id: number;
@@ -25,14 +28,15 @@ export class ArrendadorDetailComponent implements OnInit {
       this.arrendadorService.getArrendadorDetail(this.arrendador_id)
           .subscribe(arrendadorDetail => {
               this.arrendadorDetail = arrendadorDetail;
-              console.log(this.arrendadorDetail);
       });
   }
   
     deleteArrendador(): void
   {
       this.arrendadorService.deleteArrendador(this.arrendador_id)
-          .subscribe();
+          .subscribe(()=>{
+            this.toastrService.success("El arrendador fue eliminado", "Arrendador Delete");
+            this.router.navigate(["/arrendadores/list"]);});
   }
   
   ngOnInit() {

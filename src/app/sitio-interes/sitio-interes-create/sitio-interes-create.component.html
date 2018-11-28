@@ -16,7 +16,7 @@
           <label for="sitioInteresDescripcion">Descripción</label>
           <textarea type="text" name="sitioInteresDescripcion" id="sitioInteresDescripcion" form="sitioInteresDescripcion"
                     class="form-control" rows="6"
-                    [(ngModel)]="sitioInteres.descripccion"></textarea>
+                    [(ngModel)]="sitioInteres.descripcion"></textarea>
                         <div class="form-group">
                 <label for="sitioInteresImg"><b>Imagen URL</b></label>
                 <input type="text" name="sitioInteresImg" class="form-control" id="sitioInteresImg" [(ngModel)]="sitioInteres.img"
@@ -39,9 +39,9 @@
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary" >Create</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/list">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/{{viviendaId}}">Cancel</button>
             </div>
         </form>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router'
+import {ToastrService} from 'ngx-toastr';
 
 import {ViviendaService} from '../../vivienda/vivienda.service';
 import {SitioInteresService} from '../sitioInteres.service';
@@ -12,7 +13,11 @@ import {ViviendaDetail} from '../../vivienda/vivienda-detail';
 })
 export class SitioInteresListComponent implements OnInit {
 
-  constructor(private viviendaService: ViviendaService, private sitioInteresService: SitioInteresService, private route: ActivatedRoute) { }
+  constructor(private viviendaService: ViviendaService, 
+              private sitioInteresService: SitioInteresService, 
+              private route: ActivatedRoute,
+              private toastrService: ToastrService,
+              private router: Router) { }
   
   viviendaId: number;
   
@@ -28,7 +33,8 @@ export class SitioInteresListComponent implements OnInit {
   deleteSitioInteres(sitioInteresId: number): void
   {
       this.sitioInteresService.deleteSitioInteres(this.viviendaId, sitioInteresId)
-      .subscribe();
+      .subscribe(()=>{this.toastrService.success('Se elimino el Sitio de Interes', 'Resultado');
+      this.router.navigate(["/sitioInteres/"+this.viviendaId]);});
   }
 
   ngOnInit() {
