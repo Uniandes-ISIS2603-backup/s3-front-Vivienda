@@ -71,6 +71,26 @@
           {{servicioIncluido}}
         </li>
       </ul>
+      
+      <!--Tabla de servicios adicionales-->
+      <h5 id="tituloCuartos">Servicios Adcionales</h5>
+      <table class="table" id="tablaServiciosAdicionales">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Descripción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let servicioAdicional of viviendaDetail.serviciosAdiconales">
+          <td>{{servicioAdicional.nombre}}</td>
+          <td>{{servicioAdicional.costo}}</td>
+          <td>{{servicioAdicional.descripcion}}</td>
+          
+        </tr>
+        </tbody>
+      </table>
 
       <!--Tabla de cuartos-->
       <h2 id="tituloCuartos">Cuartos</h2>
@@ -96,7 +116,6 @@
         </tr>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>
