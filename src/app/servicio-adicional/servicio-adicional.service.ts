@@ -51,7 +51,7 @@ export class ServicioAdicionalService {
    * deletes a servicio adiconal
    * @param servicioAdicional El servicio adiconal a borrar
    */
-  deleteCalificacion(servicioAdicional: ServicioAdicional): Observable<boolean> {
+  deleteServicioAdicional(servicioAdicional: ServicioAdicional): Observable<boolean> {
       return this.http.delete<boolean>(API_URL + viviendas + '/' + servicioAdicional.vivienda.id + '/' + serviciosAdicionales + '/' + servicioAdicional.id);
   }
 
