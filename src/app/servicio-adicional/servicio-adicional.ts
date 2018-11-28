@@ -22,6 +22,11 @@ export class ServicioAdicional {
     descripcion: string;
     
     /**
+    * El costo del servicio adicional
+    */
+    costo: number;
+    
+    /**
     * La vivienda que ofrece el servicio adicinal
     */
     vivienda: Vivienda;

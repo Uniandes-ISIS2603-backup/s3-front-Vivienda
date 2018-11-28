@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import {ActivatedRoute} from '@angular/router';
 
 import { ServicioAdicional } from '../servicio-adicional';
 import { ServicioAdicionalService } from '../servicio-adicional.service';
@@ -24,7 +25,8 @@ export class ServicioAdicionalListComponent implements OnInit {
     constructor
     (
         private servicioAdicionalService: ServicioAdicionalService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private route: ActivatedRoute
     ) { } 
     
    /**
@@ -33,10 +35,15 @@ export class ServicioAdicionalListComponent implements OnInit {
     serviciosAdicionales: ServicioAdicional[];
     
     /**
+     * Id number of the housing
+     */
+    vivienda_id: number;
+  
+    /**
     * Recupera los servicios en una lista
     */
     getServiciosAdicionales(): void {
-        this.servicioAdicionalService.getServiciosAdicionales()
+        this.servicioAdicionalService.getServiciosAdicionales(this.vivienda_id)
             .subscribe(serviciosAdicionales => {
                 this.serviciosAdicionales = serviciosAdicionales;
             }, err => {
@@ -49,7 +56,7 @@ export class ServicioAdicionalListComponent implements OnInit {
     * This function will be called when the component is created
     */
     ngOnInit() {
-        this.serviciosAdicionales = [];
+        this.vivienda_id = +this.route.snapshot.paramMap.get('id');
         this.getServiciosAdicionales();
     }
 

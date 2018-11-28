@@ -36,14 +36,20 @@
         </div>
       </div>
     </div>
-    <div align="right">
-      <button type="submit" class="btn btn-primary"><h6>Registrar</h6></button>
-      <button type="button" class="btn btn-danger" (click)="cancelCreation()"><h6> Cancelar </h6></button>
-    </div>
 
+    <div class="row">
+    <div class="col-lg-5">    
     <div class="d-flex flex-row" style="margin-bottom: 2vh">
       <h3 style="margin-right: 10px">Agregar Cuarto</h3>
       <button type="button" class="btn btn-primary" (click)="nuevoFormCuarto()"><i class="fas fa-plus"></i></button>
+    </div>  
+    </div>
+      <div class="col-lg-7">
+          <div class="d-flex flex-row" style="margin-bottom: 2vh">
+            <h4 style="margin-right: 10px">Agregar Servicio Adicional</h4>
+            <button type="button" class="btn btn-primary" (click)="nuevoFormCuarto()"><i class="fas fa-plus"></i></button>
+          </div>
+      </div>
     </div>
 
     <div class="form-row" *ngFor="let cuarto of cuartos, let i = index">
@@ -65,6 +71,11 @@
         <input form="viviendaForm" type="text" name="cuarto-{{i}}" id="descripcionCuarto-{{i}}" class="form-control"
                [(ngModel)]="cuartos[i].descripcion">
       </div>
+    </div>
+        <br>    
+    <div align="right">
+      <button type="submit" class="btn btn-primary"><h6>Registrar</h6></button>
+      <button type="button" class="btn btn-danger" (click)="cancelCreation()"><h6> Cancelar </h6></button>
     </div>
   </form>
 </div>
