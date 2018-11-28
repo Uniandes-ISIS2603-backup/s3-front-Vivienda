@@ -1,4 +1,4 @@
-<div class="container" style="margin: auto">
+<div class="container" style="margin: auto" *ngIf="contrato.estudiante.nombre">
   <h1>Crear Contrato</h1>
   <form name="contrato" id="contratoForm" (ngSubmit)="f.form.valid && crearContrato()" #f="ngForm" novalidate>
     <div class="form-group">
