@@ -1,10 +1,18 @@
 #btnMoreInfo {
   border-radius: 20%/50%;
+  overflow-y: hidden;
+}
+
+.container-fluid{
+  margin:0;
+  padding:0;
+  overflow: hidden;
 }
 
 #front-page {
   max-height: 100vh;
   height: 100vh;
+  overflow: hidden;
 }
 
 .primary1:hover {
@@ -13,7 +21,9 @@
 }
 
 .jumbotron {
-  background-image: url("../../assets/img/backphoto.jpg");
+  background: url("../../assets/img/backphoto.jpg") repeat fixed;
+  background-size: 100% 100%;
+  overflow: hidden;
   border-radius: 0;
   height: 100vh;
   margin: 0;
@@ -30,4 +40,12 @@
 img{
   width: 10vw;
   padding-bottom: 2vh;
+}
+
+@media only screen and (min-width: 2000px) {
+  .jumbotron{
+    background: url("../../assets/img/large-backphoto.png") repeat fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
+  }
 }

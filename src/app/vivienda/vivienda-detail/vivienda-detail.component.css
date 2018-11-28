@@ -1,48 +1,69 @@
-.img-fluid
-{
-    width: 100%;
-    height: 30vw;
-    object-fit: cover;
-    padding-bottom: 2vh;
+.img-fluid {
+  width: 100%;
+  height: 30vw;
+  object-fit: cover;
+  padding-bottom: 2vh;
 }
 
-.container-fluid{
+#card-image {
+  width: 100vw;
+}
+
+#calificacion {
+  font-size: 0.7em;
+  font-weight: lighter;
+  margin-right: 0.7em;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 2.2em;
+}
+
+#city {
+  font-size: 1.3em;
+}
+
+.container-fluid {
   padding-right: 15px;
   padding-left: 15px;
   margin: 2% auto;
   min-width: 800px;
 }
 
-.fa-star{
+.fa-star {
   width: 5px;
   height: 5px;
   padding: 0;
   color: #ff6504;
 }
 
-.btn-small{
+.btn-small {
   margin-left: 40px;
 }
 
-.fa-edit{
+.fa-edit {
   font-size: 20px;
 }
-#rowTitulo{
+
+#rowTitulo {
   margin-bottom: 2%;
 }
-#colDerecha{
-}
 
-#tituloCuartos{
-  margin-top: 1em;
+#tituloCuartos {
+  margin-top: 4vh;
   font-weight: bold;
 }
 
-#divCalificaciones{
+#servicios {
+  margin-top: 10vh;
+}
+
+#divCalificaciones {
   max-width: 100vw;
 }
 
-#btnEditar{
+#btnEditar {
   font-weight: 600;
   /* text-transform: uppercase; */
   letter-spacing: 0.07em;
@@ -53,11 +74,11 @@
   margin: 0 auto 0 3em;
 }
 
-#btnEditar i{
+#btnEditar i {
   font-size: 1.3em;
 }
 
-#btnEliminar{
+#btnEliminar {
   font-weight: 600;
   /* text-transform: uppercase; */
   letter-spacing: 0.07em;
@@ -65,17 +86,28 @@
   border-radius: 3em;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  margin: 0 auto 0 3em;
   color: #000000;
 }
 
-#btnEditar i{
+#btnEditar i {
   font-size: 1.3em;
 }
 
-#sitiosInteres
-{
-    text-align: center;
-    padding-top: 10px;
+#sitiosInteres {
+  margin-top: 1.7vh;
+}
+
+#botones-detail {
+  padding-top: 3vh;
+  padding-bottom: 0;
+}
+
+#noCalificaciones {
+  margin-top: 2vh;
+  font-weight: bold;
+}
+
+.col-2 button {
+  margin: 0;
 }
 

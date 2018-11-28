@@ -1,94 +1,99 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12 d-flex justify-content-center">
-      <!--Nombre y boton editar-->
-      <div id="rowTitulo" class="d-flex flex-row">
-        <h1>{{viviendaDetail.nombre}}</h1>
-        <button class="btn btn-warning" id="btnEditar" *ngIf="puedeEditar" routerLink="/viviendas/edit/{{viviendaDetail.id}}">
-          <i class="fas fa-edit"></i> Editar
-        </button>
-        <button class="btn btn-danger" id="btnEliminar" *ngIf="puedeEditar" (click)="eliminarVivienda()">
-          <i class="far fa-trash-alt"></i> Eliminar
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <!--Columna izquierda-->
-    <div class="col-lg-4 d-flex justify-content-center">
-      <div id="divCalificaciones">
-        <calificacion-vivienda-listcollapse
-          *ngIf="viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0"
-          [calificaciones]="viviendaDetail.calificaciones">Calificaciones
-        </calificacion-vivienda-listcollapse>
-      </div>
-    </div>
-    <!--Columna central-->
-    <div class="col-lg-5">
-
-      <div class="row">
-        <img class="img-fluid" src={{viviendaDetail.imgUrl}}/>
-        <div class="col-lg-5 col-sm-12">
-
-          <h3>{{viviendaDetail.ciudad}}</h3>
-          <h5>{{darCalificacion(viviendaDetail.id)}} <i class="fas fa-star"></i>
-            <button class="btn btn-primary btn-small" routerLink="/calificacion/create/{{viviendaDetail.id}}"
-                    *ngxPermissionsOnly="['ESTUDIANTE']">Calificar
-            </button>
-          </h5>
+  <div class="d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="d-flex justify-content-center">
+          <img id="card-image" class="img-fluid" src={{viviendaDetail.imgUrl}} alt="Imagen de vivienda">
         </div>
-        <div class="col-lg-7 col-sm-12">
-          <p>{{viviendaDetail.descripcion}}</p>
+        <div class="card-body">
+          <h4 id="title" class="card-title border-bottom pb-3">{{viviendaDetail.nombre}}
 
-
-          <div class="col-lg-12 col-sm-12"
-               *ngIf="!(viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0)">
-            No tiene calificaciones
+            <p id="calificacion" class="float-right d-inline-flex share">{{darCalificacion(viviendaDetail.id)}} <i
+              class="fas fa-star"></i>
+              <button class="btn btn-primary btn-small" routerLink="/calificacion/create/{{viviendaDetail.id}}"
+                      *ngxPermissionsOnly="['ESTUDIANTE']">Calificar
+              </button>
+            </p>
+          </h4>
+          <p id="city"><strong>Ciudad: </strong>{{viviendaDetail.ciudad}}</p>
+          <p class="card-text">{{viviendaDetail.descripcion}}</p>
+          <div class="row d-flex justify-content-end">
+            <div class="col-2">
+              <button class="btn btn-warning" id="btnEditar" *ngIf="puedeEditar"
+                      routerLink="/viviendas/edit/{{viviendaDetail.id}}">
+                <i class="fas fa-edit"></i> Editar
+              </button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-danger" id="btnEliminar" *ngIf="puedeEditar" (click)="eliminarVivienda()">
+                <i class="far fa-trash-alt"></i> Eliminar
+              </button>
+            </div>
           </div>
-
         </div>
-        <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
-                                     [viviendaDetail]="viviendaDetail" [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
       </div>
-    </div>
-    <!--Fin columna principal de la mitad-->
 
-    <!--Columna derecha-->
-    <div id="colDerecha" class="col-lg-3">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <!--Tabla de cuartos-->
+          <h2 id="tituloCuartos">Cuartos</h2>
+          <table class="table" id="tablaCuartos">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Arrendar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cuarto of viviendaDetail.cuartos">
+              <td>{{cuarto.nombre}}</td>
+              <td>${{cuarto.costoArriendo}}</td>
+              <td>{{cuarto.descripcion}}</td>
+              <td>
+                <button *ngIf="cuarto.ocupado" class="btn btn-secondary" disabled>Ocupado</button>
+                <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="servicios" class="col-md-6">
+          <!--Lista de servicios-->
+          <ul class="list-group">
+            <li class="list-group-item active"><strong>Servicios Incluidos</strong></li>
+            <li class="list-group-item" *ngFor="let servicioIncluido of viviendaDetail.serviciosIncluidos">
+              {{servicioIncluido}}
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      <!--Lista de servicios-->
-      <ul class="list-group">
-        <li class="list-group-item active"><strong>Servicios Incluidos</strong></li>
-        <li class="list-group-item" *ngFor="let servicioIncluido of viviendaDetail.serviciosIncluidos">
-          {{servicioIncluido}}
-        </li>
-      </ul>
-
-      <!--Tabla de cuartos-->
-      <h2 id="tituloCuartos">Cuartos</h2>
-      <table class="table" id="tablaCuartos">
-        <thead class="thead-dark">
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Costo</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Arrendar</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let cuarto of viviendaDetail.cuartos">
-          <td>{{cuarto.nombre}}</td>
-          <td>{{cuarto.costoArriendo}}</td>
-          <td>{{cuarto.descripcion}}</td>
-          <td>
-            <button *ngIf="cuarto.ocupado" class="btn btn-secondary" disabled>Ocupado</button>
-            <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
+      <div id="botones-detail" class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <!--Lista de sitios de interes-->
+          <div id="sitiosInteres">
+            <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
+                                         [viviendaDetail]="viviendaDetail"
+                                         [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Lista de calificaciones-->
+          <div id="divCalificaciones">
+            <div id="noCalificaciones"
+                 *ngIf="!(viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0)">
+              No tiene calificaciones
+            </div>
+            <calificacion-vivienda-listcollapse
+              *ngIf="viviendaDetail.calificaciones && viviendaDetail.calificaciones.length > 0"
+              [calificaciones]="viviendaDetail.calificaciones">Calificaciones
+            </calificacion-vivienda-listcollapse>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
