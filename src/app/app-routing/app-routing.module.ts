@@ -139,7 +139,7 @@ const routes: Routes = [
         component: ContratoListComponent
       },
       {
-        path: 'create',
+        path: 'create/estudiante/:estudianteID/vivienda/:viviendaID/cuarto/:cuartoID',
         component: ContratoCreateComponent
       },
       {
@@ -266,6 +266,7 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
+
 export class AppRoutingModule {
 
 }

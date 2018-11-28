@@ -52,7 +52,7 @@ export class ContratoService {
    * @param contratoId - Identificador del contrato que se quiere conseguir
    */
   getContratoDetail(contratoId): Observable<ContratoDetail> {
-    return this.http.get<Contrato>(API_URL + contracts + '/' + contratoId);
+    return this.http.get<ContratoDetail>(API_URL + contracts + '/' + contratoId);
   }
 
   /**

@@ -76,7 +76,7 @@ export class ViviendaCreateComponent implements OnInit {
 
   //Crea una serie de inputs para un cuarto adicional
   nuevoFormCuarto() {
-    this.cuartos.push(new Cuarto('', '', null));
+    this.cuartos.push(new Cuarto('', '', null, false));
   }
 
   cancelCreation() {

@@ -49,10 +49,15 @@ export class ViviendaDetailComponent implements OnInit {
       this.viviendaService.eliminarVivienda(this.vivienda_id)
         .subscribe(() => {
           this.toastrService.success('Se elimino la vivienda exitosamente');
-          this.router.navigate(['/viviendas/list']);
+          this.router.navigate(['/viviendas/list6']);
         }, error1 => {
           this.toastrService.error('Error: No se elimino la vivienda');
         });
     }
+  }
+
+  arrendarCuarto(cuartoId: number) {
+    let estudianteId = +localStorage.getItem('id');
+    this.router.navigate(['contratos/create/estudiante/' + estudianteId.toString() + '/vivienda/' + this.vivienda_id.toString() + '/cuarto/' + cuartoId.toString()]);
   }
 }

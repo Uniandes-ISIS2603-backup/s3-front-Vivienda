@@ -6,6 +6,7 @@ import {ViviendaDetail} from './vivienda-detail';
 
 import {environment} from '../../environments/environment';
 import {Calificacion} from '../calificacion/calificacion';
+import {Contrato} from '../contrato/contrato';
 
 const API_URL = environment.apiURL;
 const viviendas = '/viviendas';
@@ -35,6 +36,10 @@ export class ViviendaService {
 
   updateVivienda(vivienda: Vivienda): Observable<Vivienda> {
     return this.http.put<Vivienda>(API_URL + viviendas + '/' + vivienda.id, vivienda);
+  }
+
+  arrendarCuarto(idVivienda: Number, idCuarto: Number, idEstudiante: Number, contrato: Contrato): Observable<Contrato> {
+    return this.http.post<Contrato>(API_URL + viviendas + '/' + idVivienda + '/contratos/cuartos/' + idCuarto + '/estudiantes/' + idEstudiante, contrato);
   }
 
   generarDatos(): Observable<any> {

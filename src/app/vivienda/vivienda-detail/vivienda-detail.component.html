@@ -73,6 +73,7 @@
           <th scope="col">Nombre</th>
           <th scope="col">Costo</th>
           <th scope="col">Descripción</th>
+          <th scope="col">Arrendar</th>
         </tr>
         </thead>
         <tbody>
@@ -80,6 +81,10 @@
           <td>{{cuarto.nombre}}</td>
           <td>{{cuarto.costoArriendo}}</td>
           <td>{{cuarto.descripcion}}</td>
+          <td>
+            <button *ngIf="cuarto.ocupado" class="btn btn-secondary" disabled>Ocupado</button>
+            <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar</button>
+          </td>
         </tr>
         </tbody>
       </table>
