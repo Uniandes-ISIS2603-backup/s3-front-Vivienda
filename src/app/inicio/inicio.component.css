@@ -19,14 +19,15 @@
   color: #fff;
   background-color: #0088CC;
 }
-
 .jumbotron {
+  background-image: url("../../assets/img/backphoto.jpg");
   background: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) ), url("../../assets/img/backphoto.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 0;
   height: 100vh;
+  padding: 0;
   margin: 0;
 }
 
@@ -43,10 +44,3 @@ img{
   padding-bottom: 2vh;
 }
 
-@media only screen and (min-width: 2000px) {
-  .jumbotron{
-    background: url("../../assets/img/large-backphoto.png") repeat fixed;
-    background-size: 100% 100%;
-    overflow: hidden;
-  }
-}
