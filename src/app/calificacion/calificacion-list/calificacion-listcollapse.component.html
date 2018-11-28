@@ -1,96 +1,113 @@
-<div class="container-fluid" style="padding: 0px">
-<div class='row' *ngIf="isCollapsed">
-    <div class='col-3'><p>
-        <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
+<div class="container-fluid" style="padding: 0px; max-width: 100vh;">
+  <div class='row' *ngIf="isCollapsed" style="margin: 1em auto;">
+    <div class='col d-flex justify-content-center'>
+      <p>
+        <button type="button" class="btn btn-dark" style="border-radius: 3em;" (click)="isCollapsed = !isCollapsed"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
           Mostrar Calificaciones
-        </button></p></div>
-</div>
+        </button>
+      </p>
+    </div>
+  </div>
 
-<form *ngIf="!isCollapsed" name="filtro" (ngSubmit)="f.form.valid && filtrar()" #f="ngForm" novalidate>
-    <div class='form-row' >
-     <div class='col-4'>
-        <button type="button" class="btn" (click)="isCollapsed = !isCollapsed"
+  <form *ngIf="!isCollapsed" name="filtro" (ngSubmit)="f.form.valid && filtrar()" #f="ngForm" novalidate>
+    <div class='form-row' style="margin: 1em auto;">
+      <div class='col d-flex justify-content-center'>
+        <button type="button" class="btn btn-dark" style="border-radius: 3em;" (click)="isCollapsed = !isCollapsed"
                 [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
           Ocultar Calificaciones
         </button>
-     </div> 
-     <div class="col-1" *ngIf="listaDe == 'estudiante'"></div>
-    <div class="col-7" *ngIf="listaDe == 'estudiante'">
-        <input class="form-control" name="filtroVivienda" type="text" [(ngModel)]="fVivienda"
-         #filtroVivienda="ngModel" placeholder="Vivienda">
-            </div> 
-    <div class="col-4" *ngIf="listaDe == 'vivienda'">
-        <input class="form-control" name="filtroNombre" type="text" [(ngModel)]="fNombre"
-         #filtroNombre="ngModel" value="" placeholder="Nombre">
-            </div>
-    <div class="col-4" *ngIf="listaDe == 'vivienda'">
-        <input class="form-control" name="filtroLogin" type="text" [(ngModel)]="fLogin"
-         #filtroLogin="ngModel" value="" placeholder="Login">
-            </div>
-        <div class="col-2 columna"><p style="vertical-align: central">Puntaje</p></div>
-    <div class="col-3 columna">
-    <input class="custom-range" type="range" name="filtroPuntajeMinR" [(ngModel)]="fPuntajeMin"
-         #filtroPuntajeMinR="ngModel" min="0" max="5" step="0.1" value="0" [ngClass]="{'on-update':verificarMin()}" placeholder="Puntaje Mínimo">
-    </div> 
-        <div class="col-2 columna" style="text-align: center">{{fPuntajeMin}} a {{fPuntajeMax}}</div>
-        <!--
-        <div class="col-1 columna">
-   <input class="form-control" type="number" value="0" name="filtroPuntajeMin" [(ngModel)]="fPuntajeMin"
-         #filtroPuntajeMin="ngModel" [ngClass]="{'is-invalid': fPuntajeMin < 0 || fPuntajeMin > 5 ||(fPuntajeMax && fPuntajeMax < fPuntajeMin)}" placeholder="Puntaje Mínimo">
-         <div class="invalid-feedback">número entre 0 y 5</div>
-        </div>
-        <div class="col-1 columna">
-    <input class="form-control" type="number" name="filtroPuntajeMax" [(ngModel)]="fPuntajeMax"
-         #filtroPuntajeMax="ngModel" [ngClass]="{'is-invalid': fPuntajeMax < 0 || fPuntajeMax > 5 ||(fPuntajeMin && fPuntajeMax < fPuntajeMin)}" placeholder="Puntaje Máximo">
-    <div class="invalid-feedback">número entre 0 y 5</div>
-    </div>-->
-    <div class="col-3 columna">
+      </div>
+    </div>
+    <div class='form-row d-flex justify-content-center' style="margin: 1em auto;">
+      <div class="col d-flex justify-content-end align-item-center" *ngIf="listaDe == 'estudiante'">
+        <p style="font-weight: bold; text-align: right; margin: 0; line-height:2.1em;">Vivienda:</p>
+      </div>
+      <div class="col d-flex justify-content-left" *ngIf="listaDe == 'estudiante'">
+        <input class="form-control" name="filtroVivienda" type="text" [(ngModel)]="fVivienda" style="width: 10vw;"
+               #filtroVivienda="ngModel" placeholder="Ej: 10">
+      </div>
+      <div class="col-5 d-flex justify-content-center" *ngIf="listaDe == 'vivienda'">
+        <input class="form-control" name="filtroNombre" type="text" [(ngModel)]="fNombre" style="width: 10vw;"
+               #filtroNombre="ngModel" value="" placeholder="Nombre">
+      </div>
+      <div class="col-5 d-flex justify-content-center" *ngIf="listaDe == 'vivienda'">
+        <input class="form-control" name="filtroLogin" type="text" [(ngModel)]="fLogin" style="width: 10vw;"
+               #filtroLogin="ngModel" value="" placeholder="Login">
+      </div>
+    </div>
+    <div class='form-row d-flex justify-content-center'>
+      <div class="col"><p style="font-weight: bold; text-align: center;">Puntajes</p></div>
+    </div>
+    <div class='form-row d-flex justify-content-center'>
+      <div class="col">
+        <input class="custom-range" type="range" name="filtroPuntajeMinR" [(ngModel)]="fPuntajeMin"
+               #filtroPuntajeMinR="ngModel" min="0" max="5" step="0.1" value="0" style="margin-left: 2vw;"
+               [ngClass]="{'on-update':verificarMin()}" placeholder="Puntaje Minimo">
+      </div>
+      <div class="col" style="text-align: center;">
+        <p>{{fPuntajeMin}} a {{fPuntajeMax}}</p>
+      </div>
+      <div class="col" style="max-width: 100vw;">
         <input class="custom-range" type="range" name="filtroPuntajeMaxR" [(ngModel)]="fPuntajeMax"
-         #filtroPuntajeMaxR="ngModel" min="0" max="5" step="0.1" value="5" [ngClass]="{'on-update':verificarMax()}" placeholder="Puntaje Mínimo">
-        </div>
-        
-    <div class="col-2 columna" style="text-align: right">
-        <button type="submit" class="btn btn-success">Filtrar</button>
+               #filtroPuntajeMaxR="ngModel" min="0" max="5" step="0.1" value="5" style="padding-right: 2vw;"
+               [ngClass]="{'on-update':verificarMax()}" placeholder="Puntaje Maximo">
+      </div>
     </div>
- </div>
-</form>
 
-<div class="row" style="padding-top: 10px">
-  <div class="col-12" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
-    <table class="table table-hover" style="text-align: center">
-      <thead class="thead-light">
-      <tr>
-        <th *ngIf="listaDe == 'estudiante'" (click)="viviendaSort()">Vivienda {{viviSort}}</th>
-        <th *ngIf="listaDe == 'vivienda'" (click)="nombreSort()">Estudiante {{nombSort}}</th>
-        <th *ngIf="listaDe == 'vivienda'" (click)="loginSort()">Login {{logiSort}}</th>
-        <th (click)="puntajeSort()">Puntaje {{puntSort}}</th>
-        <th>Descripción</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let calificacion of calificacionesFiltradas" (click)="clickRow(calificacion)">
-        <td *ngIf="listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
-        <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
-        <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
-        <td>{{calificacion.puntaje}}</td>
-        <td>{{calificacion.descripcion}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="form-row d-flex justify-content-center">
+      <div class="form-col">
+        <button type="submit" class="btn btn-success" style="font-weight: 600;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.07em;
+  font-size: 0.92em;
+  border-radius: 3em;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;">Filtrar Puntaje
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row" style="padding-top: 1em">
+    <div class="col-12" id="collapse-calificaciones-estudiante" [ngbCollapse]="isCollapsed">
+      <table class="table table-hover" style="text-align: center;">
+        <thead class="thead-light">
+        <tr>
+          <th *ngIf="listaDe == 'estudiante'" (click)="viviendaSort()">Vivienda {{viviSort}}</th>
+          <th *ngIf="listaDe == 'vivienda'" (click)="nombreSort()">Estudiante {{nombSort}}</th>
+          <th *ngIf="listaDe == 'vivienda'" (click)="loginSort()">Login {{logiSort}}</th>
+          <th (click)="puntajeSort()">Puntaje {{puntSort}}</th>
+          <th>Descripción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let calificacion of calificacionesFiltradas" (click)="clickRow(calificacion)">
+          <td *ngIf="listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
+          <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
+          <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
+          <td>{{calificacion.puntaje}}</td>
+          <td>{{calificacion.descripcion}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
     <div class='col-12' style='text-align: center; vertical-align: top' [ngbCollapse]="isCollapsed">
-        <button class="btn" *ngIf="listaDe == 'estudiante' && puedeEditar && !editable" (click)='editable = true'>Editar/Eliminar Calificación</button>
+      <button class="btn" *ngIf="listaDe == 'estudiante' && puedeEditar && !editable" (click)='editable = true'>
+        Editar/Eliminar Calificación
+      </button>
     </div>
-</div>
-    <div class="row"  *ngIf = "listaDe == 'estudiante' && editable" [ngbCollapse]="isCollapsed">
-        <div class="col-12" *ngIf = "calificacionPorEditar != null">
-            <app-calificacion-edit [calificacion]="calificacionPorEditar" (cancel)="editable = false; calificacionPorEditar = null"
-                (update)="actualizarCalificaciones()">
-            </app-calificacion-edit>
-        </div>
-        <div class="col-12" *ngIf = "calificacionPorEditar == null">
-             <h3>Selecciona una calificación para editarla o eliminarla</h3>
-        </div>
+  </div>
+
+  <div class="row" *ngIf="listaDe == 'estudiante' && editable" [ngbCollapse]="isCollapsed">
+    <div class="col-12" *ngIf="calificacionPorEditar != null">
+      <app-calificacion-edit [calificacion]="calificacionPorEditar"
+                             (cancel)="editable = false; calificacionPorEditar = null"
+                             (update)="actualizarCalificaciones()">
+      </app-calificacion-edit>
     </div>
+    <div class="col-12" *ngIf="calificacionPorEditar == null">
+      <h3>Selecciona una calificación para editarla o eliminarla</h3>
+    </div>
+  </div>
 </div>

@@ -1,44 +1,50 @@
-
 <div class="card text-center">
   <h5 class="card-header">Perfil</h5>
   <div class="card-body text-center">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ8IDQ0NFREWFhYRExMYKCghGBomHhMTITEhJSkrLi4uFyszODQsNygtLisBCgoKDg0OGxAQGisdHR8rNystKy8tNy0rLS0tLSstKysrLS0rLi0tLSstLS0tLS0tLystLSs3LSstLSsrKystK//AABEIALcBEwMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAAAQQFBgMCB//EADcQAQACAQEEBgcGBwEAAAAAAAABAgMRBAUhMRIUUVNhkiIyQXFykbETUoGh0eEzQmKCwfDxI//EABgBAQEBAQEAAAAAAAAAAAAAAAACAQME/8QAHhEBAQACAgMBAQAAAAAAAAAAAAECERITAyExUUH/2gAMAwEAAhEDEQA/AP0QB6XMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARUAAAAAAAAAB77LsmTLPoxw9tp4Vhmx4DeYN0Y49eZvPkr+TNx7Pjp6tK18YiNfmi+SN4uZjFfTXoW07ejOj4dFvLFkvj0xzp96OU2jsiXPTWYmYnWJjhMTwmFY5bLNIApgAAAAAAqKAAAAAAAAAAAioAAAAAAAADJ3fsv2t9P5Y42nw7HR0pFYitYiIjhER7Gs3DHo5J8a/RtHHO+1xQENGDvHYYyx0q8Mkcp5dLwlnDZdDkpRkbwjTNk+L68WO7xzAGgAAAAqKAAAAAAAAAAAioAAAAAAAADdbh9S/xR9Gza3cdZjHbWJjW2saxprGnOGzcMvq58AEtRQBzW8v4+T4o+kMZk7z/j5Pf/AIhjPRPjmANAAAABUUAAAAAAAAAABFQAFBAAAAAAdLu62uHH8MR8uDIazcmfWk45504x8Mz+v1bN58p7XPigMaAgNLv2f/SkdlNfnP7NYyd4Z/tMtrRyjStfdH+yxnfGajnQBQAAAAKigAAAAAAAAAAIqACgIAAAAADM3TlimauvK0TT58vziHRORdLu+9rYqWtOszE6z28Z0cvJP6rFkgjmpWPt2b7PFe3t00j4p4Q92m37eelSuvo9HpaeOujcZusrVgPQgAAAAAAVFAAAAAAAAAAARUBUAAAAAAAH3ix2vaK1jW08o5Ol2THNMdKzzisRPt4+1q9x4Zm1sk8ojox4zP8Az825cc770rGKAhQ0+/MNpmuTT0YrFZnsnWW4eO14ftMd6dscPfzhuN1WVy4TExwnhMezlI9CAAAAAABUUAAAAAAAAAABJVAAAAABnbJuy+TSbehXx9afdDcbNsePF6teP3p9KyLnI2Rptn3ZlvxmOhXttz+TZ7PuzFTjMdOe23GPkzhzuVqtJEKCWgAAig8s+zY8nr1ifHlMfi1u0bn9uO39tv1bcbMrGactnwXxzpes18ecT+LydbasTGkxExPOJjWGu2ndNLcaehPZzr+zpPJ+s4tGPbadmvinS8adkxxrP4vFaQBoKigAAAAAAAAAAIoCCgIz911xRM3y2rExPo1tOnHtYIyzY6XruHvKeaDruHvaeaHNCOuK5Ol67h72nmg67h72nmhzQdcOTpeu4e9p5oOu4e9p5oc0HXDk6XruHvaeaDruHvaeaHNB1w5Ol67h72nmg67h72nmhzQdcOTpeu4e9p5oOu4e9p5oc0HXDk6XruHvaeaDruHvaeaHNB1w5Oiz7Rs+Ss1tkpMT/VHDxc9krFbTETFoiZiLRxiY7UFY46ZbtBRTEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/Z" class="rounded mx-auto d-block" alt="...">
+    <div class="d-flex justify-content-center">
+      <img class="card-img-top d-flex justify-content-center" src="../../../assets/img/arrendador-user.png"
+           alt="Card image cap">
+    </div>
     <h5 class="card-title">{{arrendadorDetail.login}}</h5>
     <p class="card-text"><b>Nombre:</b> {{arrendadorDetail.nombre}}</p>
-
-        <div *ngIf = "arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0">
-        <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-                Viviendas
+    <div class="d-flex justify-content-center">
+      <div *ngIf="arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0">
+        <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+                [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          Viviendas
         </button>
-        <button routerLink="/viviendas/create" type="button" class="btn btn-outline-success">Añadir Vivienda</button>                  
-        </div>
-        <div *ngIf = "!(arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0)">
-                <h5> No tiene Viviendas<button routerLink="/viviendas/create" type="button" class="btn btn-outline-success">Añadir Vivienda</button></h5>             
-        </div>
-    
-          <button type="button" class="btn btn-warning" routerLink="/arrendadores/update/{{arrendadorDetail.id}}">Update</button>
+        <button routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
+      </div>
+      <div *ngIf="!(arrendadorDetail.viviendas && arrendadorDetail.viviendas.length > 0)">
+        <h5> No tiene Viviendas
+          <button routerLink="/viviendas/create" type="button" class="btn btn-success">Añadir Vivienda</button>
+        </h5>
+      </div>
+
+      <button type="button" class="btn btn-warning" routerLink="/arrendadores/update/{{arrendadorDetail.id}}">Update
+      </button>
       <button type="button" class="btn btn-danger" (click)="deleteArrendador()">Delete</button>
-          
-    
-<div class="row">
-  <div class="col" id="collapse-vivienda-sitioInteres" [ngbCollapse]="isCollapsed">
-    <table class="table table-hover" style="text-align: center">
-      <thead class="thead-light">
-      <tr>
-        <th>Vivienda</th>
-        <th>Descripcción</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr routerLink="/viviendas/{{vivienda.id}}" style="cursor: pointer;" *ngFor="let vivienda of arrendadorDetail.viviendas">
-          <td>{{vivienda.nombre}}</td>
-          <td>{{vivienda.descripcion}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
     </div>
+
+    <div class="row">
+      <div class="col" id="collapse-vivienda-sitioInteres" [ngbCollapse]="isCollapsed">
+        <table class="table table-hover" style="text-align: center">
+          <thead class="thead-light">
+          <tr>
+            <th>Vivienda</th>
+            <th>Descripcción</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr routerLink="/viviendas/{{vivienda.id}}" style="cursor: pointer;"
+              *ngFor="let vivienda of arrendadorDetail.viviendas">
+            <td>{{vivienda.nombre}}</td>
+            <td>{{vivienda.descripcion}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
