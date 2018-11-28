@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding: 0px; max-width: 100vh;">
+<div class="container-fluid" style="padding: 0; max-width: 100vh;">
   <div class='row' *ngIf="isCollapsed" style="margin: 1em auto;">
     <div class='col d-flex justify-content-center'>
       <p>
@@ -74,15 +74,15 @@
       <table class="table table-hover" style="text-align: center;">
         <thead class="thead-light">
         <tr>
-          <th *ngIf="listaDe == 'estudiante'" (click)="viviendaSort()">Vivienda {{viviSort}}</th>
-          <th *ngIf="listaDe == 'vivienda'" (click)="nombreSort()">Estudiante {{nombSort}}</th>
-          <th *ngIf="listaDe == 'vivienda'" (click)="loginSort()">Login {{logiSort}}</th>
-          <th (click)="puntajeSort()">Puntaje {{puntSort}}</th>
+          <th style="cursor: pointer;" *ngIf="listaDe == 'estudiante'" (click)="viviendaSort()">Vivienda {{viviSort}}</th>
+          <th style="cursor: pointer;" *ngIf="listaDe == 'vivienda'" (click)="nombreSort()">Estudiante {{nombSort}}</th>
+          <th style="cursor: pointer;" *ngIf="listaDe == 'vivienda'" (click)="loginSort()">Login {{logiSort}}</th>
+          <th style="cursor: pointer;" (click)="puntajeSort()">Puntaje {{puntSort}}</th>
           <th>Descripción</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let calificacion of calificacionesFiltradas" (click)="clickRow(calificacion)">
+        <tr style="cursor: pointer;" *ngFor="let calificacion of calificacionesFiltradas" (click)="clickRow(calificacion)">
           <td *ngIf="listaDe == 'estudiante'">{{calificacion.vivienda.nombre}}</td>
           <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.nombre}}</td>
           <td *ngIf="listaDe == 'vivienda'">{{calificacion.estudiante.login}}</td>
