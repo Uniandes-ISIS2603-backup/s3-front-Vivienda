@@ -26,3 +26,8 @@
 .h2 {
   font-weight: bold;
 }
+
+img{
+  width: 10vw;
+  padding-bottom: 2vh;
+}

@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {ViviendaService} from '../vivienda.service';
 import {ViviendaDetail} from '../vivienda-detail';
 import {SitioInteres} from '../../sitio-interes/sitioInteres';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-vivienda-detail',
@@ -14,7 +15,9 @@ export class ViviendaDetailComponent implements OnInit {
 
   constructor(
     private viviendaService: ViviendaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastrService: ToastrService,
+    private router: Router
   ) {
   }
 
@@ -35,7 +38,7 @@ export class ViviendaDetailComponent implements OnInit {
   }
 
   darCalificacion(): string {
-      return this.viviendaService.promediarCalificaciones(this.viviendaDetail);
+    return this.viviendaService.promediarCalificaciones(this.viviendaDetail);
   }
 
   ngOnInit() {
@@ -44,4 +47,17 @@ export class ViviendaDetailComponent implements OnInit {
     this.getViviendaDetail();
   }
 
+  //Funcion que se llama cuando se intenta eliminar la vivienda
+  eliminarVivienda() {
+    var confirmar = confirm('Esta seguro que desea eliminar la vivienda?');
+    if (confirmar == true) {
+      this.viviendaService.eliminarVivienda(this.vivienda_id)
+        .subscribe(() => {
+          this.toastrService.success('Se elimino la vivienda exitosamente');
+          this.router.navigate(['/viviendas/list']);
+        }, error1 => {
+          this.toastrService.error('Error: No se elimino la vivienda');
+        });
+    }
+  }
 }

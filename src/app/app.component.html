@@ -1,4 +1,7 @@
 <nav id="navbarToggler" class="navbar navbar-expand-xl navbar-dark navbar-collapse">
+  <a routerLink="">
+    <img src="../assets/img/logo.png" alt="Logo Casa">
+  </a>
   <a class="navbar-brand" routerLink="">UniVivienda</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content"
           aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,29 +26,33 @@
         <a class="nav-link" routerLink="/universidades/list">Universidades</a>
       </li>
     </ul>
-    <form class="form-inline">
-      <div class="form-group">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </div>
+    <form class="d-flex flex-row">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary" type="submit">Search</button>
     </form>
-    <ul class="nav justify-content-end">
+    <ul class="nav d-flex justify-content-center">
       <li class="nav-item">
-        <button class="btn btn-outline-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar
+        <button class="btn btn-primary" type="submit" id="botonGenerarDatos" (click)="generarDatos()">Generar
           Datos
         </button>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id="btnIngresar" routerLink="/ingresar/logIn" *ngxPermissionsOnly="['GUEST']">Ingresar</a>
+        <a class="nav-link" id="btnIngresar" routerLink="/ingresar/logIn" *ngxPermissionsOnly="['GUEST']">
+          <button class="btn btn-pill btn-light">Log in</button>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="btnRegistrar" routerLink="/ingresar/signIn" *ngxPermissionsOnly="['GUEST']">Registrarse</a>
+        <a class="nav-link" id="btnRegistrar" routerLink="/ingresar/signIn"
+           *ngxPermissionsOnly="['GUEST']">
+          <button class="btn btn-pill btn-light">Sign in</button>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="btnCuenta" (click)="irCuenta()" *ngxPermissionsOnly="['ESTUDIANTE', 'ARRENDADOR']">Cuenta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="btnSalir" (click)="logOut()" *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE', 'ARRENDADOR']">Salir</a>
+        <a class="nav-link" id="btnSalir" (click)="logOut()"
+           *ngxPermissionsOnly="['ADMIN', 'ESTUDIANTE', 'ARRENDADOR']">Salir</a>
       </li>
     </ul>
   </div>

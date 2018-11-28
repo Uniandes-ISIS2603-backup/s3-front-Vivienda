@@ -51,7 +51,9 @@ viviendaId: number;
             .subscribe(() => {
                 this.update.emit();
                 this.toastrService.success("The sitioInteres's information was updated", "SitioInteres edition");
+                this.router.navigate(["/sitioInteres/"+this.viviendaId]);
             });
+            
     }
     
         /**

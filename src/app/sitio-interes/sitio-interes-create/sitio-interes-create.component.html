@@ -14,34 +14,34 @@
                 </div>
             </div>
           <label for="sitioInteresDescripcion">Descripción</label>
-          <textarea type="text" name="sitioInteresDescripcion" id="sitioInteresDescripcion" form="viviendaForm"
+          <textarea type="text" name="sitioInteresDescripcion" id="sitioInteresDescripcion" form="sitioInteresDescripcion"
                     class="form-control" rows="6"
-                    [(ngModel)]="sitioInteres.descripccion"></textarea>
+                    [(ngModel)]="sitioInteres.descripcion"></textarea>
                         <div class="form-group">
                 <label for="sitioInteresImg"><b>Imagen URL</b></label>
                 <input type="text" name="sitioInteresImg" class="form-control" id="sitioInteresImg" [(ngModel)]="sitioInteres.img"
                     #sitioInteresImg="ngModel" >
             </div>
                         <div class="form-group">
-                <label for="sitioInteresName"><b>Latitud</b></label>
-                <input type="text" name="sitioInteresName" class="form-control" id="sitioInteresName" [(ngModel)]="sitioInteres.latitud"
-                    #sitioInteresName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresName.invalid }" required>
+                <label for="sitioInteresLatitud"><b>Latitud</b></label>
+                <input type="number" name="sitioInteresName" class="form-control" id="sitioInteresLatitud" [(ngModel)]="sitioInteres.latitud"
+                    #sitioInteresLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresLatitud.invalid }" required>
                 <div class="invalid-feedback">
                     <div>La latitud es obligatoria</div>
                 </div>
             </div>
                         <div class="form-group">
-                <label for="sitioInteresName"><b>Longitud</b></label>
-                <input type="text" name="sitioInteresName" class="form-control" id="sitioInteresName" [(ngModel)]="sitioInteres.longitud"
-                    #sitioInteresName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresName.invalid }" required>
+                <label for="sitioInteresLongitud"><b>Longitud</b></label>
+                <input type="number" name="sitioInteresName" class="form-control" id="sitioInteresLongitud" [(ngModel)]="sitioInteres.longitud"
+                    #sitioInteresLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sitioInteresLongitud.invalid }" required>
                 <div class="invalid-feedback">
                     <div>La longitud es obligatoria</div>
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary" >Create</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/list">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()" routerLink="/viviendas/{{viviendaId}}">Cancel</button>
             </div>
         </form>
     </div>

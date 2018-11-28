@@ -30,7 +30,6 @@ export class ArrendadorDetailComponent implements OnInit {
       this.arrendadorService.getArrendadorDetail(this.arrendador_id)
           .subscribe(arrendadorDetail => {
               this.arrendadorDetail = arrendadorDetail;
-              console.log(this.arrendadorDetail);
       });
   }
   

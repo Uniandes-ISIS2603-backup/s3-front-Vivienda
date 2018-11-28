@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router'
 
 import { SitioInteresService } from '../sitioInteres.service';
 import { SitioInteres } from '../sitioInteres';
@@ -15,7 +15,8 @@ export class SitioInteresCreateComponent implements OnInit {
   constructor(
         private sitioInteresService: SitioInteresService,
         private toastrService: ToastrService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
         ) { }
 
   sitioInteres: SitioInteres;
@@ -31,7 +32,7 @@ createSitioInteres(): SitioInteres {
                 this.sitioInteres = sitio;
                 this.create.emit();
                 this.toastrService.success("The sitioInteres was created", "SitioInteres creation");
-                
+                this.router.navigate(["/viviendas/"+this.viviendaId]);
             });
             return this.sitioInteres;
   }

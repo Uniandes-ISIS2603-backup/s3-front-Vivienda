@@ -4,7 +4,9 @@ import {Estudiante} from '../estudiante';
 
 @Component({
   selector: 'estudiante-list',
-  templateUrl: './estudiante-list.component.html'
+  templateUrl: './estudiante-list.component.html',
+  styleUrls: ['./estudiante-list.component.css']
+
 })
 export class EstudianteListComponent implements OnInit {
 

@@ -6,11 +6,14 @@
 import {Vivienda} from './vivienda';
 import {SitioInteres} from '../sitio-interes/sitioInteres';
 import {Cuarto} from '../cuarto/cuarto';
+import {ServicioAdicional} from '../servicio-adicional/servicio-adicional';
 
 export class ViviendaDetail extends Vivienda {
   sitiosDeInteres: SitioInteres[];
   cuartos: Cuarto[];
   serviciosIncluidos: string[];
+  serviciosAdicionales: ServicioAdicional[];
+
 
 }
 

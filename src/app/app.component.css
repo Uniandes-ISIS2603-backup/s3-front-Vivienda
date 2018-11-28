@@ -2,18 +2,6 @@
   background-color: #0c283a;
 }
 
-#btnIngresar {
-  color: white;
-}
-
-#btnRegistrar {
-  color: white;
-}
-
-#botonGenerarDatos {
-  margin-left: 0.5vw;
-}
-
 .nav-item {
   color: white;
 }
@@ -21,3 +9,35 @@
 .navbar-brand {
   color: white;
 }
+
+#botonGenerarDatos{
+  margin: 1em 0.4em;
+}
+
+#btnIngresar{
+  margin-top: 0.5em;
+}
+
+#btnRegistrar{
+  margin-top: 0.5em;
+}
+
+.btn{
+  margin: 0;
+}
+
+img{
+  height: 5vh;
+}
+
+button{
+  /* text-transform: uppercase; */
+  letter-spacing: 0.07em;
+  font-size: 0.92em;
+  border-radius: 3em;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+
+

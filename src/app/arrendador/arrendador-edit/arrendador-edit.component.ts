@@ -38,7 +38,7 @@ arrendador: ArrendadorDetail;
     */
     cancelEdition(): void {
         this.cancel.emit();
-        this.router.navigate(["/arrendadores/list"]);
+        this.router.navigate(["/arrendadores/"+this.arrendadorId]);
     }
     
     /**
@@ -49,6 +49,7 @@ arrendador: ArrendadorDetail;
             .subscribe(() => {
                 this.update.emit();
                 this.toastrService.success("The arrendador's information was updated", "Arrendador edition");
+                this.router.navigate(["/arrendadores/"+this.arrendadorId]);
             });
     }
     
