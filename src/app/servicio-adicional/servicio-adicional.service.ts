@@ -29,7 +29,7 @@ export class ServicioAdicionalService {
    getServiciosAdicionales(viviendaId: number): Observable<ServicioAdicional[]> {
         return this.http.get<ServicioAdicional[]>(API_URL +  viviendas + '/' + viviendaId + '/' + serviciosAdicionales);
     }
-    
+        
    /**
     * Crea un nuevo servicio adicional
     * @param book El nuevo servicio adicional
@@ -43,8 +43,16 @@ export class ServicioAdicionalService {
     /**
    * Modifica el servicio adicional segun los valores del servicio adicional que entra como parametro
    */
-  updateCuarto(servicioAdicional: ServicioAdicional, viviendaId: number): Observable<ServicioAdicional> {
+  updateServicioAdicional(servicioAdicional: ServicioAdicional, viviendaId: number): Observable<ServicioAdicional> {
     return this.http.put<ServicioAdicional>(API_URL + viviendas + '/' + viviendaId + '/' + serviciosAdicionales + '/' + servicioAdicional.id, servicioAdicional);
+  }
+  
+ /**
+   * deletes a servicio adiconal
+   * @param servicioAdicional El servicio adiconal a borrar
+   */
+  deleteCalificacion(servicioAdicional: ServicioAdicional): Observable<boolean> {
+      return this.http.delete<boolean>(API_URL + viviendas + '/' + servicioAdicional.vivienda.id + '/' + serviciosAdicionales + '/' + servicioAdicional.id);
   }
 
     
