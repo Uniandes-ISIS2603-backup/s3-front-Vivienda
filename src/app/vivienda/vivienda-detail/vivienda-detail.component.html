@@ -50,6 +50,8 @@
         </div>
         <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
                                      [viviendaDetail]="viviendaDetail" [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
+        <h3>Contratos:</h3>
+        <app-contrato-list [contratos]="viviendaDetail.contratos"></app-contrato-list>
       </div>
     </div>
     <!--Fin columna principal de la mitad-->

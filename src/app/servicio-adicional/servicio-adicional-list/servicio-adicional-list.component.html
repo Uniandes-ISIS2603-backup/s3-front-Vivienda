@@ -1,20 +1,15 @@
-<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Servicios Adicionales</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let servicioAdicional of serviciosAdicionales">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/servicios-adicionales/{{servicioAdicional.id}}">{{servicioAdicional.nombre}}</dd>
-                    </td>
-                  
-                </tr>
-            </tbody>
-        </table>
+  <div class="row">
+    <div class="col-lg-3 col-xs-6" *ngFor="let servicioAdicional of serviciosAdicionales">
+      <div class="card" routerLink="/servicio-adicional/list/{{servicioAdicional}}" style="cursor: pointer;">
+        <div class="card-body">
+          <h4 class="card-title">ServicioAdicional {{servicioAdicional.id}}</h4>
+          <p><b>Nombre: {{servicioAdicional.nombre}}</b></p>
+          <p> <strong>Descripcion: </strong> {{servicioAdicional.descripcion}} </p>
+          <p> <strong>Costo: </strong> {{servicioAdicional.costo}} </p>
+          <p>0.0<i class="fas fa-star"></i></p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

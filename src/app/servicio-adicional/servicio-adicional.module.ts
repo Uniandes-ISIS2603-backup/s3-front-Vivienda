@@ -4,11 +4,9 @@ import { ServicioAdicionalListComponent } from './servicio-adicional-list/servic
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import { ServicioAdicionalService } from './servicio-adicional.service';
-import { ServicioAdicionalDetailComponent } from './servicio-adicional-detail/servicio-adicional-detail.component';
-import { ServicioAdicionalCreateComponent } from './servicio-adicional-create/servicio-adicional-create.component';
-import { ServicioAdicionalEditComponent } from './servicio-adicional-edit/servicio-adicional-edit.component';
 
 @NgModule({
   imports: [
@@ -16,9 +14,10 @@ import { ServicioAdicionalEditComponent } from './servicio-adicional-edit/servic
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    NgbModule,
     FormsModule
   ],
-  declarations: [ServicioAdicionalListComponent, ServicioAdicionalDetailComponent, ServicioAdicionalCreateComponent, ServicioAdicionalEditComponent],
+  declarations: [ServicioAdicionalListComponent],
   providers: [ServicioAdicionalService],
   exports:[ServicioAdicionalListComponent]
 })

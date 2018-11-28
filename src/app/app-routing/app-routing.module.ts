@@ -28,9 +28,6 @@ import {UniversidadDetailComponent} from '../universidad/universidad-detail/univ
 import {UniversidadEditComponent} from '../universidad/universidad-edit/universidad-edit.component';
 import {ContratoCreateComponent} from '../contrato/contrato-create/contrato-create.component';
 import {ServicioAdicionalListComponent} from '../servicio-adicional/servicio-adicional-list/servicio-adicional-list.component';
-import {ServicioAdicionalDetailComponent} from '../servicio-adicional/servicio-adicional-detail/servicio-adicional-detail.component';
-import {ServicioAdicionalCreateComponent} from '../servicio-adicional/servicio-adicional-create/servicio-adicional-create.component';
-import {ServicioAdicionalEditComponent} from '../servicio-adicional/servicio-adicional-edit/servicio-adicional-edit.component';
 import {CuartoListComponent} from '../cuarto/cuarto-list/cuarto-list.component';
 import {SitioInteresListComponent} from '../sitio-interes/sitio-interes-list/sitio-interes-list.component';
 import {SitioInteresCreateComponent} from '../sitio-interes/sitio-interes-create/sitio-interes-create.component';
@@ -219,13 +216,9 @@ const routes: Routes = [
     path: 'servicios-adicionales',
     children: [
       {
-        path: 'list',
+        path: 'list/:id',
         component: ServicioAdicionalListComponent
-      },
-      {
-        path: ':id',
-        component: ServicioAdicionalDetailComponent
-      },
+      }
       
     ]
   },
