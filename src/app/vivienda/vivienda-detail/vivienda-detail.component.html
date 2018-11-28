@@ -4,7 +4,8 @@
       <!--Nombre y boton editar-->
       <div id="rowTitulo" class="d-flex flex-row">
         <h1>{{viviendaDetail.nombre}}</h1>
-        <button class="btn btn-warning" id="btnEditar" *ngIf="puedeEditar" routerLink="/viviendas/edit/{{viviendaDetail.id}}">
+        <button class="btn btn-warning" id="btnEditar" *ngIf="puedeEditar"
+                routerLink="/viviendas/edit/{{viviendaDetail.id}}">
           <i class="fas fa-edit"></i> Editar
         </button>
         <button class="btn btn-danger" id="btnEliminar" *ngIf="puedeEditar" (click)="eliminarVivienda()">
@@ -49,9 +50,13 @@
 
         </div>
         <app-vivienda-sitios-interes [viviendaSitioInteres]="viviendaDetail.sitiosDeInteres"
-                                     [viviendaDetail]="viviendaDetail" [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
-        <h3>Contratos:</h3>
-        <app-contrato-list [contratos]="viviendaDetail.contratos"></app-contrato-list>
+                                     [viviendaDetail]="viviendaDetail"
+                                     [puedeEditar]="puedeEditar"></app-vivienda-sitios-interes>
+
+
+        <button class="btn btn-primary" (click)="toggleContratos()">Contratos</button>
+        <app-contrato-list *ngIf="mostrarContratos" [contratos]="viviendaDetail.contratos"></app-contrato-list>
+
       </div>
     </div>
     <!--Fin columna principal de la mitad-->
@@ -85,7 +90,8 @@
           <td>{{cuarto.descripcion}}</td>
           <td>
             <button *ngIf="cuarto.ocupado" class="btn btn-secondary" disabled>Ocupado</button>
-            <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar</button>
+            <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar
+            </button>
           </td>
         </tr>
         </tbody>

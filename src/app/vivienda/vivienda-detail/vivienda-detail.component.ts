@@ -27,6 +27,8 @@ export class ViviendaDetailComponent implements OnInit {
   
   puedeEditar: boolean;
 
+  mostrarContratos : boolean;
+
   getViviendaDetail(): void {
     this.viviendaService.getViviendaDetail(this.vivienda_id)
       .subscribe(viviendaDetail => {
@@ -45,6 +47,7 @@ export class ViviendaDetailComponent implements OnInit {
     this.vivienda_id = +this.route.snapshot.paramMap.get('id');
     this.viviendaDetail = new ViviendaDetail();
     this.getViviendaDetail();
+    this.mostrarContratos = false;
   }
 
   //Funcion que se llama cuando se intenta eliminar la vivienda
@@ -64,5 +67,9 @@ export class ViviendaDetailComponent implements OnInit {
   arrendarCuarto(cuartoId: number) {
     let estudianteId = +localStorage.getItem('id');
     this.router.navigate(['contratos/create/estudiante/' + estudianteId.toString() + '/vivienda/' + this.vivienda_id.toString() + '/cuarto/' + cuartoId.toString()]);
+  }
+
+  toggleContratos() {
+    this.mostrarContratos = !this.mostrarContratos;
   }
 }
