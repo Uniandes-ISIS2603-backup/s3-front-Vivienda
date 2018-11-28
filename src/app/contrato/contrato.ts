@@ -1,5 +1,6 @@
 import {Vivienda} from '../vivienda/vivienda';
 import {Estudiante} from '../estudiante/estudiante';
+import {Cuarto} from '../cuarto/cuarto';
 import {Arrendador} from '../arrendador/arrendador';
 
 export class Contrato {
@@ -38,5 +39,7 @@ export class Contrato {
    * Arrendador asociado al contrato
    */
   arrendador: Arrendador;
+  
+  cuarto: Cuarto;
 
 }

@@ -10,6 +10,7 @@ import {ViviendaService} from '../../vivienda/vivienda.service';
 import {EstudianteService} from '../../estudiante/estudiante.service';
 import {Universidad} from '../../universidad/universidad';
 import {Estudiante} from '../../estudiante/estudiante';
+import {Arrendador} from '../../arrendador/arrendador';
 import {forEach} from '../../../../node_modules/@angular/router/src/utils/collection';
 import {ViviendaDetail} from '../../vivienda/vivienda-detail';
 import {ContratoDetail} from '../contrato-detail';
@@ -72,6 +73,7 @@ export class ContratoCreateComponent implements OnInit {
    * Metodo donde se crea un contrato y se hace submit
    */
   crearContrato() {
+    this.contrato.metodoPago = this.metodosPago.indexOf(this.metodoPago) + 1; 
     this.contratoService.createContrato(this.contrato).subscribe(() => {
       this.toastrService.success('Se creo el contrato');
       this.router.navigate(['viviendas/' + this.viviendaId]);
@@ -92,12 +94,11 @@ export class ContratoCreateComponent implements OnInit {
 
   getViviendaYCuarto() {
     this.viviendaService.getViviendaDetail(this.viviendaId).subscribe(viviendaDetail => {
-      this.vivienda = viviendaDetail;
-      this.contrato.arrendador = this.vivienda.arrendador;
-      this.vivienda.cuartos.forEach((cuarto)=>{
+      this.contrato.vivienda = viviendaDetail;
+      this.contrato.arrendador = viviendaDetail.arrendador;
+      viviendaDetail.cuartos.forEach((cuarto)=>{
         if (cuarto.id == this.cuartoId) {
-          this.cuarto = cuarto;
-          this.costo = cuarto.costoArriendo;
+          this.contrato.cuarto = cuarto;
         }
       });
     });
@@ -105,7 +106,11 @@ export class ContratoCreateComponent implements OnInit {
 
   getEstudiante() {
     this.estudianteService.getEstudiante(this.estudianteId).subscribe(estudiante => {
-      this.estudiante = estudiante;
+        if (estudiante.contrato){
+            this.toastrService.error('Ya tienes un contrato vigente');
+            this.cancelCreation();
+        }
+      this.contrato.estudiante = estudiante;
     });
   }
   /**
@@ -113,12 +118,16 @@ export class ContratoCreateComponent implements OnInit {
    */
   ngOnInit() {
     this.contrato = new ContratoDetail();
+    this.contrato.estudiante = new Estudiante();
+    this.contrato.vivienda = new Vivienda();
+    this.contrato.cuarto = new Cuarto();
+    this.contrato.arrendador = new Arrendador();
     this.viviendaId = +this.route.snapshot.paramMap.get('viviendaID');
     this.estudianteId = +this.route.snapshot.paramMap.get('estudianteID');
     this.cuartoId = +this.route.snapshot.paramMap.get('cuartoID');
     this.getViviendaYCuarto();
     this.getEstudiante();
-    this.metodosPago = ['Tarjeta de credito', 'Efectivo']
+    this.metodosPago = ['Tarjeta de credito', 'Efectivo'];
   }
 
 }
