@@ -29,6 +29,10 @@ export class ViviendaService {
     return this.http.post<Vivienda>(API_URL + viviendas, vivienda);
   }
 
+  eliminarVivienda(viviendaId: number): Observable<boolean> {
+    return this.http.delete<boolean>(API_URL + viviendas + '/' + viviendaId);
+  }
+
   updateVivienda(vivienda: Vivienda): Observable<Vivienda> {
     return this.http.put<Vivienda>(API_URL + viviendas + '/' + vivienda.id, vivienda);
   }
