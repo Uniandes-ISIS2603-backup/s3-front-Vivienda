@@ -14,8 +14,15 @@
                     <div *ngIf="showEdit" >
                         <br>
                         <div class="row justify-content-center align-self-center">
-                            <button class="btn btn-primary text-center" *ngxPermissionsOnly="['ADMIN']" routerLink="/universidades/edit/{{universidadDetail.id}}">Editar Universidad</button>
+                            <button class="btn btn-primary text-center" *ngxPermissionsOnly="['ADMIN']" routerLink="/universidades/edit/{{universidadDetail.id}}">
+                                 <i class="fas fa-edit"></i>Editar Universidad</button>
                         </div>
+                        <div class="row justify-content-center align-self-center">
+                            <button class="btn btn-danger" *ngxPermissionsOnly="['ADMIN']" id="btnEliminar" (click)="deleteUniversidad()">
+                <i class="far fa-trash-alt"></i> Eliminar Universidad
+              </button>
+                        </div>
+                        
                         <br>
                     </div>
                 </div>
