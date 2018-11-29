@@ -1,0 +1,61 @@
+<div class="container" style="margin: auto" *ngIf="contrato.estudiante.nombre">
+  <form name="contrato" id="contratoForm"  #f="ngForm" novalidate>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 col-sm-12">
+
+          <div class="d-flex justify-content-center" style="margin: 5vh auto">
+            <h1>Editar Contrato</h1>
+            <button class="btn btn-danger btn-large" (click)="eliminarContrato()" style="margin-left: 2vw">Eliminar contrato</button>
+          </div>
+
+          <label for="contratoNombreVivienda">Nombre Vivienda</label>
+          <input type="text" name="contratoNombreVivienda" class="form-control" id="contratoNombreVivienda"
+                 [(ngModel)]="contrato.vivienda.nombre">
+
+          <label for="contratoNombreCuarto">Nombre Cuarto</label>
+          <input type="text" name="contratoNombreCuarto" class="form-control" id="contratoNombreCuarto"
+                 [(ngModel)]="contrato.cuarto.nombre">
+
+          <label for="contratoCosto">Costo Arrendamiento</label>
+          <input type="text" name="contratoCosto" class="form-control" id="contratoCosto"
+                 [(ngModel)]="contrato.cuarto.costoArriendo">
+
+          <label for="nombreEstudiante">Nombre Estudiante</label>
+          <input type="text" name="nombreEstudiante" class="form-control" id="nombreEstudiante"
+                 [(ngModel)]="contrato.estudiante.nombre">
+
+          <label for="nombreArrendador">Nombre Arrendador</label>
+          <input type="text" name="nombreArrendador" class="form-control" id="nombreArrendador"
+                 [(ngModel)]="contrato.arrendador.nombre">
+
+          <label for="fechaInicio">Fecha Inicio (YYYY-MM-DD)</label>
+          <input type="text" name="fechaInicio" class="form-control" id="fechaInicio"
+                 [(ngModel)]="contrato.fechaInicio">
+
+          <label for="fechaFin">Fecha Fin (YYYY-MM-DD)</label>
+          <input type="text" name="fechaFin" class="form-control" id="fechaFin"
+                 [(ngModel)]="contrato.fechaFin">
+
+          <div class="form-group">
+            <label for="metodosPago">Metodo de Pago</label>
+            <select class="custom-select" name="metodosPago" id="metodosPago" [(ngModel)]="metodoPago"
+                    #rolef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rolef.invalid }" required>
+              <option [value]="metodoPago" *ngFor="let metodoPago of metodosPago">{{metodoPago}}</option>
+            </select>
+
+            <div class="d-flex justify-content-center" style="margin-top: 20px">
+              <button id="btn_registrar" type="submit" class="btn btn-primary" (click)="guardarCambios()"><strong>Guardar Cambios</strong></button>
+              <button id="btn_cancelar" type="button" class="btn btn-danger" (click)="cancelCreation()"><strong>
+                Cancelar </strong></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3"></div>
+
+      </div>
+    </div>
+  </form>
+
+</div>
