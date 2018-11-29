@@ -50,6 +50,15 @@ export class UniversidadService {
     updateUniversidad(universidad): Observable<UniversidadDetail> {
         return this.http.put<UniversidadDetail>(API_URL + universidades + '/' + universidad.id, universidad);
     }
+    
+    /**
+    * Deletes a universidad
+    * @param universidadId The book's id
+    * @returns True if the book was deleted, false otherwise
+    */
+    deleteUniversidad(universidadId): Observable<UniversidadDetail> {
+        return this.http.delete<UniversidadDetail>(API_URL + universidades + '/' + universidadId);
+    }
 
   generarDatos(): Observable<any> {
     return this.http.post<any>(API_URL + universidades + '/generardatos', null);
