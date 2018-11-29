@@ -32,7 +32,7 @@ import {ContratoModule} from '../contrato/contrato.module';
     ViviendaDetailComponent,
     ViviendaSitiosInteresComponent,
     ViviendaCreateComponent,
-    ViviendaEditComponent
+    ViviendaEditComponent,
   ],
   providers: [
     ViviendaService

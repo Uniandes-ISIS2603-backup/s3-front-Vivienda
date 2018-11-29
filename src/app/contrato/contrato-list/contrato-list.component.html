@@ -1,7 +1,37 @@
 <div class="container-fluid">
   <div class="row">
-    <div *ngFor="let contrato of contratos">
-      <p>{{contrato.vivienda}}</p>
+    <div class="col-lg-12" *ngFor="let contrato of contratos">
+      <div class="card">
+        <div class="card-header">
+          <h4>Contrato para {{contrato.cuarto.nombre}}</h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <tbody>
+            <tr>
+              <th>Arrendador</th>
+              <th>{{contrato.arrendador.nombre}}</th>
+            </tr>
+
+            <tr>
+              <th>Arrendatario</th>
+              <th>{{contrato.estudiante.nombre}}</th>
+            </tr>
+
+            <tr>
+              <th>Costo arrendamiento</th>
+              <th>{{contrato.cuarto.costoArriendo}}</th>
+            </tr>
+
+            <tr>
+              <th>Metodo de pago</th>
+              <th>{{contrato.metodoPago}}</th>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

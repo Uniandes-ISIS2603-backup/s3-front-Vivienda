@@ -1,20 +1,27 @@
-            <div class="col" id="sitiosInteres">
-                <div *ngIf = "viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0">
-                    <p id="boton">
-    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" style="margin: auto 1em;"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+<div class="col" id="sitiosInteres">
+  <div *ngIf="!(viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0)">
+    <div class="row d-flex justify-content-center">
+      <h5> No tiene Sitios De Interes</h5>
+      <button routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button" class="btn btn-outline-success">
+        Añadir Sitio de Interes
+      </button>
+    </div>
+  </div>
+  <div
+       *ngIf="viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0">
+    <div class="row d-flex justify-content-center">
+      <button *ngIf="puedeEditar" routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button"
+              style="margin: auto 1em;" class="btn btn-outline-success">Añadir Sitio de Interes
+      </button>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <button type="button" class="btn btn-info" (click)="isCollapsed = !isCollapsed" style="margin: 1vh 1em;"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
         Sitios de interes de la Vivienda
-    </button>
-    <button *ngIf="puedeEditar" routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button" style="margin: auto 1em;" class="btn btn-outline-success">Añadir Sitio de Interes</button>
-</p>                   
-                </div>
-            <div *ngIf = "!(viviendaDetail.sitiosDeInteres && viviendaDetail.sitiosDeInteres.length > 0)">
-                <div class="row">
-                    <h5> No tiene Sitios De Interes</h5>
-                    <button routerLink="/sitioInteres/create/{{viviendaDetail.id}}" type="button" class="btn btn-outline-success">Añadir Sitio de Interes</button>
-                </div>
-                </div>
-            </div>
+      </button>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-12" id="collapse-vivienda-sitioInteres" [ngbCollapse]="isCollapsed">
@@ -22,13 +29,14 @@
       <thead class="thead-light">
       <tr>
         <th>Sitio de Interes</th>
-        <th>Descripcción</th>
+        <th>Descripción</th>
       </tr>
       </thead>
       <tbody>
-      <tr routerLink="/sitioInteres/{{viviendaDetail.id}}" style="cursor: pointer;" *ngFor="let sitioInteres of viviendaSitioInteres">
-          <td>{{sitioInteres.nombre}}</td>
-          <td>{{sitioInteres.descripcion}}</td>
+      <tr routerLink="/sitioInteres/{{viviendaDetail.id}}" style="cursor: pointer;"
+          *ngFor="let sitioInteres of viviendaSitioInteres">
+        <td>{{sitioInteres.nombre}}</td>
+        <td>{{sitioInteres.descripcion}}</td>
       </tr>
       </tbody>
     </table>
