@@ -19,10 +19,40 @@
                     <div class='col-8 col-md-8' *ngIf="estudiante.universidad"><h5>{{estudiante.universidad.nombre}}</h5></div>
                 </div>
                 <div class='row' *ngIf="puedeEditar">   
-                    <div class='col-4 col-md-4'><h4>Contrato:</h4></div>
-                    <div class='col-8 col-md-8'><h5>No tiene contrato</h5></div>
-                </div>
-            </div>
+                    <div class='col-4 col-md-4' *ngIf="!estudiante.contrato"><h4>Contrato:</h4></div>
+                    <div class='col-8 col-md-8' *ngIf="!estudiante.contrato"><h5>No tiene contrato</h5></div>
+                      <div class="col-12 col-md-12" *ngIf="estudiante.contrato">
+                        <div class="card" >
+                          <div class="card-header">
+                              <div class="row">
+                              <div class="col"><h4>Contrato para {{estudiante.contrato.cuarto.nombre}}</h4></div>
+                            <div class="col"><button class="btn btn-warning" 
+                                                     routerLink="../../contratos/edit/{{estudiante.contrato.id}}">Editar</button></div>
+                          </div>
+                          </div>
+                          <div class="card-body" >
+                            <table class="table table-hover" >
+                              <tbody>
+                              <tr routerLink="/arrendadores/{{estudiante.contrato.arrendador.id}}"><th>Arrendador</th>
+                                <th>{{estudiante.contrato.arrendador.nombre}}</th></tr>
+                              <tr routerLink="/viviendas/{{estudiante.contrato.vivienda.id}}"><th>Vivienda</th>
+                                <th>{{estudiante.contrato.vivienda.nombre}}</th></tr>
+                              <tr><th>Fecha Inicio</th>
+                                <th>{{estudiante.contrato.fechaInicio}}</th></tr>
+                              <tr><th>Fecha Fin</th>
+                                <th>{{estudiante.contrato.fechaFin}}</th></tr>
+                              <tr><th>Costo arrendamiento</th>
+                                <th>${{estudiante.contrato.cuarto.costoArriendo}}</th></tr>
+                              <tr><th>Metodo de pago</th>
+                                <th>{{estudiante.contrato.metodoPago}}</th></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                
             <div class='col-sm-12 col-md-6'>
                 <div *ngIf = "estudiante.calificaciones && estudiante.calificaciones.length > 0">   
                     <calificacion-estudiante-listcollapse [calificaciones]="estudiante.calificaciones" 
