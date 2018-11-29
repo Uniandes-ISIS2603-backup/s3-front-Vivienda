@@ -43,7 +43,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Costo</th>
               <th scope="col">Descripción</th>
-              <th scope="col">Arrendar</th>
+              <th scope="col" *ngxPermissionsOnly="['ESTUDIANTE']">Arrendar</th>
             </tr>
             </thead>
             <tbody>

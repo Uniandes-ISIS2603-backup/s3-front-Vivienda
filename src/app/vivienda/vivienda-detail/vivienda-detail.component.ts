@@ -36,6 +36,15 @@ export class ViviendaDetailComponent implements OnInit {
         this.puedeEditar = (localStorage.getItem('role') == 'ADMIN' || 
                     (localStorage.getItem('role') == 'ARRENDADOR' &&
                     Number(localStorage.getItem('id')) == this.viviendaDetail.arrendador.id));
+        viviendaDetail.cuartos.forEach( cuarto =>{
+             cuarto.ocupado = false;
+        });
+        viviendaDetail.contratos.forEach( contrato =>{
+            viviendaDetail.cuartos.forEach( cuarto =>{
+                if (contrato.cuarto.id == cuarto.id)
+                    cuarto.ocupado = true;
+            });
+        });
       });
   }
 
