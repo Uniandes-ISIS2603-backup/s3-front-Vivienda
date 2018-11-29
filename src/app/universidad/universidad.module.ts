@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {FormsModule} from '@angular/forms';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { UniversidadService } from './universidad.service';
 import { UniversidadCreateComponent } from './universidad-create/universidad-create.component';
 import { UniversidadEditComponent } from './universidad-edit/universidad-edit.component';
@@ -16,6 +17,7 @@ import { UniversidadDetailComponent } from './universidad-detail/universidad-det
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    NgxPermissionsModule,
     FormsModule
   ],
   declarations: [UniversidadListComponent, UniversidadCreateComponent, UniversidadEditComponent, UniversidadDetailComponent],

@@ -31,23 +31,7 @@ export class UniversidadListComponent implements OnInit {
     * La lista de universidades que pertenecen a las viviendas universitarias
     */
     universidades: Universidad[];
-    
-   /**
-    * Muestra o esconde el universidad-create-component
-    */
-    showCreate: boolean;
-    
-   /**
-    * Shows or hides the edition of an universidad
-    */
-    showEdit: boolean;
 
-    /**
-    * The id of the universidad that the user wants to edit
-    */
-    edit_universidad_id: number;
-    
-    
     /**
     * Asks the service to update the list of universidades
     */
@@ -60,31 +44,9 @@ export class UniversidadListComponent implements OnInit {
             });
     }
     
-/**
-    * Shows or hides the create component
-    */
-    showHideCreate(): void {
-        if (this.showEdit) {
-            this.showEdit = false;
-        }
-        this.showCreate = !this.showCreate!
-    }
 
-    /**
-    * Shows the edit component
-    */
-    showEditUniversidad(id): void {
-        if (this.showCreate) {
-            this.showCreate = false;
-        }
-        this.showEdit = true;
-        this.edit_universidad_id = id;
-    }
     
     ngOnInit() {
-        this.showCreate = false;
-        this.showEdit = false;
-        this.edit_universidad_id = undefined;
         this.getUniversidades();
         
     }

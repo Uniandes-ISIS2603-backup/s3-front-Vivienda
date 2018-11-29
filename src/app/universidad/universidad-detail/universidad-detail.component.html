@@ -14,7 +14,7 @@
                     <div *ngIf="showEdit" >
                         <br>
                         <div class="row justify-content-center align-self-center">
-                            <button class="btn btn-primary text-center" routerLink="/universidades/edit/{{universidadDetail.id}}">Editar Universidad</button>
+                            <button class="btn btn-primary text-center" *ngxPermissionsOnly="['ADMIN']" routerLink="/universidades/edit/{{universidadDetail.id}}">Editar Universidad</button>
                         </div>
                         <br>
                     </div>
