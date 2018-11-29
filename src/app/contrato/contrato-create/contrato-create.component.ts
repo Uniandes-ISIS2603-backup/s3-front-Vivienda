@@ -136,7 +136,6 @@ export class ContratoCreateComponent implements OnInit {
   ngOnInit() {
     this.contrato = new ContratoDetail();
     this.contrato.estudiante = new Estudiante();
-    this.contrato.vivienda = new Vivienda();
     this.contrato.cuarto = new Cuarto();
     this.contrato.arrendador = new Arrendador();
     this.viviendaId = +this.route.snapshot.paramMap.get('viviendaID');
