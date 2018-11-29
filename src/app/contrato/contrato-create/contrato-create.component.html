@@ -3,7 +3,8 @@
   <form name="contrato" id="contratoForm" (ngSubmit)="f.form.valid && crearContrato()" #f="ngForm" novalidate>
     <div class="form-group">
       <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 col-sm-12">
 
           <label for="contratoNombreVivienda">Nombre Vivienda</label>
           <input type="text" name="contratoNombreVivienda" class="form-control" id="contratoNombreVivienda"
@@ -39,18 +40,16 @@
                     #rolef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rolef.invalid }" required>
               <option [value]="metodoPago" *ngFor="let metodoPago of metodosPago">{{metodoPago}}</option>
             </select>
+
+            <button id="btn_registrar" type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
+            <button id="btn_cancelar" type="button" class="btn btn-danger" (click)="cancelCreation()"><strong>
+              Cancelar </strong></button>
           </div>
         </div>
-
+        <div class="col-lg-3"></div>
 
       </div>
     </div>
-    <div align="right">
-      <button id="btn_registrar" type="submit" class="btn btn-primary"><strong>Registrar</strong></button>
-      <button id="btn_cancelar" type="button" class="btn btn-danger" (click)="cancelCreation()"><strong>
-        Cancelar </strong></button>
-    </div>
-
   </form>
 
 </div>

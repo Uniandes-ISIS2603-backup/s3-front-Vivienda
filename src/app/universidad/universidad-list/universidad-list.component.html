@@ -1,8 +1,7 @@
 <div class="container">
     <div class="row">
 
-                <button class="btn btn-success" id="botonCrearUniversidad" routerLink="/universidades/create" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"
-                        (click)="showHideCreate()"> Registrar Nueva Universidad</button>
+                <button class="btn btn-success" *ngxPermissionsOnly="['ADMIN']" id="botonCrearUniversidad" routerLink="/universidades/create" > Registrar Nueva Universidad</button>
             <br>
     </div>
     
@@ -17,13 +16,6 @@
             </figure>
         </div>   
     </div> 
-    
-    <div class="col-8">
-            
-            <div *ngIf="showCreate">
-                <app-universidad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-universidad-create>
-            </div>  
-   </div>  
     
 </div>
 
