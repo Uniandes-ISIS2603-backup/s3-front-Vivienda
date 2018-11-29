@@ -35,7 +35,6 @@ import { SitioInteresUpdateComponent } from '../sitio-interes/sitio-interes-edit
 import {RegistrarseComponent} from '../shared/registrarse/registrarse.component';
 import {InicioComponent} from '../inicio/inicio.component';
 import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {ContratoEditComponent} from '../contrato/contrato-edit/contrato-edit.component';
 
 export function puedeEditarArrendador(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('role') == 'ARRENDADOR' && route.params['id'] == localStorage.getItem('id')) {
@@ -172,16 +171,6 @@ const routes: Routes = [
             permissions: {
                 only: ['ESTUDIANTE']
             }
-        }
-      },
-      {
-        path: 'contratos/edit/:id',
-        component: ContratoEditComponent,
-        canActivate: [NgxPermissionsGuard],
-        data:{
-          permissions:{
-            only: ['ESTUDIANTE', 'ADMIN', 'ARRENDADOR']
-          }
         }
       },
       {

@@ -8,7 +8,6 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {ContratoDetailComponent} from './contrato-detail/contrato-detail.component';
 import {ContratoCreateComponent} from './contrato-create/contrato-create.component';
-import { ContratoEditComponent } from './contrato-edit/contrato-edit.component';
 
 @NgModule({
   imports: [CommonModule, BrowserModule,
@@ -18,8 +17,7 @@ import { ContratoEditComponent } from './contrato-edit/contrato-edit.component';
     FormsModule],
   declarations: [ContratoListComponent,
     ContratoDetailComponent,
-    ContratoCreateComponent,
-    ContratoEditComponent],
+    ContratoCreateComponent],
   providers: [ContratoService],
   exports: [ContratoListComponent]
 })
