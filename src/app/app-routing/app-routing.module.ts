@@ -175,7 +175,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'contratos/edit/:id',
+        path: 'edit/:id',
         component: ContratoEditComponent,
         canActivate: [NgxPermissionsGuard],
         data:{

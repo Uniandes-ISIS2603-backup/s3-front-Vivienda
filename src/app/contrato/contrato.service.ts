@@ -72,6 +72,17 @@ export class ContratoService {
   }
 
   /**
+   * Guarda los cambios a un contrato
+   */
+  editarContrato(contrato: Contrato): Observable<any>{
+    return this.http.put<any>(API_URL + contracts + '/' + contrato.id, contrato);
+  }
+
+  eliminarContrato(idContrato: number): Observable<any> {
+    return this.http.delete<any>(API_URL + contracts + '/' + idContrato);
+  }
+
+  /**
    * Genera los datos para poder crear contratos
    */
   generarDatos(): Observable<any> {
