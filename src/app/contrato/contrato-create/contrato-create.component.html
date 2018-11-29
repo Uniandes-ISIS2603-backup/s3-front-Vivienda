@@ -1,10 +1,10 @@
 <div class="container" style="margin: auto" *ngIf="contrato.estudiante.nombre">
-  <h1>Crear Contrato</h1>
   <form name="contrato" id="contratoForm" (ngSubmit)="f.form.valid && crearContrato()" #f="ngForm" novalidate>
     <div class="form-group">
       <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 col-sm-12">
+          <h1>Crear Contrato</h1>
 
           <label for="contratoNombreVivienda">Nombre Vivienda</label>
           <input type="text" name="contratoNombreVivienda" class="form-control" id="contratoNombreVivienda"
