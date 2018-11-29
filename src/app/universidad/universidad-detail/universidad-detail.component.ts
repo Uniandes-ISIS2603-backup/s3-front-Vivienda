@@ -5,6 +5,7 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import {UniversidadService} from '../universidad.service';
 import {Universidad} from '../universidad';
 import {UniversidadDetail} from '../universidad-detail';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-universidad-detail',
@@ -21,6 +22,7 @@ export class UniversidadDetailComponent implements OnInit, OnDestroy {
   constructor(
         private universidadService: UniversidadService,
         private route: ActivatedRoute,
+        private toastrService: ToastrService,
         private router: Router
        
     ) { //This is added so we can refresh the view when one of the books in
@@ -76,6 +78,19 @@ export class UniversidadDetailComponent implements OnInit, OnDestroy {
             });
     }
 
+//Funcion que se llama cuando se intenta eliminar la universidad
+  deleteUniversidad() {
+    var confirmar = confirm('Esta seguro que desea eliminar la universidad?');
+    if (confirmar == true) {
+      this.universidadService.deleteUniversidad(this.universidad_id)
+        .subscribe(() => {
+          this.toastrService.success('Se elimino la universidad exitosamente');
+          this.router.navigate(['/universidades/list6']);
+        }, error1 => {
+          this.toastrService.error('Error: No se elimino la universidad');
+        });
+    }
+  }
     /**
      * Initializes the component
      */
