@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
 
-                <button class="btn btn-success" id="botonCrearUniversidad" routerLink="/universidades/create" > Registrar Nueva Universidad</button>
+                <button class="btn btn-success" *ngxPermissionsOnly="['ADMIN']" id="botonCrearUniversidad" routerLink="/universidades/create" > Registrar Nueva Universidad</button>
             <br>
     </div>
     
