@@ -38,17 +38,17 @@ export class ServicioAdicionalListComponent implements OnInit {
      * Id number of the housing
      */
     vivienda_id: number;
+    
+   /**
+   * String referencing the type of table to show
+   */
+  listaDe: String = 'vivienda';
   
     /**
     * Recupera los servicios en una lista
     */
     getServiciosAdicionales(): void {
-        this.servicioAdicionalService.getServiciosAdicionales(this.vivienda_id)
-            .subscribe(serviciosAdicionales => {
-                this.serviciosAdicionales = serviciosAdicionales;
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
+        this.servicioAdicionalService.getServiciosAdicionales(this.vivienda_id).subscribe(pp => this.serviciosAdicionales = pp);
     }
     
     /**
