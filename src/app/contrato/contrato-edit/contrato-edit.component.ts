@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ContratoService} from '../contrato.service';
 import {ViviendaService} from '../../vivienda/vivienda.service';
 import {CuartoService} from '../../cuarto/cuarto.service';
+import {Estudiante} from '../../estudiante/estudiante';
 import {EstudianteService} from '../../estudiante/estudiante.service';
 import {ArrendadorService} from '../../arrendador/arrendador.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -44,8 +45,12 @@ export class ContratoEditComponent implements OnInit {
   getContrato(idContrato: number) {
     this.contratoService.getContratoDetail(idContrato).subscribe(contrato=>{
       this.contrato = contrato;
+        this.viviendaService.getViviendaDetail(contrato.vivienda.id).subscribe(viv=>{
+              this.contrato.vivienda = viv;
+            });
     })
   }
+  
 
   guardarCambios() {
     this.contratoService.editarContrato(this.contrato).subscribe(() => {
@@ -72,9 +77,20 @@ export class ContratoEditComponent implements OnInit {
       this.toastrService.error('No se elimino el contrato');
     });
   }
+  
+  calcularCosto():string{
+      let costo: number = this.contrato.cuarto.costoArriendo;
+      if (this.contrato.serviciosAdicionales)
+            this.contrato.serviciosAdicionales.forEach(servicio=>{
+                costo  += servicio.costo;
+            });
+      return "$"+costo;
+  }
 
 
   ngOnInit() {
+    this.contrato = new ContratoDetail();
+    this.contrato.estudiante  = new Estudiante();
     this.idContrato = +this.route.snapshot.paramMap.get('id');
     this.getContrato(this.idContrato);
     this.metodosPago = ['Tarjeta de credito', 'Efectivo'];

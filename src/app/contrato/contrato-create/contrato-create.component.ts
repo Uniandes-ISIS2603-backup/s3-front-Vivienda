@@ -65,7 +65,7 @@ export class ContratoCreateComponent implements OnInit {
      */
     crearContrato() {
         if (this.verificarFecha()){
-            this.contrato.metodoPago = this.metodosPago.indexOf(this.metodoPago) + 1; 
+            this.contrato.metodoPago = this.metodosPago.indexOf(this.metodoPago) + 1;
             this.contratoService.createContrato(this.contrato).subscribe(() => {
               this.toastrService.success('Se creo el contrato');
               this.router.navigate(['viviendas/' + this.viviendaId]);
@@ -111,6 +111,15 @@ export class ContratoCreateComponent implements OnInit {
       });
     });
   }
+  
+  calcularCosto():string{
+      let costo: number = this.contrato.cuarto.costoArriendo;
+      if (this.contrato.serviciosAdicionales)
+            this.contrato.serviciosAdicionales.forEach(servicio=>{
+                costo  += servicio.costo;
+            });
+      return "$"+costo;
+  }
 
   getEstudiante() {
     this.estudianteService.getEstudiante(this.estudianteId).subscribe(estudiante => {
@@ -137,5 +146,7 @@ export class ContratoCreateComponent implements OnInit {
     this.getEstudiante();
     this.metodosPago = ['Tarjeta de credito', 'Efectivo'];
   }
+  
+  
 
 }

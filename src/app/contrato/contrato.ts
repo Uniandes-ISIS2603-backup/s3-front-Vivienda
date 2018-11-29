@@ -1,4 +1,4 @@
-import {Vivienda} from '../vivienda/vivienda';
+import {ViviendaDetail} from '../vivienda/vivienda-detail';
 import {Estudiante} from '../estudiante/estudiante';
 import {Cuarto} from '../cuarto/cuarto';
 import {Arrendador} from '../arrendador/arrendador';
@@ -28,7 +28,7 @@ export class Contrato {
   /**
    * Vivienda asociada
    */
-  vivienda: Vivienda;
+  vivienda: ViviendaDetail;
 
   /**
    * Estudiante asociado al contrato

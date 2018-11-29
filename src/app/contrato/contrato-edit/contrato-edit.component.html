@@ -2,8 +2,8 @@
   <form name="contrato" id="contratoForm"  #f="ngForm" novalidate>
     <div class="form-group">
       <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 col-sm-12">
 
           <div class="d-flex justify-content-center" style="margin: 5vh auto">
             <h1>Editar Contrato</h1>
@@ -20,7 +20,7 @@
 
           <label for="contratoCosto">Costo Arrendamiento</label>
           <input type="text" name="contratoCosto" class="form-control" id="contratoCosto"
-                 [(ngModel)]="contrato.cuarto.costoArriendo">
+                 [value]="calcularCosto()">
 
           <label for="nombreEstudiante">Nombre Estudiante</label>
           <input type="text" name="nombreEstudiante" class="form-control" id="nombreEstudiante"
@@ -44,6 +44,13 @@
                     #rolef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rolef.invalid }" required>
               <option [value]="metodoPago" *ngFor="let metodoPago of metodosPago">{{metodoPago}}</option>
             </select>
+          </div>
+          <div class="form-group" *ngIf="contrato.vivienda.serviciosAdicionales && contrato.vivienda.serviciosAdicionales.length > 0">
+            <label for="serviciosAdicionalesC">Servicios Adicionales</label>
+            <select multiple class="form-control" name="serviciosAdicionalesC" id="serviciosAdicionalesC" [(ngModel)]="contrato.serviciosAdicionales">
+              <option [value]="servicio" *ngFor="let servicio of contrato.vivienda.serviciosAdicionales">{{servicio.nombre}} - {{servicio.descripcion}} - ${{servicio.costo}}</option>
+            </select>
+          </div>
 
             <div class="d-flex justify-content-center" style="margin-top: 20px">
               <button id="btn_registrar" type="submit" class="btn btn-primary" (click)="guardarCambios()"><strong>Guardar Cambios</strong></button>
@@ -51,8 +58,7 @@
                 Cancelar </strong></button>
             </div>
           </div>
-        </div>
-        <div class="col-lg-3"></div>
+        <div class="col-lg-2"></div>
 
       </div>
     </div>
