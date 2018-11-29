@@ -51,9 +51,9 @@
               <td>{{cuarto.nombre}}</td>
               <td>${{cuarto.costoArriendo}}</td>
               <td>{{cuarto.descripcion}}</td>
-              <td>
+              <td *ngxPermissionsOnly="['ESTUDIANTE']">
                 <button *ngIf="cuarto.ocupado" class="btn btn-secondary" disabled>Ocupado</button>
-                <button *ngIf="!cuarto.ocupado" class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar
+                <button *ngIf="!cuarto.ocupado"  class="btn btn-primary" (click)="arrendarCuarto(cuarto.id)">Arrendar
                 </button>
               </td>
             </tr>
